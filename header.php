@@ -103,7 +103,7 @@
             </li>
           </ul>
         </nav>
-        <div class="header__contact md-none">
+        <div class="header__contact">
           <div class="header__tel-block">
             <div class="header__tel-row">
               <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/common/header-icon-tel.png')); ?>" class="header__tel-icon" alt="">
@@ -143,7 +143,7 @@
             </li>
           </ul>
           <a href="tel:03-6679-4489" class="drawer-menu__tel">
-            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/common/sp-tel-icon.png')); ?>" alt="">
+            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/common/tel-icon.png')); ?>" alt="">
             03-6679-4489
           </a>
           <a href="#simulation" class="drawer-menu__btn drawer-menu__btn--simulation">料金シミュレーション</a>
