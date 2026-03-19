@@ -11,20 +11,22 @@ $breakpoints: null;
     "sm": "screen and (min-width: 400px)",
     "md": "screen and (min-width: 768px)",
     "lg": "screen and (min-width: 1000px)",
-    "xl": "screen and (min-width: 1200px)",
+    "xl": "screen and (min-width: 1240px)",
+    "xxl": "screen and (min-width: 1440px)",
   );
 } @else {
   // ブレイクポイントの設定
   $breakpoints: (
-    "sm": "screen and (max-width: 399px)",
+    "sm": "screen and (max-width: 500px)",
     "md": "screen and (max-width: 767px)",
-    "lg": "screen and (max-width: 999px)",
-    "xl": "screen and (max-width: 1199px)",
+    "lg": "screen and (max-width: 1000px)",
+    "xl": "screen and (max-width: 1240px)",
+    "xxl": "screen and (max-width: 1440px)",
   );
 }
 
 // inner
-$inner: 1200px;
+$inner: 1250px;
 
 // デザインカンプの基準幅（1920pxカンプの場合）
 $design-width: 1920px;
@@ -34,7 +36,8 @@ $padding-pc: 25px; // PC用余白設定
 $padding-sp: 20px; // スマホ用余白設定
 
 // フォント
-$font-family-base: 'Noto Sans JP', sans-serif; // ベースフォント設定
+$font-family-primary: 'Noto Sans JP', sans-serif; // プライマリーフォント（指定がなければこれを使用）
+$font-family-base: $font-family-primary;
 
 $regular: 400;
 $medium: 500;
@@ -46,13 +49,8 @@ $extra-bold: 800;
 $base-font-size: 16px;
 
 // Color
-$color-black: #212529;
+$color-black: #000;
 $color-white: #fff; // 白色
 $color-red: #dc3545; // デフォルトの赤色（必要に応じて変更）
 $text-black: #212529;
-$text-blown: #52291A;
-$main-green: #07913A;
-$bg-beige: #FCF9F3;
-$bg-light-green: #DBEBE1;
-$bg-green: #07913A; // メイングリーンと同じ色（必要に応じて変更）
-$title-orange: #FF6B35; // タイトル用オレンジ色（必要に応じて変更）
+$primary-yellow: #FAEE00;

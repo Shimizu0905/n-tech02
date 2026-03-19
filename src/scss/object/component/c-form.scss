@@ -1,0 +1,470 @@
+@use '../../foundation' as *;
+
+// お問い合わせフォームコンポーネント
+.c-form {
+  width: 100%;
+}
+
+.c-form__row {
+  display: flex;
+  align-items: start;
+  gap: prem(20);
+  width: 100%;
+  margin-top: prem(40);
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  @include mq("lg") {
+    flex-direction: column;
+    gap: prem(10);
+    margin-top: prem(20);
+  }
+}
+
+.c-form__row--center {
+  justify-content: center;
+  align-items: center;
+
+  @include mq("lg") {
+    align-items: flex-start;
+  }
+
+  .c-form__field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: prem(10);
+
+    @include mq("lg") {
+      justify-content: flex-start;
+    }
+  }
+}
+
+.c-form__label {
+  display: flex;
+  flex: 0 0 prem(300);
+  justify-content: space-between;
+  align-items: center;
+
+  @include mq("lg") {
+    flex: none;
+    justify-content: flex-start;
+    gap: prem(10);
+    width: 100%;
+  }
+}
+
+.c-form__label-text {
+  font-size: prem(16);
+  font-weight: $medium;
+  color: $text-black;
+
+  @include mq("md") {
+    font-size: prem(15);
+  }
+}
+
+.c-form__badge {
+  display: inline-block;
+  padding: prem(2) prem(8);
+  border-radius: prem(6);
+  font-size: prem(12);
+  font-weight: $bold;
+  color: $color-white;
+  background-color: #BA0D0D;
+
+  @include mq("md") {
+    padding: prem(1) prem(6);
+    font-size: prem(11);
+  }
+}
+
+.c-form__field {
+  width: 77%;
+  max-width: prem(804);
+
+  @include mq("lg") {
+    width: 100%;
+  }
+}
+
+.c-form__group + .c-form__group {
+  margin-top: prem(20);
+
+  @include mq("md") {
+    margin-top: prem(16);
+  }
+}
+
+// Contact Form 7の要素にスタイルを適用
+.c-form__input,
+.c-form__textarea,
+.c-form input[type="date"] {
+  width: 100%;
+  padding: prem(12) prem(16);
+  border: 1px solid rgb(33 37 41 / 80%);
+  font-family: $font-family-base;
+  font-size: prem(16);
+  color: $text-black;
+  background-color: #f5f5f5;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+
+  @include mq("md") {
+    padding: prem(10) prem(14);
+    font-size: prem(15);
+  }
+
+  &:focus {
+    background-color: $color-white;
+    outline: none;
+  }
+
+  &::placeholder {
+    color: #999;
+  }
+}
+
+.c-form__sub-label {
+  display: block;
+  margin-bottom: prem(8);
+}
+
+.c-form input[type="file"].c-form__input {
+  width: auto;
+  padding: 0;
+  border: 0;
+  font-family: inherit;
+  font-size: inherit;
+  background: transparent;
+  transition: none;
+
+  &:focus {
+    outline: auto;
+  }
+}
+
+.c-form__textarea {
+  height: prem(112);
+  min-height: prem(112);
+  resize: vertical;
+
+  @include mq("md") {
+    height: prem(96);
+    min-height: prem(96);
+  }
+}
+
+.c-form input[name*="zip"],
+.c-form input[name*="postal"],
+.c-form input[name="your_zip"],
+.c-form input[name="zip_code"],
+.c-form input[name="postal_code"] {
+  width: 100%;
+  max-width: prem(220);
+}
+
+.c-form input[name="birthday"] {
+  width: 100%;
+  max-width: prem(220);
+}
+
+// ラジオボタン
+.c-form__radio {
+  display: flex;
+  flex-direction: row;
+  gap: prem(20);
+
+  @include mq("md") {
+    flex-direction: column;
+    gap: prem(8);
+  }
+}
+
+.c-form__radio label {
+  display: flex;
+  align-items: center;
+  gap: prem(8);
+  font-size: prem(16);
+  color: $text-black;
+  cursor: pointer;
+
+  @include mq("md") {
+    font-size: prem(15);
+  }
+}
+
+.c-form__radio input[type="radio"] {
+  width: prem(20);
+  height: prem(20);
+  margin: 0;
+  cursor: pointer;
+  accent-color: $text-black;
+
+  @include mq("md") {
+    width: prem(18);
+    height: prem(18);
+  }
+}
+
+// チェックボックス（プライバシーポリシー）
+.c-form__acceptance {
+  display: flex;
+  align-items: center;
+  gap: prem(8);
+  font-size: prem(16);
+  color: $text-black;
+  cursor: pointer;
+
+  @include mq("md") {
+    font-size: prem(15);
+  }
+}
+
+.c-form__acceptance input[type="checkbox"],
+.c-form__acceptance-checkbox {
+  width: prem(20);
+  height: prem(20);
+  margin: 0;
+  cursor: pointer;
+
+  @include mq("md") {
+    width: prem(18);
+    height: prem(18);
+  }
+}
+
+.c-form__acceptance-text {
+  display: inline-block;
+  margin-left: prem(8);
+}
+
+// Contact Form 7が生成するlabel要素
+.c-form__acceptance label {
+  display: flex;
+  align-items: center;
+  gap: prem(8);
+  margin: 0;
+  font-size: prem(16);
+  color: $text-black;
+  cursor: pointer;
+
+  @include mq("md") {
+    font-size: prem(15);
+  }
+}
+
+.c-form__privacy-box {
+  padding: prem(24);
+  border: 1px solid rgb(33 37 41 / 20%);
+  background-color: $color-white;
+
+  @include mq("md") {
+    padding: prem(20);
+  }
+}
+
+.c-form__privacy-box .c-form__help {
+  line-height: 1.8;
+}
+
+.c-form__privacy-box .c-form__acceptance {
+  margin-top: prem(16);
+}
+
+.c-form__acceptance .wpcf7-list-item {
+  margin: 0;
+}
+
+// プライバシーポリシーリンク
+.c-privacy-modal__link,
+.c-form__privacy-link {
+  padding: 0;
+  border: 0;
+  font: inherit;
+  text-decoration: underline;
+  background: transparent;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+// 送信ボタン
+.c-form__actions {
+  margin-top: prem(40);
+  text-align: center;
+
+  @include mq("md") {
+    margin-top: prem(30);
+  }
+}
+
+.c-form__submit {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: prem(10);
+  width: prem(200);
+  padding: prem(18) prem(24);
+  border: none;
+  border-radius: prem(40);
+  font-size: prem(18);
+  font-weight: $bold;
+  color: $color-white;
+  background-color: #E45A00;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+
+  @include mq("md") {
+    width: prem(200);
+    padding: prem(14) prem(24);
+    font-size: prem(16);
+  }
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &:active {
+    transform: translateY(2);
+  }
+}
+
+// Contact Form 7のエラーメッセージ
+.wpcf7-not-valid-tip {
+  display: block;
+  margin-top: prem(5);
+  font-size: prem(14);
+  color: $color-red;
+
+  @include mq("md") {
+    font-size: prem(13);
+  }
+}
+
+// Contact Form 7のバリデーションエラー
+.wpcf7-not-valid {
+  border-color: $color-red !important;
+  background-color: #ffe6e6 !important;
+}
+
+// Contact Form 7の送信成功メッセージ
+.wpcf7-mail-sent-ok {
+  margin-top: prem(20);
+  padding: prem(15) prem(20);
+  border-radius: prem(8);
+  font-size: prem(16);
+  text-align: center;
+  background-color: #e8f5e9;
+
+  @include mq("md") {
+    padding: prem(12) prem(16);
+    font-size: prem(15);
+  }
+}
+
+// Contact Form 7の送信エラーメッセージ
+.wpcf7-mail-sent-ng,
+.wpcf7-aborted,
+.wpcf7-spam {
+  margin-top: prem(20);
+  padding: prem(15) prem(20);
+  border: 2px solid $color-red;
+  border-radius: prem(8);
+  font-size: prem(16);
+  text-align: center;
+  color: $color-red;
+  background-color: #ffe6e6;
+
+  @include mq("md") {
+    padding: prem(12) prem(16);
+    font-size: prem(15);
+  }
+}
+
+// Contact Form 7のローディング状態
+.wpcf7-spinner {
+  display: inline-block;
+  width: prem(20);
+  height: prem(20);
+  margin-left: prem(10);
+  border: 2px solid $color-white;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  border-top-color: transparent;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// 職歴追加UI
+.c-form__history {
+  display: flex;
+  flex-direction: column;
+  gap: prem(20);
+}
+
+.c-form__history-item[hidden] {
+  display: none;
+}
+
+.c-form__history-item--primary {
+  display: flex;
+  flex-direction: column;
+  gap: prem(24);
+
+  @include mq("md") {
+    gap: prem(18);
+  }
+}
+
+.c-form__history-action {
+  margin-top: prem(4);
+}
+
+.c-form__history-add,
+.c-form__qualification-add {
+  padding: 0;
+  border: 0;
+  font-size: prem(16);
+  font-weight: $medium;
+  background: transparent;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+
+  @include mq("md") {
+    font-size: prem(15);
+  }
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.c-form__history-add[hidden],
+.c-form__qualification-add[hidden] {
+  display: none;
+}
+
+// 保有資格追加UI
+.c-form__qualification {
+  display: flex;
+  flex-direction: column;
+  gap: prem(20);
+}
+
+.c-form__qualification-item[hidden] {
+  display: none;
+}
+
+.c-form__qualification-action {
+  margin-top: prem(4);
+}

@@ -1,30 +1,31 @@
-import imagemin from 'imagemin';
-import imageminMozjpeg from 'imagemin-mozjpeg';
-import imageminPngquant from 'imagemin-pngquant';
-import imageminSvgo from 'imagemin-svgo';
 import { fileURLToPath } from 'url';
 import { dirname, resolve } from 'path';
+import { rm, mkdir } from 'fs/promises';
+import { optimizeAllImages } from './lib/image-optimizer.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const projectRoot = resolve(__dirname, '..');
+const srcDir = resolve(projectRoot, 'src/images');
+const destDir = resolve(projectRoot, 'assets/images');
 
 (async () => {
   try {
-    const files = await imagemin([`${projectRoot}/src/images/**/*`], {
-      destination: `${projectRoot}/assets/images`,
-      plugins: [
-        imageminMozjpeg({ quality: 80 }),
-        imageminPngquant({ quality: [0.65, 0.8] }),
-        imageminSvgo({ plugins: [{ removeViewBox: false }] }),
-      ],
-    });
+    await rm(destDir, { recursive: true, force: true });
+    await mkdir(destDir, { recursive: true });
 
-    console.log(`✅ 画像最適化完了: ${files.length}ファイルを処理しました`);
+    console.log('画像最適化を開始...');
+    const results = await optimizeAllImages(srcDir, destDir);
+
+    const totalOriginal = results.reduce((sum, r) => sum + r.originalSize, 0);
+    const totalSaved = results.reduce((sum, r) => sum + r.savedBytes, 0);
+    const pct = totalOriginal > 0
+      ? ((totalSaved / totalOriginal) * 100).toFixed(1)
+      : '0.0';
+
+    console.log(`画像最適化完了: ${results.length}ファイル処理 (合計${pct}%削減)`);
   } catch (error) {
-    console.error('❌ 画像最適化エラー:', error);
+    console.error('画像最適化エラー:', error);
     process.exit(1);
   }
 })();
-
-
