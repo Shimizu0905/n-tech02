@@ -12,20 +12,25 @@
   background-color: #fff;
 
   @include mq("md") {
-    height: prem(80);
+    height: prem(72);
   }
 
   @include mq("sm") {
-    height: prem(60);
+    height: prem(52);
   }
 }
 
 .header__inner {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   height: inherit;
   margin: 0 auto;
   padding: 0 prem(21) 0 0;
+
+  @include mq("md") {
+    padding: 0 prem(16) 0 0;
+  }
 }
 
 .header__logo {
@@ -38,13 +43,17 @@
   flex-shrink: 0;
 
   @include mq("md") {
-    width: prem(150);
-    height: prem(80);
+    justify-content: flex-start;
+    width: prem(164);
+    height: prem(72);
+    background-color: $color-black;
+    padding-inline: prem(18);
   }
 
   @include mq("sm") {
-    width: prem(120);
-    height: prem(60);
+    width: auto;
+    height: prem(52);
+    padding-inline: prem(10);
   }
 }
 
@@ -57,11 +66,12 @@
   padding: prem(42) prem(48);
 
   @include mq("md") {
-    padding: prem(15) prem(20);
+    justify-content: flex-start;
+    padding: 0;
   }
 
   @include mq("sm") {
-    padding: prem(10) prem(15);
+    padding: 0;
   }
 }
 
@@ -73,11 +83,14 @@
   object-fit: contain;
 
   @include mq("md") {
-    max-height: prem(50);
+    width: prem(120);
+    max-width: none;
+    max-height: none;
   }
 
   @include mq("sm") {
-    max-height: prem(40);
+    width: auto;
+    height: prem(32);
   }
 }
 
@@ -228,21 +241,34 @@
 
   @include mq("md") {
     display: flex;
+    width: prem(72);
+    height: prem(72);
+    background-color: transparent;
   }
 
   span {
     position: absolute;
     left: 50%;
     display: block;
-    width: prem(24);
-    height: prem(2);
-    border-radius: 2px;
+    width: 46px;
+    height: 2px;
     background-color: #fff;
     transition: all 0.3s ease;
     transform: translateX(-50%);
 
+    @include mq("md") {
+      width: 46px;
+      height: 2px;
+      border-radius: prem(999);
+      background-color: $color-black;
+    }
+
     &:nth-child(1) {
       top: prem(16);
+
+      @include mq("md") {
+        top: prem(24);
+      }
     }
 
     &:nth-child(2) {
@@ -252,6 +278,10 @@
 
     &:nth-child(3) {
       bottom: prem(16);
+
+      @include mq("md") {
+        bottom: prem(24);
+      }
     }
   }
 

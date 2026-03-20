@@ -1,8 +1,10 @@
 @charset "UTF-8";
+
 /*
  * 参考
  * https://github.com/Andy-set-studio/modern-css-reset/blob/master/src/reset.css
 */
+
 /* Box sizing rules */
 *,
 *::before,
@@ -48,7 +50,7 @@ body {
 
 /* A elements that don't have a class get default styles */
 a:not([class]) {
-  -webkit-text-decoration-skip: ink;
+  text-decoration-skip: ink;
           text-decoration-skip-ink: auto;
 }
 
@@ -72,6 +74,7 @@ select {
   html:focus-within {
     scroll-behavior: auto;
   }
+
   *,
   *::before,
   *::after {
@@ -81,28 +84,33 @@ select {
     scroll-behavior: auto !important;
   }
 }
+
 /*****************************************
  * 数値から単位を取り除く
  * 参考
  * https://css-tricks.com/snippets/sass/
 ******************************************/
+
 /*****************************************
  * px→remの計算
  * 参考
  * https://webdou.net/sass-rem/
  * Sassではmath.div関数の使用が推奨のため、スラッシュ(/)演算子から変更
 ******************************************/
+
 /*****************************************
  * vwの計算
  * 参考
  * https://webdou.net/sass-vw/
  * Sassではmath.div関数の使用が推奨のため、スラッシュ(/)演算子から変更
 ******************************************/
+
 /*****************************************
  * 1920pxカンプを基準にしたレスポンシブ値の計算
  * 1920pxのカンプ値をそのまま入れると、画面幅に応じてスケーリング
  * 例: prem-vw(100) → 1920px画面で100px、960px画面で50px
 ******************************************/
+
 /*****************************************
  * 1920pxカンプを基準にしたclamp値の計算
  * 最小値、最大値を指定してスムーズにスケーリング
@@ -124,16 +132,19 @@ select {
 html {
   font-size: 16px;
 }
-@media (max-width: 1200px) {
+
+@media (width <= 1200px) {
   html {
     font-size: 1.3333333333vw;
   }
 }
-@media screen and (max-width: 767px) {
+
+@media screen and (width <= 767px) {
   html {
     font-size: 16px;
   }
 }
+
 @media (width <= 375px) {
   html {
     font-size: 4.2666666667vw;
@@ -155,7 +166,8 @@ a {
 a:hover {
   opacity: 0.8;
 }
-@media screen and (max-width: 767px) {
+
+@media screen and (width <= 767px) {
   a:hover {
     opacity: 1;
   }
@@ -168,7 +180,7 @@ a:hover {
   z-index: 1000;
   width: 100%;
   height: 60px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
   background-color: #fff;
 }
 
@@ -189,7 +201,8 @@ a:hover {
   margin: 0 auto;
   padding: 0 20px;
 }
-@media screen and (max-width: 767px) {
+
+@media screen and (width <= 767px) {
   .l-container {
     padding: 0 25px;
   }
@@ -275,7 +288,7 @@ a:hover {
   display: none;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (width <= 767px) {
   .u-hidden-sp {
     display: none;
   }
@@ -290,7 +303,8 @@ a:hover {
 .md-show {
   display: none;
 }
-@media screen and (max-width: 767px) {
+
+@media screen and (width <= 767px) {
   .md-show {
     display: block;
   }
@@ -299,7 +313,8 @@ a:hover {
 .md-none {
   display: block;
 }
-@media screen and (max-width: 767px) {
+
+@media screen and (width <= 767px) {
   .md-none {
     display: none;
   }
@@ -327,16 +342,19 @@ a:hover {
   color: #fff;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
+
 .p-hero__title {
   margin-bottom: 20px;
   font-size: 2rem;
   font-weight: 700;
 }
-@media screen and (max-width: 767px) {
+
+@media screen and (width <= 767px) {
   .p-hero__title {
     font-size: 3rem;
   }
 }
+
 .p-hero__description {
   margin-bottom: 30px;
   font-size: 1rem;
@@ -347,19 +365,22 @@ a:hover {
   display: grid;
   gap: 20px;
 }
-@media screen and (max-width: 767px) {
+
+@media screen and (width <= 767px) {
   .p-article-list {
     gap: 30px;
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
 .p-article-list__item {
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
   background: #fff;
   overflow: hidden;
   transition: transform 0.3s;
 }
+
 .p-article-list__item:hover {
   transform: translateY(-4px);
 }
@@ -378,6 +399,7 @@ a:hover {
     padding: 64px 0;
   }
 }
+
 .p-faq__accent {
   position: absolute;
   z-index: 0;
@@ -412,19 +434,23 @@ a:hover {
   .p-faq__accent {
     max-width: 120px;
   }
+
   .p-faq__accent-01 {
     top: 15%;
     transform: translateX(40%);
   }
+
   .p-faq__accent-02 {
     top: 35%;
     transform: translateX(-40%);
   }
+
   .p-faq__accent-03 {
     bottom: 15%;
     transform: translateX(40%);
   }
 }
+
 .p-faq__title {
   position: relative;
   z-index: 1;
@@ -435,6 +461,7 @@ a:hover {
     font-size: var(--text-32);
   }
 }
+
 .p-faq__content {
   position: relative;
   z-index: 1;
@@ -446,11 +473,13 @@ a:hover {
     max-width: 900px;
   }
 }
+
 @media (width <= 768px) {
   .p-faq__content {
     margin-top: 64px;
   }
 }
+
 .p-faq__content-item {
   margin-bottom: 40px;
 }
@@ -493,7 +522,7 @@ a:hover {
   max-width: 100%;
   height: 1.2em;
   margin-top: 5px;
-  -o-object-fit: contain;
+  object-fit: contain;
      object-fit: contain;
 }
 
@@ -588,33 +617,42 @@ a:hover {
     gap: 8px;
     padding: 12px 16px 12px 12px;
   }
+
   .p-faq__content-item-label {
     width: auto;
     height: auto;
   }
+
   .p-faq__content-item-title-text {
     font-size: var(--text-18);
   }
+
   .p-faq__content-item-label img {
     height: 1.5em;
   }
+
   .p-faq__content-item-title-icon {
     width: 28px;
     height: 28px;
   }
+
   .p-faq__content-item-title-icon-line {
     width: 14px;
   }
+
   .p-faq__content-item-answer {
     padding: 0 16px;
   }
+
   .p-faq__content-item--open .p-faq__content-item-answer {
     padding: 16px 16px 16px 12px;
   }
+
   .p-faq__content-item-answer-text {
     font-size: var(--text-16);
   }
 }
+
 /* ヘッダー全体の共通スタイル */
 .header {
   position: fixed;
@@ -632,7 +670,8 @@ a:hover {
   height: inherit;
   padding: 0 3.625rem;
 }
-@media screen and (max-width: 767px) {
+
+@media screen and (width <= 767px) {
   .header__inner {
     padding: 0 1.25rem;
   }
@@ -667,7 +706,8 @@ a:hover {
   margin: 0 0 0 10%;
   padding: 0;
 }
-@media screen and (max-width: 999px) {
+
+@media screen and (width <= 999px) {
   .header__logo-img.is-scroll {
     padding: 0 1.5625rem 0 0;
   }
@@ -681,7 +721,8 @@ a:hover {
   width: 100%;
   height: 100%;
 }
-@media screen and (max-width: 767px) {
+
+@media screen and (width <= 767px) {
   .header__nav {
     display: none;
   }
@@ -713,6 +754,7 @@ a:hover {
   overflow: hidden;
   transition: color 0.3s ease;
 }
+
 .header__nav-item a:hover::after {
   left: 0;
   width: 100%;
@@ -768,6 +810,7 @@ a:hover {
   background-color: #07913A;
   cursor: pointer;
 }
+
 @media (width >= 768px) {
   .hamburger {
     display: none;
@@ -835,65 +878,81 @@ a:hover {
     opacity: 1;
     transform: rotate(0);
   }
+
   50% {
     transform: rotate(0);
   }
+
   100% {
     transform: rotate(-45deg);
   }
 }
+
 @keyframes ham_btn_span01_reverse {
   0% {
     transform: rotate(-45deg);
   }
+
   50% {
     transform: translateY(0.875rem) rotate(0);
   }
+
   100% {
     transform: rotate(0);
   }
 }
+
 /* 真ん中の線のアニメーション */
 @keyframes ham_btn_span02_active {
   0% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
   }
 }
+
 @keyframes ham_btn_span02_reverse {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
 }
+
 /* 下の線のアニメーション */
 @keyframes ham_btn_span03_active {
   0% {
     opacity: 1;
     transform: rotate(0);
   }
+
   50% {
     transform: rotate(0);
   }
+
   100% {
     transform: rotate(45deg);
   }
 }
+
 @keyframes ham_btn_span03_reverse {
   0% {
     transform: rotate(45deg);
   }
+
   50% {
     transform: translateY(-0.875rem) rotate(0);
   }
+
   100% {
     transform: rotate(0);
   }
 }
+
 /* オーバーレイのスタイル */
 .js-overlay {
   position: fixed;
@@ -962,7 +1021,8 @@ a:hover {
   margin: 0 auto;
   padding: 6.25rem 1.875rem;
 }
-@media screen and (max-width: 399px) {
+
+@media screen and (width <= 399px) {
   .drawer-menu__inner {
     max-width: 18.75rem;
   }
@@ -979,6 +1039,7 @@ a:hover {
 .drawer-logo img {
   width: 40%;
   min-width: 12.5rem;
+
   /* ロゴのサイズを調整 */
   max-width: 18.75rem;
   height: 5rem;
@@ -992,7 +1053,8 @@ a:hover {
   letter-spacing: 0.05em;
   color: #212529;
 }
-@media screen and (max-width: 399px) {
+
+@media screen and (width <= 399px) {
   .drawer__nav-item {
     padding: 1.875rem 0 0.9375rem 2rem;
   }
@@ -1050,6 +1112,7 @@ a:hover {
   background-color: #46B036;
   transition: background-color 0.3s;
 }
+
 .drawer-item__button:hover {
   background-color: #76c7a1;
 }
@@ -1069,17 +1132,20 @@ a:hover {
   font-size: 1.5rem;
   color: green;
 }
-@media screen and (max-width: 1199px) {
+
+@media screen and (width <= 1199px) {
   .c-title {
     color: blue;
   }
 }
-@media screen and (max-width: 999px) {
+
+@media screen and (width <= 999px) {
   .c-title {
     color: red;
   }
 }
-@media screen and (max-width: 767px) {
+
+@media screen and (width <= 767px) {
   .c-title {
     color: black;
   }
@@ -1098,10 +1164,12 @@ a:hover {
   cursor: pointer;
   transition: all 0.3s;
 }
+
 .c-btn:hover {
-  background-color: rgb(189.2151898734, 32.7848101266, 47.7721518987);
+  background-color: rgb(189.2151898734 32.7848101266 47.7721518987);
   transform: translateY(-1px);
 }
+
 .c-btn:active {
   transform: translateY(0);
 }
@@ -1109,15 +1177,17 @@ a:hover {
 .c-btn--primary {
   background-color: #dc3545;
 }
+
 .c-btn--primary:hover {
-  background-color: rgb(189.2151898734, 32.7848101266, 47.7721518987);
+  background-color: rgb(189.2151898734 32.7848101266 47.7721518987);
 }
 
 .c-btn--secondary {
   background-color: #6c757d;
 }
+
 .c-btn--secondary:hover {
-  background-color: rgb(84.3605150215, 91.3905579399, 97.6394849785);
+  background-color: rgb(84.3605150215 91.3905579399 97.6394849785);
 }
 
 .c-btn--large {

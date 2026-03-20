@@ -7,7 +7,10 @@ get_header();
 <main>
 <section class="p-fv">
   <div class="p-fv__bg">
-    <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/fv/fv.png')); ?>" alt="解体現場での作業風景。補助金活用で解体費用の負担を軽減するN-techのサービス" class="p-fv__img" width="1920" height="1080" decoding="async">
+    <picture>
+      <source srcset="<?php echo esc_url(get_theme_file_uri('./assets/images/fv/fv-sp.png')); ?>" media="(max-width: 425px)">
+      <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/fv/fv.png')); ?>" alt="解体現場での作業風景。補助金活用で解体費用の負担を軽減するN-techのサービス" class="p-fv__img">
+    </picture>
   </div>
   <div class="p-fv__inner">
     <div class="p-fv__content">
