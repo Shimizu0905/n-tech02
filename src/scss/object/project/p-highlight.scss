@@ -1,0 +1,90 @@
+@use "../../foundation/variables" as *;
+@use "../../foundation/functions" as *;
+@use "../../foundation/mixin" as *;
+
+// ========================================
+// ハイライトセクション（CTA置き換え）
+// ========================================
+.p-highlight {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: prem(-15);
+  padding: prem(32) prem(40) prem(26);
+  border-bottom: prem(4) solid $primary-yellow;
+  color: $color-white;
+  background-color: $color-black;
+
+  @include mq("md") {
+    padding: prem(24) prem(20) prem(20);
+    border-bottom-width: prem(3);
+  }
+}
+
+.p-highlight__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: prem(8);
+  width: 100%;
+  max-width: prem(1200);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.p-highlight__title {
+  margin: 0;
+  font-family: $font-family-primary;
+  font-size: prem(32);
+  font-weight: $bold;
+  line-height: 1.4;
+  text-align: center;
+
+  @include mq("md") {
+    font-size: prem(24);
+  }
+}
+
+.p-highlight__text {
+  margin: 0;
+  font-family: $font-family-primary;
+  font-size: prem(20);
+  font-weight: $regular;
+  line-height: 1.7;
+  text-align: center;
+
+  @include mq("md") {
+    font-size: prem(16);
+  }
+}
+
+.p-highlight__highlight {
+  margin: prem(24) 0 0;
+  font-family: $font-family-primary;
+  font-weight: $bold;
+  text-align: center;
+  color: $primary-yellow;
+
+  @include mq("md") {
+    margin-top: prem(16);
+  }
+}
+
+.p-highlight__highlight-large {
+  font-size: prem(32);
+
+  @include mq("md") {
+    font-size: prem(24);
+  }
+}
+
+.p-highlight__highlight-small {
+  font-size: prem(20);
+
+  @include mq("md") {
+    font-size: prem(16);
+  }
+}

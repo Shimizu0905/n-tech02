@@ -5,8 +5,6 @@
   <meta charset="<?php bloginfo('charset'); ?>">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="format-detection" content="telephone=no">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
   <!-- ページタイトル -->
   <title><?php wp_title('|', true, 'right');
           bloginfo('name'); ?></title>
@@ -43,18 +41,16 @@
   <meta property="og:site_name" content="<?php bloginfo('name'); ?>">
   <meta name="twitter:card" content="summary">
 
-  <!-- Google Analytics (gtag.js) -->
+  <!-- Google Analytics (gtag.js) — TODO: G-XXXXXXXXXX を実際のIDに差し替え -->
+  <!--
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-XXXXXXXXXX');
   </script>
-  <!-- / SEO SIMPLE PACK -->
+  -->
 
   <!-- 外部ライブラリ -->
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -143,7 +139,7 @@
             </li>
           </ul>
           <a href="tel:03-6679-4489" class="drawer-menu__tel">
-            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/common/tel-icon.png')); ?>" alt="">
+            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/common/header-icon-tel.png')); ?>" alt="">
             03-6679-4489
           </a>
           <a href="#simulation" class="drawer-menu__btn drawer-menu__btn--simulation">料金シミュレーション</a>

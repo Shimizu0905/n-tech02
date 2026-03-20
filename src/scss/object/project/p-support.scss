@@ -1,0 +1,112 @@
+@use "../../foundation/variables" as *;
+@use "../../foundation/functions" as *;
+@use "../../foundation/mixin" as *;
+
+// ========================================
+// Supportセクション
+// ========================================
+.p-support {
+  position: relative;
+  padding: prem(120) prem(40);
+  background: url("../images/support/bg.jpg") center / cover no-repeat;
+
+  @include mq("md") {
+    padding: prem(60) prem(20);
+  }
+}
+
+.p-support::before {
+  position: absolute;
+  background: rgb(255 255 255 / 80%);
+  inset: 0;
+  content: "";
+}
+
+.p-support__inner {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: prem(40);
+
+  @include mq("md") {
+    flex-direction: column;
+  }
+}
+
+.p-support__content {
+  max-width: prem(480);
+}
+
+.p-support__text {
+  font-size: prem(18);
+  font-weight: $bold;
+  line-height: 2;
+  color: $color-black;
+}
+
+// ======================
+// グラフ
+// ======================
+.p-support__graph {
+  display: flex;
+  align-items: flex-end;
+  gap: prem(40);
+}
+
+.p-support__bar {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: prem(120);
+}
+
+.p-support__bar--gray {
+  height: prem(300);
+  background-color: #999;
+}
+
+.p-support__bar--gray .p-support__label {
+  font-size: prem(14);
+  color: #000;
+}
+
+.p-support__bar--yellow {
+  height: prem(200);
+  background-color: $primary-yellow;
+}
+
+.p-support__label {
+  writing-mode: vertical-rl;
+}
+
+// ======================
+// 吹き出し
+// ======================
+.p-support__bubble {
+  position: absolute;
+  top: prem(-80);
+  right: 0;
+  padding: prem(12) prem(16);
+  border: 2px dashed $primary-yellow;
+  font-size: prem(16);
+  font-weight: $bold;
+  text-align: center;
+  color: $primary-yellow;
+}
+
+.p-support__bubble span {
+  font-size: prem(24);
+  font-weight: $extra-bold;
+}
+
+.p-support__bubble::after {
+  position: absolute;
+  bottom: prem(-10);
+  left: 50%;
+  border: prem(10) solid transparent;
+  transform: translateX(-50%);
+  border-top-color: $primary-yellow;
+  content: "";
+}

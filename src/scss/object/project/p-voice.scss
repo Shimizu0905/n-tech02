@@ -1,0 +1,235 @@
+@use "../../foundation/variables" as *;
+@use "../../foundation/functions" as *;
+@use "../../foundation/mixin" as *;
+
+// お客様の声セクション
+.p-voice {
+  padding: 75px 0 0;
+  background-color: #90ee90;
+}
+
+.p-voice__inner {
+  max-width: 430px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.p-voice__title {
+  max-width: 294px;
+  margin: 0 auto 40px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.6;
+  text-align: center;
+  color: #fff;
+
+  @media (width <= 375px) {
+    max-width: prem(294);
+    margin: 0 auto prem(40);
+    font-size: prem(20);
+  }
+}
+
+// スライダー本体
+.p-voice__slider {
+  position: relative;
+  width: 100%;
+  margin-top: 36px;
+  overflow: hidden;
+
+  @media (width <= 375px) {
+    margin-top: prem(36);
+  }
+}
+
+// トラック（横並びコンテナ）
+.p-voice__track {
+  display: flex;
+  transition: transform 0.3s ease;
+  will-change: transform;
+}
+
+// スライド（各カードのラッパー）
+.p-voice__slide {
+  flex: 0 0 100%;
+  box-sizing: border-box;
+  padding: 0 26px;
+
+  @media (width <= 375px) {
+    padding: 0 prem(26);
+  }
+}
+
+// カード
+.p-voice__card {
+  min-height: 400px;
+  padding: 32px;
+  border-radius: 12px;
+  text-align: center;
+  background-color: #fff;
+
+  @media (width <= 375px) {
+    min-height: prem(400);
+    padding: prem(32);
+    border-radius: prem(12);
+  }
+}
+
+.p-voice__card-top {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+
+  @media (width <= 375px) {
+    gap: prem(40);
+  }
+}
+
+// アイコン
+.p-voice__icon {
+  width: 80px;
+  min-width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+
+  @media (width <= 375px) {
+    width: prem(80);
+    height: prem(80);
+    margin-bottom: prem(20);
+  }
+}
+
+.p-voice__icon-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+// カードタイトル
+.p-voice__card-title {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.6;
+  text-align: left;
+  color: $text-black;
+
+  @media (width <= 375px) {
+    margin-bottom: prem(16);
+    font-size: prem(18);
+  }
+}
+
+// カード本文
+.p-voice__card-text-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.p-voice__card-text {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.8;
+  text-align: left;
+  color: #008000;
+}
+
+.p-voice__card-text-large {
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: left;
+  color: $text-black;
+}
+
+// 前へ/次へボタン
+.p-voice__btn {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: rgb(255 255 255 / 90%);
+  cursor: pointer;
+  transition: opacity 0.3s ease, background-color 0.3s ease;
+  transform: translateY(-50%);
+
+  &:hover {
+    background-color: #fff;
+    opacity: 0.8;
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+}
+
+.p-voice__btn--prev {
+  left: 15px;
+
+  @media (width <= 375px) {
+    left: prem(15);
+  }
+
+  .p-voice__btn-icon {
+    transform: scaleX(-1);
+  }
+}
+
+.p-voice__btn--next {
+  right: 15px;
+
+  @media (width <= 375px) {
+    right: prem(15);
+  }
+}
+
+.p-voice__btn-icon {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+
+  @media (width <= 375px) {
+    width: prem(30);
+    height: prem(30);
+  }
+}
+
+// ドットナビゲーション
+.p-voice__dots {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 36px;
+
+  @media (width <= 375px) {
+    gap: prem(12);
+    margin-top: prem(36);
+  }
+}
+
+.p-voice__dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border: 0.64px solid #fff;
+  border-radius: 50%;
+  background-color: rgb(255 255 255 / 50%);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+
+  @media (width <= 375px) {
+    width: prem(10);
+    height: prem(10);
+  }
+
+  &.is-active {
+    background-color: #fff;
+  }
+}

@@ -1,0 +1,190 @@
+@use "../../foundation/variables" as *;
+@use "../../foundation/functions" as *;
+@use "../../foundation/mixin" as *;
+
+.p-result__inner {
+  width: 100%;
+}
+
+// ルートヘッダー（緑バナー）
+.p-result__header {
+  margin-top: 0;
+  padding: 20px 16px;
+  border-top: none;
+  border-radius: 0;
+  text-align: center;
+  background-color: #008000;
+  transition: background-color 0.3s ease, border-radius 0.3s ease;
+
+  @media (width <= 375px) {
+    padding: prem(20) prem(16);
+  }
+}
+
+.p-result__title {
+  margin: 0 0 8px;
+  font-size: 21px;
+  font-weight: 500;
+  text-align: center;
+  letter-spacing: 0.1em;
+  color: #fff;
+
+  @media (width <= 375px) {
+    margin-bottom: prem(8);
+    font-size: prem(21);
+  }
+}
+
+.p-result__subtitle {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  color: #fff;
+
+  @media (width <= 375px) {
+    font-size: prem(14);
+  }
+}
+
+// サービスロゴ
+.p-result__service {
+  padding: 30px 20px;
+  text-align: center;
+  background-color: #fff;
+
+  @media (width <= 375px) {
+    padding: prem(30) prem(20);
+  }
+}
+
+.p-result__service-logo {
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+
+  @media (width <= 375px) {
+    max-width: prem(200);
+  }
+}
+
+// ルート説明
+.p-result__description {
+  padding: 0 20px 20px;
+  text-align: center;
+  background-color: #fff;
+
+  @media (width <= 375px) {
+    padding: 0 prem(20) prem(20);
+  }
+}
+
+.p-result__text {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.7;
+  color: #008000;
+
+  @media (width <= 375px) {
+    font-size: prem(18);
+  }
+}
+
+// その他のコンテンツ
+.p-result__body {
+  margin-top: 40px;
+  background-color: #fff;
+
+  @media (width <= 375px) {
+    margin-top: prem(40);
+  }
+}
+
+// トレーナー写真
+.p-result__trainers {
+  width: 100%;
+  background-color: #f5f5f5;
+}
+
+.p-result__trainers-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+// 特典情報
+.p-result__special {
+  position: relative;
+  margin-top: 40px;
+
+  @media (width <= 375px) {
+    margin-top: prem(40);
+  }
+}
+
+.p-result__special-badge {
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  z-index: 1;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  background-color: #008000;
+
+  @media (width <= 375px) {
+    top: prem(-10);
+    left: prem(20);
+    padding: prem(8) prem(16);
+    border-radius: prem(20);
+    font-size: prem(14);
+  }
+}
+
+.p-result__special-content {
+  padding: 30px 20px 20px;
+  border-radius: 20px;
+  background-color: #ff8c00;
+
+  @media (width <= 375px) {
+    padding: prem(30) prem(20) prem(20);
+    border-radius: prem(20);
+  }
+}
+
+.p-result__special-text {
+  margin: 0;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  color: #fff;
+
+  @media (width <= 375px) {
+    margin-top: prem(8);
+    font-size: prem(14);
+  }
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.p-result__special-price {
+  margin: 16px 0 0;
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  color: #fff;
+
+  @media (width <= 375px) {
+    margin-top: prem(16);
+    font-size: prem(32);
+  }
+}

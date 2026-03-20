@@ -1,29 +1,27 @@
 <footer id="footer" class="p-footer">
   <div class="p-footer__copyright">
-    <small>Copyright © 2025 Katsuragi Hospital All Rights Reserved.</small>
+    <small>Copyright © 2025 N-tech All Rights Reserved.</small>
   </div>
 </footer>
 
 <!-- 追従フッター（スマホ用） -->
 <div class="p-sticky-footer">
-  <a href="tel:072-422-9909" class="p-sticky-footer__btn p-sticky-footer__btn--tel">
+  <a href="#simulation" class="p-sticky-footer__btn p-sticky-footer__btn--simulation">
     <div class="p-sticky-footer__content">
-      <img src="<?php echo esc_url(get_theme_file_uri("./assets/images/common/icon-tel.png")); ?>" alt="" class="p-sticky-footer__icon">
-      <div class="p-sticky-footer__text">
-        <span class="p-sticky-footer__label">電話で応募</span>
-      </div>
+      <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/common/header-icon-simulation.png')); ?>" alt="" class="p-sticky-footer__icon">
+      <span class="p-sticky-footer__label">かんたん料金シミュレーション</span>
     </div>
   </a>
-  <a href="https://lin.ee/9Q6D6U9" class="p-sticky-footer__btn p-sticky-footer__btn--line" id="line-link" target="_blank" rel="noopener noreferrer">
+  <a href="tel:03-6679-4489" class="p-sticky-footer__btn p-sticky-footer__btn--tel">
     <div class="p-sticky-footer__content">
-      <img src="<?php echo esc_url(get_theme_file_uri("./assets/images/common/icon-line.png")); ?>" alt="" class="p-sticky-footer__icon">
-      <span class="p-sticky-footer__label">LINEで応募</span>
+      <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/common/sp-tel-icon.png')); ?>" alt="" class="p-sticky-footer__icon">
+      <span class="p-sticky-footer__label">お問い合わせ<br>（電話）</span>
     </div>
   </a>
   <a href="#contact" class="p-sticky-footer__btn p-sticky-footer__btn--form">
     <div class="p-sticky-footer__content">
-      <img src="<?php echo esc_url(get_theme_file_uri("./assets/images/common/icon-mail.png")); ?>" alt="" class="p-sticky-footer__icon">
-      <span class="p-sticky-footer__label">フォームで応募</span>
+      <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/common/sp-mail-icon.png')); ?>" alt="" class="p-sticky-footer__icon">
+      <span class="p-sticky-footer__label">お問い合わせ<br>（メール）</span>
     </div>
   </a>
 </div>

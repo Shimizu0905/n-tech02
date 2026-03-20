@@ -1,0 +1,106 @@
+@use "../../foundation" as *;
+
+.p-recruit {
+  margin-top: prem(88);
+}
+
+.p-recruit__inner {
+  position: relative;
+}
+
+.p-recruit__box {
+  display: flex;
+  margin-top: prem(60);
+  border: var(--border-black);
+  border-radius: prem(20);
+  overflow: hidden;
+
+  @include mq("md") {
+    flex-direction: column;
+    gap: prem(30);
+    margin-top: prem(27);
+  }
+}
+
+.p-recruit__box-left {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: prem(28);
+  padding: prem(40) prem(20) prem(40) prem(32);
+
+  @include mq("md") {
+    gap: prem(24);
+    padding: prem(24);
+  }
+}
+
+.p-recruit__box-left-content {
+  display: flex;
+  flex-direction: column;
+  gap: prem(12);
+
+  @include mq("md") {
+    gap: prem(12);
+  }
+}
+
+.p-recruit__content-title {
+  font-size: prem(24);
+  font-weight: $bold;
+  color: #212529;
+
+  @include mq("md") {
+    font-size: prem(20);
+  }
+}
+
+.p-recruit__content-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.p-recruit__content-item p {
+    margin: 0;
+    font-size: prem(17);
+    font-weight: $regular;
+    color: #212529;
+
+    @include mq("md") {
+      font-size: prem(14);
+      line-height: 1.7;
+    }
+}
+
+.p-recruit__box-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 56%;
+  max-width: prem(641);
+  border-radius: 0 prem(20) prem(20) 0;
+  background-color: #f5f5f5;
+
+  @include mq("md") {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: prem(24);
+    border-radius: 0;
+  }
+
+  img {
+    display: block;
+    width: clamp(prem(216), 24vw, prem(281));
+    height: auto;
+    aspect-ratio: 281 / 400;
+    object-fit: contain;
+
+    @include mq("md") {
+      width: clamp(prem(150), 40vw, prem(173));
+    }
+  }
+}
+
+

@@ -1,0 +1,111 @@
+@use "../../foundation" as *;
+
+.p-flow {
+  margin-top: prem(80);
+
+  @include mq("md") {
+    margin-top: prem(64);
+  }
+}
+
+.p-flow__inner {
+  position: relative;
+}
+
+.p-flow__container {
+  display: flex;
+  gap: prem(30);
+  margin-top: prem(60);
+
+  @include mq("md") {
+    flex-direction: column;
+    gap: prem(24);
+    margin-top: prem(40);
+  }
+}
+
+.p-flow__card {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  border: 1px solid #000;
+  border-radius: prem(20);
+}
+
+.p-flow__card-top {
+  position: relative;
+  padding: prem(24) prem(20);
+  border-radius: prem(20) prem(20) 0 0;
+  background-color: #f5f5f5;
+}
+
+.p-flow__card-number {
+  position: absolute;
+  top: prem(20);
+  left: prem(20);
+  z-index: 2;
+  width: clamp(prem(50), 4.1vw, prem(60));
+  height: auto;
+
+  @include mq("md") {
+    width: prem(50);
+    height: prem(50);
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.p-flow__card-img {
+  overflow: hidden;
+
+  @include mq("md") {
+    margin-top: prem(15);
+  }
+
+  img {
+    width: auto;
+    height: prem(181);
+    margin: 0 auto;
+  }
+}
+
+.p-flow__card-bottom {
+  padding: prem(20);
+
+  @include mq("md") {
+    padding: prem(16);
+  }
+}
+
+.p-flow__card-title {
+  display: flex;
+  flex-direction: column;
+  font-size: prem(20);
+  font-weight: $bold;
+  line-height: 1.6;
+  text-align: center;
+  color: #212529;
+
+  @include mq("md") {
+    font-size: prem(18);
+  }
+
+  span {
+    display: inline-block;
+    font-size: prem(15);
+
+    @include mq("md") {
+      font-size: prem(12);
+    }
+  }
+}
+
+.p-flow__button-wrap {
+  margin-top: prem(68);
+  text-align: center;
+}
+

@@ -1,0 +1,167 @@
+@use '../../foundation' as *;
+
+// 追従フッター（スマホ用）
+.p-sticky-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 9999;
+  display: none;
+  width: 100%;
+  height: 58px;
+  box-shadow: 0 -2px 10px rgb(0 0 0 / 10%);
+
+  @media (width <= 375px) {
+    height: prem(58);
+  }
+
+  @include mq("md") {
+    display: flex;
+  }
+}
+
+.p-sticky-footer__btn {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 0;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+
+}
+
+// シミュレーションボタン
+.p-sticky-footer__btn--simulation {
+  background-color: #111;
+}
+
+// 電話ボタン
+.p-sticky-footer__btn--tel {
+  background-color: #6F3B25;
+}
+
+// フォームボタン
+.p-sticky-footer__btn--form {
+  background: linear-gradient(to right, #E45A00, #FF9100);
+}
+
+.p-sticky-footer__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  height: 100%;
+  padding: 8px 4px;
+
+  @media (width <= 375px) {
+    gap: prem(8);
+  padding: prem(8) prem(4);
+  }
+
+  @include mq("md") {
+    gap: 6px;
+    padding: 6px 2px;
+
+    @media (width <= 375px) {
+    gap: prem(6);
+    padding: prem(6) prem(2);
+    }
+  }
+}
+
+.p-sticky-footer__btn--simulation .p-sticky-footer__content,
+.p-sticky-footer__btn--tel .p-sticky-footer__content,
+.p-sticky-footer__btn--form .p-sticky-footer__content {
+  flex-direction: column;
+  gap: 4px;
+
+  @media (width <= 375px) {
+  gap: prem(4);
+  }
+
+  @include mq("md") {
+    gap: 2px;
+
+    @media (width <= 375px) {
+    gap: prem(2);
+    }
+  }
+}
+
+.p-sticky-footer__icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+
+  @media (width <= 375px) {
+    width: prem(18);
+    height: prem(18);
+  }
+
+  @include mq("md") {
+    width: 16px;
+    height: 16px;
+
+    @media (width <= 375px) {
+    width: prem(16);
+    height: prem(16);
+    }
+  }
+}
+
+.p-sticky-footer__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2px;
+
+  @media (width <= 375px) {
+  gap: prem(2);
+  }
+}
+
+.p-sticky-footer__tel-number {
+  font-size: 16px;
+  font-weight: $bold;
+  line-height: 1.2;
+  color: #fff;
+
+  @media (width <= 375px) {
+    font-size: prem(16);
+  }
+
+  @include mq("md") {
+    font-size: 14px;
+
+    @media (width <= 375px) {
+    font-size: prem(14);
+    }
+  }
+}
+
+.p-sticky-footer__label {
+  font-size: 12px;
+  font-weight: $bold;
+  line-height: 1.25;
+  text-align: center;
+  color: #fff;
+
+  @media (width <= 375px) {
+    font-size: prem(12);
+  }
+
+  @include mq("md") {
+    font-size: 10px;
+
+    @media (width <= 375px) {
+      font-size: prem(10);
+    }
+  }
+}
