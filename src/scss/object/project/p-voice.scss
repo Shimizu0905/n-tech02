@@ -3,7 +3,7 @@
 @use "../../foundation/mixin" as *;
 
 // ========================================
-// お客様の声（Figma node 2066:93）
+// お客様の声（Figma node 2005:99）
 // ========================================
 .p-voice {
   padding: prem(80) $padding-pc;
@@ -25,7 +25,7 @@
   font-family: $font-family-primary;
   font-size: prem(32);
   font-weight: $bold;
-  line-height: 1.4;
+  line-height: 1.36;
   text-align: center;
   color: $color-black;
 
@@ -35,23 +35,104 @@
   }
 }
 
-.p-voice__card {
-  display: flex;
-  border-radius: prem(8);
-  background-color: $color-white;
-  overflow: hidden;
+// ----------------------------------------
+// スライダー
+// ----------------------------------------
+.p-voice__slider-wrap {
+  position: relative;
+  max-width: prem(900);
+  margin: 0 auto;
+  padding: 0 prem(60);
 
   @include mq("md") {
-    flex-direction: column;
+    padding: 0 prem(40);
   }
 }
 
-.p-voice__card-img {
-  width: prem(360);
-  flex-shrink: 0;
+.p-voice__swiper {
+  overflow: hidden;
+}
+
+// 矢印ボタン
+.p-voice__arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  width: prem(43);
+  height: prem(43);
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  cursor: pointer;
+  transition: filter 0.3s;
+  transform: translateY(-50%);
+
+  &:hover {
+    filter: invert(1);
+  }
 
   @include mq("md") {
-    width: 100%;
+    width: prem(32);
+    height: prem(32);
+  }
+
+  &--prev {
+    left: 0;
+    transform: translateY(-50%) rotate(180deg);
+  }
+
+  &--next {
+    right: 0;
+  }
+}
+
+.p-voice__arrow-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+// ページネーション
+.p-voice__pagination {
+  display: flex;
+  justify-content: center;
+  gap: prem(12);
+  margin-top: prem(24);
+
+  .swiper-pagination-bullet {
+    width: prem(12);
+    height: prem(12);
+    border-radius: 50%;
+    background-color: #bbb;
+    opacity: 1;
+    transition: background-color 0.3s;
+  }
+
+  .swiper-pagination-bullet-active {
+    background-color: $color-black;
+  }
+}
+
+// ----------------------------------------
+// カード
+// ----------------------------------------
+.p-voice__card {
+  display: flex;
+  flex-direction: column;
+  border-radius: prem(8);
+  background-color: $color-white;
+  overflow: hidden;
+}
+
+.p-voice__card-img {
+  width: 100%;
+  height: prem(450);
+  overflow: hidden;
+
+  @include mq("md") {
+    height: prem(220);
   }
 }
 
@@ -60,15 +141,10 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-
-  @include mq("md") {
-    height: prem(220);
-  }
 }
 
 .p-voice__card-body {
-  flex: 1;
-  padding: prem(40) prem(48);
+  padding: prem(31) prem(54);
 
   @include mq("md") {
     padding: prem(24) prem(20);
@@ -77,57 +153,61 @@
 
 .p-voice__card-header {
   display: flex;
-  align-items: flex-start;
-  gap: prem(16);
-  margin-bottom: prem(24);
+  flex-direction: column;
+  gap: prem(22);
+  margin-bottom: prem(17);
 
   @include mq("md") {
-    flex-direction: column;
-    gap: prem(8);
+    gap: prem(12);
     margin-bottom: prem(16);
   }
 }
 
 .p-voice__card-title {
-  flex: 1;
   margin: 0;
   font-family: $font-family-primary;
-  font-size: prem(20);
-  font-weight: $bold;
-  line-height: 1.5;
+  font-size: prem(24);
+  font-weight: $medium;
+  line-height: 1.36;
   color: $color-black;
 
   @include mq("md") {
-    font-size: prem(16);
+    font-size: prem(18);
   }
 }
 
 .p-voice__tag {
   display: inline-block;
-  padding: prem(4) prem(12);
+  width: fit-content;
+  padding: prem(3) prem(17);
   border: 1px solid $color-black;
-  border-radius: prem(4);
   font-family: $font-family-primary;
-  font-size: prem(13);
+  font-size: prem(16);
   font-weight: $medium;
-  line-height: 1;
+  line-height: 1.625;
   color: $color-black;
-  flex-shrink: 0;
+
+  @include mq("md") {
+    padding: prem(2) prem(12);
+    font-size: prem(13);
+  }
 }
 
 .p-voice__detail {
   display: flex;
   flex-direction: column;
-  gap: 0;
   margin: 0;
-  border-top: 1px solid #d9d9d9;
 }
 
 .p-voice__detail-row {
   display: flex;
-  gap: 0;
+  gap: prem(13);
   padding: prem(16) 0;
   border-bottom: 1px solid #d9d9d9;
+
+  &:first-child {
+    border-top: 1px solid #d9d9d9;
+  }
 
   @include mq("md") {
     flex-direction: column;
@@ -139,8 +219,8 @@
   width: prem(140);
   font-family: $font-family-primary;
   font-size: prem(16);
-  font-weight: $bold;
-  line-height: 1.6;
+  font-weight: $semi-bold;
+  line-height: 1.625;
   color: $color-black;
   flex-shrink: 0;
 
@@ -156,8 +236,8 @@
   font-family: $font-family-primary;
   font-size: prem(16);
   font-weight: $regular;
-  line-height: 1.6;
-  color: $text-black;
+  line-height: 1.625;
+  color: $color-black;
 
   @include mq("md") {
     font-size: prem(14);

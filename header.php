@@ -57,6 +57,10 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css?ver=1.11.3" type="text/css" media="all">
   <script type="text/javascript" src="//kit.fontawesome.com/e6a238fcba.js" id="fontawesome-kit-js"></script>
 
+  <!-- Swiper -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+
   <!-- WordPress REST API -->
   <link rel="https://api.w.org/" href="<?php echo home_url(); ?>/wp-json/">
   <link rel="alternate" type="application/json" href="<?php echo home_url(); ?>/wp-json/wp/v2/pages/<?php echo get_the_ID(); ?>">

@@ -3,6 +3,7 @@
 Template Name: トップページ
 */
 get_header();
+$page_id = get_the_ID();
 ?>
 <main>
   <section class="p-fv">
@@ -210,44 +211,312 @@ get_header();
     </div>
   </section>
     <!-- 事例紹介 -->
-    <section class="p-case">
-    <div class="p-case__inner">
-      <h2 class="p-case__title">事例紹介</h2>
-      <div class="p-case__card">
-        <div class="p-case__img-wrap">
-          <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/company/case-01.png')); ?>" alt="事例紹介" class="p-case__img" loading="lazy" decoding="async">
+    <?php
+    $works_query = new WP_Query([
+      'post_type'      => 'works',
+      'posts_per_page' => -1,
+      'orderby'        => 'menu_order',
+      'order'          => 'ASC',
+      'post_status'    => 'publish',
+    ]);
+    ?>
+    <?php if ($works_query->have_posts()) : ?>
+    <section class="p-works" id="works">
+      <div class="p-works__inner">
+        <h2 class="p-works__title">事例紹介</h2>
+        <div class="p-works__slider-wrap">
+          <div class="swiper p-works__swiper">
+            <div class="swiper-wrapper">
+              <?php while ($works_query->have_posts()) : $works_query->the_post(); ?>
+                <?php
+                  $post_id      = get_the_ID();
+                  $before_image = SCF::get('before_image', $post_id);
+                  $after_image  = SCF::get('after_image', $post_id);
+                  $area         = SCF::get('area', $post_id);
+                  $target_type  = SCF::get('target_type', $post_id);
+                  $structure    = SCF::get('structure', $post_id);
+                  $building_age = SCF::get('building_age', $post_id);
+                  $issue        = SCF::get('issue', $post_id);
+                  $proposal     = SCF::get('proposal', $post_id);
+                ?>
+                <div class="swiper-slide">
+                  <article class="p-works__item">
+                    <div class="p-works__images">
+                      <div class="p-works__image -before">
+                        <?php if ($before_image) : ?>
+                          <?php echo wp_get_attachment_image($before_image, 'large', false, ['class' => 'p-works__img', 'loading' => 'lazy', 'decoding' => 'async']); ?>
+                        <?php endif; ?>
+                        <span class="p-works__image-label">着工前</span>
+                      </div>
+                      <div class="p-works__image -after">
+                        <?php if ($after_image) : ?>
+                          <?php echo wp_get_attachment_image($after_image, 'large', false, ['class' => 'p-works__img', 'loading' => 'lazy', 'decoding' => 'async']); ?>
+                        <?php endif; ?>
+                        <span class="p-works__image-label">完工</span>
+                      </div>
+                    </div>
+                    <dl class="p-works__info">
+                      <?php if ($area) : ?>
+                      <div class="p-works__info-row">
+                        <dt class="p-works__info-label">エリア</dt>
+                        <dd class="p-works__info-value"><?php echo esc_html($area); ?></dd>
+                      </div>
+                      <?php endif; ?>
+                      <?php if ($target_type) : ?>
+                      <div class="p-works__info-row">
+                        <dt class="p-works__info-label">対象物</dt>
+                        <dd class="p-works__info-value"><?php echo esc_html($target_type); ?></dd>
+                      </div>
+                      <?php endif; ?>
+                      <?php if ($structure) : ?>
+                      <div class="p-works__info-row">
+                        <dt class="p-works__info-label">建造物</dt>
+                        <dd class="p-works__info-value"><?php echo esc_html($structure); ?></dd>
+                      </div>
+                      <?php endif; ?>
+                      <?php if ($building_age) : ?>
+                      <div class="p-works__info-row">
+                        <dt class="p-works__info-label">築年数</dt>
+                        <dd class="p-works__info-value"><?php echo esc_html($building_age); ?></dd>
+                      </div>
+                      <?php endif; ?>
+                      <?php if ($issue) : ?>
+                      <div class="p-works__info-row">
+                        <dt class="p-works__info-label">お困りごと</dt>
+                        <dd class="p-works__info-value"><?php echo nl2br(esc_html($issue)); ?></dd>
+                      </div>
+                      <?php endif; ?>
+                      <?php if ($proposal) : ?>
+                      <div class="p-works__info-row">
+                        <dt class="p-works__info-label">提案内容</dt>
+                        <dd class="p-works__info-value"><?php echo nl2br(esc_html($proposal)); ?></dd>
+                      </div>
+                      <?php endif; ?>
+                    </dl>
+                  </article>
+                </div>
+              <?php endwhile; ?>
+            </div>
+            <div class="swiper-pagination p-works__pagination"></div>
+          </div>
+          <button type="button" class="p-works__arrow p-works__arrow--prev" aria-label="前へ">
+            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/common/arrow-black.svg')); ?>" alt="" class="p-works__arrow-img" width="43" height="43" decoding="async">
+          </button>
+          <button type="button" class="p-works__arrow p-works__arrow--next" aria-label="次へ">
+            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/common/arrow-black.svg')); ?>" alt="" class="p-works__arrow-img" width="43" height="43" decoding="async">
+          </button>
         </div>
-        <div class="p-case__body">
-          <dl class="p-case__table">
-            <div class="p-case__row">
-              <dt class="p-case__label">エリア</dt>
-              <dd class="p-case__value">東京都葛飾区</dd>
-            </div>
-            <div class="p-case__row">
-              <dt class="p-case__label">対象物</dt>
-              <dd class="p-case__value">一軒家</dd>
-            </div>
-            <div class="p-case__row">
-              <dt class="p-case__label">建造物</dt>
-              <dd class="p-case__value">木造2棟</dd>
-            </div>
-            <div class="p-case__row">
-              <dt class="p-case__label">築年数</dt>
-              <dd class="p-case__value">○年</dd>
-            </div>
-            <div class="p-case__row">
-              <dt class="p-case__label">お困りごと</dt>
-              <dd class="p-case__value">建物の解体、近隣住民への配慮</dd>
-            </div>
-            <div class="p-case__row">
-              <dt class="p-case__label">提案内容</dt>
-              <dd class="p-case__value">概算で○○万円（税込）</dd>
-            </div>
-          </dl>
+      </div>
+    </section>
+    <?php endif; ?>
+    <?php wp_reset_postdata(); ?>
+
+  <!-- 会社概要 -->
+  <?php
+    $company_name     = SCF::get('company_name', $page_id);
+    $company_address  = SCF::get('company_address', $page_id);
+    $company_est      = SCF::get('company_established', $page_id);
+    $company_ceo      = SCF::get('company_ceo', $page_id);
+    $company_emp      = SCF::get('company_employees', $page_id);
+    $company_lic      = SCF::get('company_licenses', $page_id);
+    $company_area     = SCF::get('company_area', $page_id);
+    $company_biz      = SCF::get('company_business', $page_id);
+    $company_permit   = SCF::get('company_permit', $page_id);
+    $company_access   = SCF::get('company_access', $page_id);
+    $company_map      = SCF::get('company_map', $page_id);
+  ?>
+  <section class="p-company" id="company">
+    <div class="p-company__inner">
+      <h2 class="p-company__title">会社概要</h2>
+      <div class="p-company__content">
+        <dl class="p-company__table">
+          <div class="p-company__row">
+            <dt class="p-company__label">会　社　名</dt>
+            <dd class="p-company__value"><?php echo esc_html($company_name ?: '株式会社N-tech'); ?></dd>
+          </div>
+          <div class="p-company__row">
+            <dt class="p-company__label">所　在　地</dt>
+            <dd class="p-company__value"><?php echo esc_html($company_address ?: '東京都江戸川区西小岩4-5-1'); ?></dd>
+          </div>
+          <div class="p-company__row">
+            <dt class="p-company__label">設　　　立</dt>
+            <dd class="p-company__value"><?php echo esc_html($company_est ?: '2021年10月26日'); ?></dd>
+          </div>
+          <div class="p-company__row">
+            <dt class="p-company__label">代表取締役</dt>
+            <dd class="p-company__value"><?php echo esc_html($company_ceo ?: '上村 直矢'); ?></dd>
+          </div>
+          <div class="p-company__row">
+            <dt class="p-company__label">従 業 員 数</dt>
+            <dd class="p-company__value"><?php echo esc_html($company_emp ?: '7名'); ?></dd>
+          </div>
+          <div class="p-company__row">
+            <dt class="p-company__label">保 有 資 格</dt>
+            <dd class="p-company__value"><?php echo nl2br(esc_html($company_lic ?: '建築施工管理技士 1名／解体施工技士 2名／車両系建設機械 2名／ガス溶断技能講習 2名／足場組立て作業主任者 2名／建築物石綿含有建材調査士 1名／工作物石綿事前調査者 1名／石綿作業主任者 4名')); ?></dd>
+          </div>
+          <div class="p-company__row">
+            <dt class="p-company__label">対象エリア</dt>
+            <dd class="p-company__value"><?php echo esc_html($company_area ?: '東京23区、関東近郊'); ?></dd>
+          </div>
+          <div class="p-company__row">
+            <dt class="p-company__label">業 務 内 容</dt>
+            <dd class="p-company__value"><?php echo nl2br(esc_html($company_biz ?: '解体工事／アスベスト撤去工事／リフォーム工事／改修工事／テナント工事／仮設工事')); ?></dd>
+          </div>
+          <div class="p-company__row">
+            <dt class="p-company__label">許　認　可</dt>
+            <dd class="p-company__value"><?php echo nl2br(esc_html($company_permit ?: '一般建設業許可 東京都知事許可（般-7）第161249号' . "\n" . '解体工事業、建築工事業、大工工事業、左官工事業、とび・土木工事業、石工事業、屋根工事業、タイル・れんが・ブロック工事業、鋼構造物工事業、鉄筋工事業、板金工事業、ガラス工事業、塗装工事業、防水工事業、内装仕上工事業、熱絶縁工事業、建具工事業、全17種')); ?></dd>
+          </div>
+          <div class="p-company__row">
+            <dt class="p-company__label">ア ク セ ス</dt>
+            <dd class="p-company__value"><?php echo esc_html($company_access ?: '小岩駅北口より徒歩9分'); ?></dd>
+          </div>
+        </dl>
+        <div class="p-company__map">
+          <?php if ($company_map) : ?>
+            <?php echo wp_get_attachment_image($company_map, 'large', false, ['class' => 'p-company__map-img', 'alt' => 'アクセスマップ', 'loading' => 'lazy', 'decoding' => 'async']); ?>
+          <?php else : ?>
+            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/company/map.png')); ?>" alt="アクセスマップ" class="p-company__map-img" loading="lazy" decoding="async">
+          <?php endif; ?>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- 問合せ先CTA -->
+  <section class="p-contact-cta">
+    <div class="p-contact-cta__inner">
+      <div class="p-contact-cta__card">
+        <div class="p-contact-cta__header">
+          <p class="p-contact-cta__catch">些細なお困りごともお気軽にご相談ください。</p>
+        </div>
+        <div class="p-contact-cta__body">
+          <p class="p-contact-cta__hours">営業時間　8:00-17:00</p>
+          <a href="tel:03-6679-4489" class="p-contact-cta__tel">03-6679-4489</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- お客様の声 -->
+  <?php
+  $voice_query = new WP_Query([
+    'post_type'      => 'voice',
+    'posts_per_page' => -1,
+    'orderby'        => 'menu_order',
+    'order'          => 'ASC',
+    'post_status'    => 'publish',
+  ]);
+  ?>
+  <?php if ($voice_query->have_posts()) : ?>
+  <section class="p-voice" id="voice">
+    <div class="p-voice__inner">
+      <h2 class="p-voice__title">お客様の声</h2>
+      <div class="p-voice__slider-wrap">
+        <div class="swiper p-voice__swiper">
+          <div class="swiper-wrapper">
+            <?php while ($voice_query->have_posts()) : $voice_query->the_post(); ?>
+              <?php
+                $vid        = get_the_ID();
+                $voice_img      = SCF::get('voice_image', $vid);
+                $voice_attr     = SCF::get('voice_attr', $vid);
+                $voice_tag      = SCF::get('voice_tag', $vid);
+                $voice_worry    = SCF::get('voice_worry', $vid);
+                $voice_response = SCF::get('voice_response', $vid);
+                $voice_comment  = SCF::get('voice_comment', $vid);
+              ?>
+              <div class="swiper-slide">
+                <article class="p-voice__card">
+                  <div class="p-voice__card-img">
+                    <?php if ($voice_img) : ?>
+                      <?php echo wp_get_attachment_image($voice_img, 'large', false, ['class' => 'p-voice__card-photo', 'loading' => 'lazy', 'decoding' => 'async']); ?>
+                    <?php endif; ?>
+                  </div>
+                  <div class="p-voice__card-body">
+                    <div class="p-voice__card-header">
+                      <h3 class="p-voice__card-title">
+                        <?php the_title(); ?>
+                        <?php if ($voice_attr) : ?>
+                          <br><span class="p-voice__card-attr">（<?php echo esc_html($voice_attr); ?>）</span>
+                        <?php endif; ?>
+                      </h3>
+                      <?php if ($voice_tag) : ?>
+                        <span class="p-voice__tag"><?php echo esc_html($voice_tag); ?></span>
+                      <?php endif; ?>
+                    </div>
+                    <dl class="p-voice__detail">
+                      <?php if ($voice_worry) : ?>
+                      <div class="p-voice__detail-row">
+                        <dt class="p-voice__detail-label">お客様の悩み</dt>
+                        <dd class="p-voice__detail-text"><?php echo nl2br(esc_html($voice_worry)); ?></dd>
+                      </div>
+                      <?php endif; ?>
+                      <?php if ($voice_response) : ?>
+                      <div class="p-voice__detail-row">
+                        <dt class="p-voice__detail-label">N-techの対応</dt>
+                        <dd class="p-voice__detail-text"><?php echo nl2br(esc_html($voice_response)); ?></dd>
+                      </div>
+                      <?php endif; ?>
+                      <?php if ($voice_comment) : ?>
+                      <div class="p-voice__detail-row">
+                        <dt class="p-voice__detail-label">感想</dt>
+                        <dd class="p-voice__detail-text"><?php echo nl2br(esc_html($voice_comment)); ?></dd>
+                      </div>
+                      <?php endif; ?>
+                    </dl>
+                  </div>
+                </article>
+              </div>
+            <?php endwhile; ?>
+          </div>
+          <div class="swiper-pagination p-voice__pagination"></div>
+        </div>
+        <button type="button" class="p-voice__arrow p-voice__arrow--prev" aria-label="前へ">
+          <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/common/arrow-black.svg')); ?>" alt="" class="p-voice__arrow-img" width="43" height="43" decoding="async">
+        </button>
+        <button type="button" class="p-voice__arrow p-voice__arrow--next" aria-label="次へ">
+          <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/common/arrow-black.svg')); ?>" alt="" class="p-voice__arrow-img" width="43" height="43" decoding="async">
+        </button>
+      </div>
+    </div>
+  </section>
+  <?php endif; ?>
+  <?php wp_reset_postdata(); ?>
+
+  <!-- よくある質問 -->
+  <?php
+  $faq_query = new WP_Query([
+    'post_type'      => 'faq',
+    'posts_per_page' => -1,
+    'orderby'        => 'menu_order',
+    'order'          => 'ASC',
+    'post_status'    => 'publish',
+  ]);
+  ?>
+  <?php if ($faq_query->have_posts()) : ?>
+  <section class="p-faq" id="faq">
+    <div class="p-faq__inner">
+      <h2 class="p-faq__title">よくある質問</h2>
+      <div class="p-faq__list">
+        <?php while ($faq_query->have_posts()) : $faq_query->the_post(); ?>
+          <?php $faq_answer = SCF::get('faq_answer', get_the_ID()); ?>
+          <div class="p-faq__item">
+            <div class="p-faq__question">
+              <span class="p-faq__q-mark">Q</span>
+              <p class="p-faq__q-text"><?php the_title(); ?></p>
+            </div>
+            <?php if ($faq_answer) : ?>
+              <div class="p-faq__answer">
+                <span class="p-faq__a-mark">A</span>
+                <p class="p-faq__a-text"><?php echo nl2br(esc_html($faq_answer)); ?></p>
+              </div>
+            <?php endif; ?>
+          </div>
+        <?php endwhile; ?>
+      </div>
+    </div>
+  </section>
+  <?php endif; ?>
+  <?php wp_reset_postdata(); ?>
 
   <!-- 完工までの安心の6ステップ -->
   <section class="p-flow">
@@ -320,138 +589,6 @@ get_header();
             <span class="p-flow__step-label">STEP 06</span>
             <h3 class="p-flow__item-title">近隣対策・着工</h3>
             <p class="p-flow__item-text">近隣住民様へのご挨拶やクレーム対応まで、すべて弊社の日本人スタッフが責任を持って行います。狭小地や特殊な条件でも、最適な養生と施工計画で、隣接する建物を守りながら安全に完工いたします。</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-
-  <!-- お客様の声 -->
-  <section class="p-voice">
-    <div class="p-voice__inner">
-      <h2 class="p-voice__title">お客様の声</h2>
-      <div class="p-voice__card">
-        <div class="p-voice__card-img">
-          <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/voice/voice-01.png')); ?>" alt="" class="p-voice__card-photo" loading="lazy" decoding="async">
-        </div>
-        <div class="p-voice__card-body">
-          <div class="p-voice__card-header">
-            <h3 class="p-voice__card-title">補助金を活用して、建て替え費用を賢く抑えられた<br>（個人・50代）</h3>
-            <span class="p-voice__tag">解体作業</span>
-          </div>
-          <dl class="p-voice__detail">
-            <div class="p-voice__detail-row">
-              <dt class="p-voice__detail-label">お客様の悩み</dt>
-              <dd class="p-voice__detail-text">親から相続した空き家の解体。見積もりを取ると450万円と言われ、費用の捻出に頭を抱えていました。</dd>
-            </div>
-            <div class="p-voice__detail-row">
-              <dt class="p-voice__detail-label">N-techの対応</dt>
-              <dd class="p-voice__detail-text">現地調査の際、すぐに適用可能な補助金を特定しました。</dd>
-            </div>
-            <div class="p-voice__detail-row">
-              <dt class="p-voice__detail-label">感想</dt>
-              <dd class="p-voice__detail-text">「手続きが難しそうで諦めていましたが、N-techさんにお願いして本当に良かったです。レスポンスも速く、安心してお任せできました」</dd>
-            </div>
-          </dl>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 会社概要 -->
-  <section class="p-company" id="company">
-    <div class="p-company__inner">
-      <h2 class="p-company__title">会社概要</h2>
-      <div class="p-company__content">
-        <dl class="p-company__table">
-          <div class="p-company__row">
-            <dt class="p-company__label">会　社　名</dt>
-            <dd class="p-company__value">株式会社N-tech</dd>
-          </div>
-          <div class="p-company__row">
-            <dt class="p-company__label">所　在　地</dt>
-            <dd class="p-company__value">東京都江戸川区西小岩4-5-1</dd>
-          </div>
-          <div class="p-company__row">
-            <dt class="p-company__label">設　　　立</dt>
-            <dd class="p-company__value">2021年10月26日</dd>
-          </div>
-          <div class="p-company__row">
-            <dt class="p-company__label">代表取締役</dt>
-            <dd class="p-company__value">上村 直矢</dd>
-          </div>
-          <div class="p-company__row">
-            <dt class="p-company__label">従 業 員 数</dt>
-            <dd class="p-company__value">7名</dd>
-          </div>
-          <div class="p-company__row">
-            <dt class="p-company__label">保 有 資 格</dt>
-            <dd class="p-company__value">建築施工管理技士 1名／解体施工技士 2名／車両系建設機械 2名／ガス溶断技能講習 2名／足場組立て作業主任者 2名／建築物石綿含有建材調査士 1名／工作物石綿事前調査者 1名／石綿作業主任者 4名</dd>
-          </div>
-          <div class="p-company__row">
-            <dt class="p-company__label">対象エリア</dt>
-            <dd class="p-company__value">東京23区、関東近郊</dd>
-          </div>
-          <div class="p-company__row">
-            <dt class="p-company__label">業 務 内 容</dt>
-            <dd class="p-company__value">解体工事／アスベスト撤去工事／リフォーム工事／改修工事／テナント工事／仮設工事</dd>
-          </div>
-          <div class="p-company__row">
-            <dt class="p-company__label">許　認　可</dt>
-            <dd class="p-company__value">一般建設業許可 東京都知事許可（般-7）第161249号<br>解体工事業、建築工事業、大工工事業、左官工事業、とび・土木工事業、石工事業、屋根工事業、タイル・れんが・ブロック工事業、鋼構造物工事業、鉄筋工事業、板金工事業、ガラス工事業、塗装工事業、防水工事業、内装仕上工事業、熱絶縁工事業、建具工事業、全17種</dd>
-          </div>
-          <div class="p-company__row">
-            <dt class="p-company__label">ア ク セ ス</dt>
-            <dd class="p-company__value">小岩駅北口より徒歩9分</dd>
-          </div>
-        </dl>
-        <div class="p-company__map">
-          <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/company/map.png')); ?>" alt="アクセスマップ" class="p-company__map-img" loading="lazy" decoding="async">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 問合せ先 -->
-  <section class="p-contact-cta">
-    <div class="p-contact-cta__inner">
-      <div class="p-contact-cta__card">
-        <div class="p-contact-cta__header">
-          <p class="p-contact-cta__catch">些細なお困りごともお気軽にご相談ください。</p>
-        </div>
-        <div class="p-contact-cta__body">
-          <a href="tel:0366794489" class="p-contact-cta__tel">03-6679-4489</a>
-          <p class="p-contact-cta__hours">営業時間　8:00-17:00</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- よくある質問 -->
-  <section class="p-faq">
-    <div class="p-faq__inner">
-      <h2 class="p-faq__title">よくある質問</h2>
-      <div class="p-faq__list">
-        <div class="p-faq__item">
-          <div class="p-faq__question">
-            <span class="p-faq__q-mark">Q</span>
-            <p class="p-faq__q-text">アスベストの調査だけ頼めますか？</p>
-          </div>
-          <div class="p-faq__answer">
-            <span class="p-faq__a-mark">A</span>
-            <p class="p-faq__a-text">はい。調査から報告まで一貫して対応可能です。</p>
-          </div>
-        </div>
-        <div class="p-faq__item">
-          <div class="p-faq__question">
-            <span class="p-faq__q-mark">Q</span>
-            <p class="p-faq__q-text">見積もり後に断っても大丈夫？</p>
-          </div>
-          <div class="p-faq__answer">
-            <span class="p-faq__a-mark">A</span>
-            <p class="p-faq__a-text">もちろんです。強引な営業は一切いたしません。</p>
           </div>
         </div>
       </div>
@@ -578,4 +715,5 @@ get_header();
   </section>
 </main>
 
+<script src="<?php echo esc_url(get_theme_file_uri('/src/js/case-slider.js')); ?>" defer></script>
 <?php get_footer(); ?>

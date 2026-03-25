@@ -21,9 +21,9 @@
 }
 
 .p-contact-cta__card {
-  overflow: hidden;
+  border: 3px solid $primary-yellow;
   border-radius: prem(15);
-  border: 1px solid #d9d9d9;
+  overflow: hidden;
 }
 
 .p-contact-cta__header {

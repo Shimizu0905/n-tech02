@@ -30,8 +30,8 @@
   color: $color-black;
 
   @include mq("md") {
-    font-size: prem(24);
     margin-bottom: prem(32);
+    font-size: prem(24);
   }
 }
 
@@ -52,6 +52,7 @@
 .p-company__row {
   display: flex;
   gap: 0;
+  padding: 0 prem(24);
   border-bottom: 1px solid #d9d9d9;
 
   &:first-child {
@@ -64,7 +65,6 @@
 }
 
 .p-company__label {
-  flex-shrink: 0;
   width: prem(200);
   padding: prem(20) prem(24);
   font-family: $font-family-primary;
@@ -72,6 +72,7 @@
   font-weight: $medium;
   line-height: 1.4;
   color: $color-black;
+  flex-shrink: 0;
 
   @include mq("md") {
     width: auto;

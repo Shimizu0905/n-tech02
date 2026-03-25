@@ -340,6 +340,102 @@ add_action('admin_enqueue_scripts', function ($hook) {
 });
 
 /* =========================
+ * カスタム投稿タイプ：実績（works）
+ * ========================= */
+add_action('init', function () {
+  register_post_type('works', [
+    'labels' => [
+      'name'               => '実績',
+      'singular_name'      => '実績',
+      'add_new'            => '新規追加',
+      'add_new_item'       => '実績を追加',
+      'edit_item'          => '実績を編集',
+      'new_item'           => '新しい実績',
+      'view_item'          => '実績を表示',
+      'search_items'       => '実績を検索',
+      'not_found'          => '実績が見つかりません',
+      'not_found_in_trash' => 'ゴミ箱に実績はありません',
+      'menu_name'          => '実績',
+    ],
+    'public'              => false,
+    'show_ui'             => true,
+    'show_in_menu'        => true,
+    'show_in_rest'        => false,
+    'menu_position'       => 5,
+    'menu_icon'           => 'dashicons-portfolio',
+    'supports'            => ['title', 'page-attributes'],
+    'has_archive'         => false,
+    'rewrite'             => false,
+    'publicly_queryable'  => false,
+    'exclude_from_search' => true,
+  ]);
+});
+
+/* =========================
+ * カスタム投稿タイプ：お客様の声（voice）
+ * ========================= */
+add_action('init', function () {
+  register_post_type('voice', [
+    'labels' => [
+      'name'               => 'お客様の声',
+      'singular_name'      => 'お客様の声',
+      'add_new'            => '新規追加',
+      'add_new_item'       => 'お客様の声を追加',
+      'edit_item'          => 'お客様の声を編集',
+      'new_item'           => '新しいお客様の声',
+      'view_item'          => 'お客様の声を表示',
+      'search_items'       => 'お客様の声を検索',
+      'not_found'          => 'お客様の声が見つかりません',
+      'not_found_in_trash' => 'ゴミ箱にお客様の声はありません',
+      'menu_name'          => 'お客様の声',
+    ],
+    'public'              => false,
+    'show_ui'             => true,
+    'show_in_menu'        => true,
+    'show_in_rest'        => false,
+    'menu_position'       => 6,
+    'menu_icon'           => 'dashicons-format-quote',
+    'supports'            => ['title', 'page-attributes'],
+    'has_archive'         => false,
+    'rewrite'             => false,
+    'publicly_queryable'  => false,
+    'exclude_from_search' => true,
+  ]);
+});
+
+/* =========================
+ * カスタム投稿タイプ：よくある質問（faq）
+ * ========================= */
+add_action('init', function () {
+  register_post_type('faq', [
+    'labels' => [
+      'name'               => 'よくある質問',
+      'singular_name'      => 'よくある質問',
+      'add_new'            => '新規追加',
+      'add_new_item'       => 'よくある質問を追加',
+      'edit_item'          => 'よくある質問を編集',
+      'new_item'           => '新しいよくある質問',
+      'view_item'          => 'よくある質問を表示',
+      'search_items'       => 'よくある質問を検索',
+      'not_found'          => 'よくある質問が見つかりません',
+      'not_found_in_trash' => 'ゴミ箱によくある質問はありません',
+      'menu_name'          => 'よくある質問',
+    ],
+    'public'              => false,
+    'show_ui'             => true,
+    'show_in_menu'        => true,
+    'show_in_rest'        => false,
+    'menu_position'       => 7,
+    'menu_icon'           => 'dashicons-editor-help',
+    'supports'            => ['title', 'page-attributes'],
+    'has_archive'         => false,
+    'rewrite'             => false,
+    'publicly_queryable'  => false,
+    'exclude_from_search' => true,
+  ]);
+});
+
+/* =========================
  * 便利関数
  * ========================= */
 

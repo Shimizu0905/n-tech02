@@ -3,9 +3,9 @@
 @use "../../foundation/mixin" as *;
 
 // ========================================
-// 事例紹介（Figma node 2066:356）
+// 事例紹介 — works（Swiper スライダー）
 // ========================================
-.p-case {
+.p-works {
   padding: prem(80) $padding-pc;
   background-color: $primary-yellow;
 
@@ -14,13 +14,13 @@
   }
 }
 
-.p-case__inner {
+.p-works__inner {
   width: 100%;
   max-width: prem(1200);
   margin: 0 auto;
 }
 
-.p-case__title {
+.p-works__title {
   margin: 0 0 prem(40);
   font-family: $font-family-primary;
   font-size: prem(32);
@@ -35,39 +35,139 @@
   }
 }
 
-.p-case__card {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  width: clamp(600px, 58vw, 832px);
+// ----------------------------------------
+// スライダー
+// ----------------------------------------
+.p-works__slider-wrap {
+  position: relative;
+  max-width: prem(900);
   margin: 0 auto;
+  padding: 0 prem(60);
+
+  @include mq("md") {
+    padding: 0 prem(40);
+  }
+}
+
+.p-works__swiper {
+  overflow: hidden;
+}
+
+// 矢印ボタン
+.p-works__arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  width: prem(43);
+  height: prem(43);
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  cursor: pointer;
+  transition: filter 0.3s;
+  transform: translateY(-50%);
+
+  &:hover {
+    filter: invert(1);
+  }
+
+  @include mq("md") {
+    width: prem(36);
+    height: prem(36);
+  }
+
+  &--prev {
+    left: 0;
+    transform: translateY(-50%) rotate(180deg);
+  }
+
+  &--next {
+    right: 0;
+  }
+}
+
+.p-works__arrow-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+// ページネーション
+.p-works__pagination {
+  display: flex;
+  justify-content: center;
+  gap: prem(12);
+  margin-top: prem(24);
+
+  .swiper-pagination-bullet {
+    width: prem(12);
+    height: prem(12);
+    border-radius: 50%;
+    background-color: #bbb;
+    opacity: 1;
+    transition: background-color 0.3s;
+  }
+
+  .swiper-pagination-bullet-active {
+    background-color: $color-black;
+  }
+}
+
+// ----------------------------------------
+// カード（1スライド = 1 article）
+// ----------------------------------------
+.p-works__item {
+  width: 100%;
   border-radius: prem(8);
   background-color: $color-white;
   overflow: hidden;
-
-  @include mq("md") {
-    flex-direction: column;
-  }
 }
 
-.p-case__img-wrap {
-  flex: 0 0 55%;
+// 着工前・完工 画像
+.p-works__images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.p-works__image {
+  position: relative;
   overflow: hidden;
+  aspect-ratio: 400 / 350;
 
   @include mq("md") {
-    flex: none;
+    aspect-ratio: 1 / 0.85;
   }
 }
 
-.p-case__img {
+.p-works__img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.p-case__body {
-  flex: 1;
+.p-works__image-label {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: prem(4) prem(16);
+  font-family: $font-family-primary;
+  font-size: prem(14);
+  font-weight: $bold;
+  line-height: 1.6;
+  color: $color-white;
+  background-color: rgba($color-black, 0.6);
+
+  @include mq("md") {
+    font-size: prem(12);
+  }
+}
+
+// 情報テーブル
+.p-works__info {
+  margin: 0;
   padding: prem(32) prem(40);
 
   @include mq("md") {
@@ -75,11 +175,7 @@
   }
 }
 
-.p-case__table {
-  margin: 0;
-}
-
-.p-case__row {
+.p-works__info-row {
   display: flex;
   gap: prem(16);
   padding: prem(12) 0;
@@ -90,7 +186,7 @@
   }
 }
 
-.p-case__label {
+.p-works__info-label {
   width: prem(120);
   font-family: $font-family-primary;
   font-size: prem(16);
@@ -105,7 +201,7 @@
   }
 }
 
-.p-case__value {
+.p-works__info-value {
   font-family: $font-family-primary;
   font-size: prem(16);
   font-weight: $regular;
