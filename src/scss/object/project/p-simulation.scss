@@ -22,9 +22,6 @@
   width: 100%;
   max-width: prem(1180);
   margin: 0 auto;
-  padding: prem(48) prem(40);
-  border: prem(3) solid $primary-yellow;
-  border-radius: prem(8);
 
   @include mq("md") {
     padding: prem(32) prem(20);
@@ -65,24 +62,31 @@
 
 // グラデーションボタン（オレンジ→黄色）
 .p-simulation__btn {
-  display: inline-block;
-  padding: prem(24) prem(80);
-  border-radius: prem(1000);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: prem(648);
+  max-width: 100%;
+  height: prem(131);
+  border-radius: prem(8);
   font-family: $font-family-primary;
   font-size: prem(24);
   font-weight: $bold;
   line-height: 1;
   text-decoration: none;
   color: $color-white;
-  background: linear-gradient(90deg, #f5a623 0%, $primary-yellow 100%);
+  background: linear-gradient(90deg, #ff7a06 51.44%, $primary-yellow 100%);
   transition: opacity 0.3s ease;
+  aspect-ratio: 648 / 131;
 
   &:hover {
     opacity: 0.85;
   }
 
   @include mq("md") {
-    padding: prem(18) prem(40);
+    width: 100%;
+    height: auto;
+    padding: prem(24) prem(20);
     font-size: prem(18);
   }
 }

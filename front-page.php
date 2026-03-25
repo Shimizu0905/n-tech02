@@ -157,7 +157,9 @@ get_header();
     <!-- かんたん料金シミュレーション -->
     <section class="p-simulation" id="simulation">
       <div class="p-simulation__inner">
-        <p class="p-simulation__lead">まずはお気軽に<span class="p-simulation__slash">/</span>1分でわかる</p>
+        <p class="p-simulation__lead">
+          <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/simulation/simulation-lead.svg')); ?>" alt="まずはお気軽に1分でわかる" class="p-simulation__lead-img" loading="lazy" decoding="async">
+        </p>
         <a href="#contact" class="p-simulation__btn">かんたん料金シミュレーション</a>
         <div class="p-simulation__icon">
           <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/company/simulation.png')); ?>" alt="" class="p-simulation__icon-img" loading="lazy" decoding="async">
@@ -172,19 +174,19 @@ get_header();
       <ul class="p-promise__list">
         <li class="p-promise__item">
           <span class="p-promise__icon">
-            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/promise/check-01.svg')); ?>" alt="" class="p-promise__icon-img" loading="lazy" decoding="async">
+            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/promise/check-01.png')); ?>" alt="" class="p-promise__icon-img" loading="lazy" decoding="async">
           </span>
           <p class="p-promise__text">「見積条件表」を別紙で添付します。</p>
         </li>
         <li class="p-promise__item">
           <span class="p-promise__icon">
-            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/promise/check-02.svg')); ?>" alt="" class="p-promise__icon-img" loading="lazy" decoding="async">
+            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/promise/check-02.png')); ?>" alt="" class="p-promise__icon-img" loading="lazy" decoding="async">
           </span>
           <p class="p-promise__text">追加費用が発生する条件（地中埋設物など）を事前に明確化。</p>
         </li>
         <li class="p-promise__item">
           <span class="p-promise__icon">
-            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/promise/check-01.svg')); ?>" alt="" class="p-promise__icon-img" loading="lazy" decoding="async">
+            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/promise/check-03.png')); ?>" alt="" class="p-promise__icon-img" loading="lazy" decoding="async">
           </span>
           <p class="p-promise__text">不透明な請求は一切行いません。</p>
         </li>
@@ -204,6 +206,45 @@ get_header();
       <div class="p-trust__cert">
         <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/trust/trust-cert.png')); ?>" alt="保有資格・損害賠償保険加入済み証明" class="p-trust__cert-img" loading="lazy" decoding="async">
         <p class="p-trust__cert-text">保有資格：解体施工技士、石綿作業主任者、アスベスト調査士 等<br>損害賠償保険加入済み</p>
+      </div>
+    </div>
+  </section>
+    <!-- 事例紹介 -->
+    <section class="p-case">
+    <div class="p-case__inner">
+      <h2 class="p-case__title">事例紹介</h2>
+      <div class="p-case__card">
+        <div class="p-case__img-wrap">
+          <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/company/case-01.png')); ?>" alt="事例紹介" class="p-case__img" loading="lazy" decoding="async">
+        </div>
+        <div class="p-case__body">
+          <dl class="p-case__table">
+            <div class="p-case__row">
+              <dt class="p-case__label">エリア</dt>
+              <dd class="p-case__value">東京都葛飾区</dd>
+            </div>
+            <div class="p-case__row">
+              <dt class="p-case__label">対象物</dt>
+              <dd class="p-case__value">一軒家</dd>
+            </div>
+            <div class="p-case__row">
+              <dt class="p-case__label">建造物</dt>
+              <dd class="p-case__value">木造2棟</dd>
+            </div>
+            <div class="p-case__row">
+              <dt class="p-case__label">築年数</dt>
+              <dd class="p-case__value">○年</dd>
+            </div>
+            <div class="p-case__row">
+              <dt class="p-case__label">お困りごと</dt>
+              <dd class="p-case__value">建物の解体、近隣住民への配慮</dd>
+            </div>
+            <div class="p-case__row">
+              <dt class="p-case__label">提案内容</dt>
+              <dd class="p-case__value">概算で○○万円（税込）</dd>
+            </div>
+          </dl>
+        </div>
       </div>
     </div>
   </section>
@@ -285,45 +326,7 @@ get_header();
     </div>
   </section>
 
-  <!-- 事例紹介 -->
-  <section class="p-case">
-    <div class="p-case__inner">
-      <h2 class="p-case__title">事例紹介</h2>
-      <div class="p-case__card">
-        <div class="p-case__img-wrap">
-          <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/company/case-01.png')); ?>" alt="事例紹介" class="p-case__img" loading="lazy" decoding="async">
-        </div>
-        <div class="p-case__body">
-          <dl class="p-case__table">
-            <div class="p-case__row">
-              <dt class="p-case__label">エリア</dt>
-              <dd class="p-case__value">東京都葛飾区</dd>
-            </div>
-            <div class="p-case__row">
-              <dt class="p-case__label">対象物</dt>
-              <dd class="p-case__value">一軒家</dd>
-            </div>
-            <div class="p-case__row">
-              <dt class="p-case__label">建造物</dt>
-              <dd class="p-case__value">木造2棟</dd>
-            </div>
-            <div class="p-case__row">
-              <dt class="p-case__label">築年数</dt>
-              <dd class="p-case__value">○年</dd>
-            </div>
-            <div class="p-case__row">
-              <dt class="p-case__label">お困りごと</dt>
-              <dd class="p-case__value">建物の解体、近隣住民への配慮</dd>
-            </div>
-            <div class="p-case__row">
-              <dt class="p-case__label">提案内容</dt>
-              <dd class="p-case__value">概算で○○万円（税込）</dd>
-            </div>
-          </dl>
-        </div>
-      </div>
-    </div>
-  </section>
+
 
   <!-- お客様の声 -->
   <section class="p-voice">
