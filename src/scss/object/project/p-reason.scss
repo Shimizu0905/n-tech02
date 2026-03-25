@@ -2,123 +2,125 @@
 @use "../../foundation/functions" as *;
 @use "../../foundation/mixin" as *;
 
-// がんばらなくても ちゃんと続く理由セクション
+// ========================================
+// N-techが選ばれる3つの理由（Figma node-id=2004-51）
+// ========================================
 .p-reason {
-  padding: 70px 0 0;
-  background-color: #90ee90;
+  padding: prem(80) $padding-pc prem(88);
+  background-color: $color-black;
+
+  @include mq("md") {
+    padding: prem(64) $padding-sp prem(72);
+  }
 }
 
-.p-reason-title {
-  max-width: 242px;
+.p-reason__inner {
+  width: 100%;
+  max-width: prem(1200);
   margin: 0 auto;
+
+  @include mq("md") {
+    padding: 0 3.25vw;
+  }
 }
 
-// 理由カード
-.p-reason__cards {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 24px;
+.p-reason__title {
+  margin: 0 0 prem(48);
+  font-family: $font-family-primary;
+  font-size: prem(32);
+  font-weight: $bold;
+  line-height: 1;
+  text-align: center;
+  color: $color-white;
+
+  @include mq("md") {
+    margin-bottom: prem(32);
+    font-size: prem(24);
+  }
+}
+
+.p-reason__list {
+  display: grid;
+  gap: prem(30);
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0;
   padding: 0;
   list-style: none;
 
-  @media (width <= 375px) {
-    gap: prem(10);
-    margin-top: prem(24);
+  @include mq("md") {
+    gap: prem(24);
+    grid-template-columns: 1fr;
+    max-width: prem(600);
+    margin: 0 auto;
   }
 }
 
-.p-reason__card {
+.p-reason__item {
   display: flex;
-  align-items: center;
-  gap: 26px;
-  padding: 20.6px 25px;
-  border-radius: 15.6px;
-  background-color: #fff;
-
-  @media (width <= 375px) {
-    padding: prem(20.6) prem(25);
-    border-radius: prem(8);
-  }
+  flex-direction: column;
+  border-radius: prem(5);
+  overflow: hidden;
 }
 
-.p-reason__card:nth-child(2) {
-  gap: 10px;
-
-  @media (width <= 375px) {
-    gap: prem(10);
-  }
-}
-
-.p-reason__card-icon {
-  width: 80px;
-
-  @media (width <= 375px) {
-    width: prem(80);
-  }
-}
-
-.p-reason__card:nth-child(2) .p-reason__card-icon {
-  width: 94px;
-
-  @media (width <= 375px) {
-    width: prem(94);
-  }
-}
-
-.p-reason__card-icon img {
-  display: inline-block;
-  width: 100%;
-  height: 65px;
-  object-fit: contain;
-
-  @media (width <= 375px) {
-    height: prem(40);
-  }
-}
-
-.p-reason__card-body {
-  flex: 1;
-  width: clamp(0px, calc(100% - 111px), 70vw);
-  min-width: 0;
-}
-
-.p-reason__card-title {
-  font-size: 16px;
-  font-weight: 700;
-  color: #90ee90;
-
-  @media (width <= 375px) {
-    font-size: prem(16);
-  }
-}
-
-.p-reason__card-text {
-  margin-top: 12px;
-  font-size: 14px;
-  font-weight: 400;
-  color: $text-black;
-
-  @media (width <= 375px) {
-    margin-top: prem(8);
-    font-size: prem(14);
-  }
+.p-reason__img-wrap {
+  overflow: hidden;
+  aspect-ratio: 375 / 250;
 }
 
 .p-reason__img {
+  display: block;
   width: 100%;
-  margin-top: 78px;
+  height: 100%;
+  object-fit: cover;
+}
 
-  @media (width <= 375px) {
-    margin-top: prem(78);
+.p-reason__body {
+  display: flex;
+  flex-direction: column;
+  gap: prem(13);
+  padding: prem(18) prem(20) prem(24);
+  text-align: center;
+  background-color: $color-white;
+
+  @include mq("md") {
+    padding: prem(16) prem(16) prem(20);
   }
+}
 
-  img {
-    display: block;
-    width: 100%;
-    height: auto;
-    object-position: center;
-    object-fit: cover;
-    aspect-ratio: 430 / 487;
+.p-reason__heading {
+  margin: 0;
+  font-family: $font-family-primary;
+  font-size: clamp(prem(20), 1.8vw, prem(24));
+  font-weight: $medium;
+  line-height: 1.4;
+  color: $color-black;
+
+  @include mq("md") {
+    font-size: clamp(prem(18), 1.7vw, prem(24));
+  }
+}
+
+.p-reason__text {
+  margin: 0;
+  font-family: $font-family-primary;
+  font-size: prem(16);
+  font-weight: $regular;
+  line-height: 1.625;
+  text-align: left;
+  color: $text-black;
+
+  @include mq("md") {
+    font-size: clamp(prem(14), 4.5vw, prem(16));
+  }
+}
+
+.p-reason__accent {
+  height: prem(8);
+  margin-top: prem(48);
+  background-color: $primary-yellow;
+
+  @include mq("md") {
+    height: prem(6);
+    margin-top: prem(40);
   }
 }

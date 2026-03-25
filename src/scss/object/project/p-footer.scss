@@ -1,43 +1,31 @@
-@use '../../foundation' as *;
+@use "../../foundation/variables" as *;
+@use "../../foundation/functions" as *;
+@use "../../foundation/mixin" as *;
 
+// ========================================
 // フッター
+// ========================================
 .p-footer {
   width: 100%;
-  padding: 30px 0;
-  background-color: #008000;
-
-  @media (width <= 375px) {
-    padding: prem(30) 0;
-  }
+  padding: prem(30) 0;
+  background-color: $color-black;
 
   @include mq("md") {
-    padding: 20px 0;
-
-    @media (width <= 375px) {
     padding: prem(20) 0;
-    }
   }
 }
 
 .p-footer__copyright {
   text-align: center;
-  color: #fff;
 
   small {
-    font-size: 14px;
+    font-family: $font-family-primary;
+    font-size: prem(14);
     font-weight: $regular;
-    color: #fff;
-
-    @media (width <= 375px) {
-      font-size: prem(14);
-    }
+    color: $color-white;
 
     @include mq("md") {
-      font-size: 13px;
-
-      @media (width <= 375px) {
       font-size: prem(13);
-      }
     }
   }
 }

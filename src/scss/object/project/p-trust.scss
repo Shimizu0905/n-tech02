@@ -1,0 +1,87 @@
+@use "../../foundation/variables" as *;
+@use "../../foundation/functions" as *;
+@use "../../foundation/mixin" as *;
+
+// ========================================
+// 信頼の証（Figma node 2066:134）
+// ========================================
+.p-trust {
+  position: relative;
+  overflow: hidden;
+  min-height: prem(846);
+
+  @include mq("md") {
+    min-height: auto;
+  }
+}
+
+.p-trust__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.p-trust__bg-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.p-trust__inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: prem(1200);
+  margin: 0 auto;
+  padding: prem(154) $padding-pc;
+
+  @include mq("md") {
+    padding: prem(60) $padding-sp;
+  }
+}
+
+.p-trust__title {
+  margin: 0 0 prem(40);
+  font-family: $font-family-primary;
+  font-size: prem(32);
+  font-weight: $bold;
+  line-height: 1.4;
+  text-align: center;
+  color: $color-white;
+
+  @include mq("md") {
+    font-size: prem(24);
+    margin-bottom: prem(24);
+  }
+}
+
+.p-trust__cert {
+  max-width: prem(750);
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.p-trust__cert-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: prem(450);
+  object-fit: cover;
+}
+
+.p-trust__cert-text {
+  margin: 0;
+  padding: prem(16) prem(24);
+  background-color: $color-black;
+  font-family: $font-family-primary;
+  font-size: prem(20);
+  font-weight: $medium;
+  line-height: 1.6;
+  color: $color-white;
+
+  @include mq("md") {
+    font-size: prem(14);
+    padding: prem(12) prem(16);
+  }
+}

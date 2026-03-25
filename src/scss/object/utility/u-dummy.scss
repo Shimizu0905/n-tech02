@@ -17,6 +17,14 @@
   }
 }
 
+.sm-none {
+  display: block;
+
+  @include mq("sm") {
+    display: none;
+  }
+}
+
 // md-none: 768px以上で表示、768px未満で非表示
 .md-none {
   display: block;
@@ -32,6 +40,15 @@
 
   @include mq("md") {
     display: block;
+  }
+}
+
+// md-flex: 768px未満で表示（flex）、768px以上で非表示（ハンバーガー用）
+.md-flex {
+  display: none;
+
+  @include mq("md") {
+    display: flex;
   }
 }
 

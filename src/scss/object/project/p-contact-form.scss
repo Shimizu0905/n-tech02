@@ -1,0 +1,228 @@
+@use "../../foundation/variables" as *;
+@use "../../foundation/functions" as *;
+@use "../../foundation/mixin" as *;
+
+// ========================================
+// お問い合わせフォーム（Figma node 2066:200）
+// ========================================
+.p-contact-form {
+  padding: prem(80) $padding-pc prem(100);
+  background-color: $color-white;
+
+  @include mq("md") {
+    padding: prem(56) $padding-sp prem(80);
+  }
+}
+
+.p-contact-form__inner {
+  width: 100%;
+  max-width: prem(900);
+  margin: 0 auto;
+}
+
+.p-contact-form__title {
+  margin: 0 0 prem(48);
+  font-family: $font-family-primary;
+  font-size: prem(32);
+  font-weight: $bold;
+  line-height: 1.4;
+  text-align: left;
+  color: $color-black;
+
+  @include mq("md") {
+    font-size: prem(22);
+    margin-bottom: prem(32);
+  }
+}
+
+.p-contact-form__form {
+  display: flex;
+  flex-direction: column;
+  gap: prem(24);
+}
+
+.p-contact-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: prem(8);
+}
+
+.p-contact-form__label {
+  font-family: $font-family-primary;
+  font-size: prem(18);
+  font-weight: $medium;
+  line-height: 1.5;
+  color: $color-black;
+
+  @include mq("md") {
+    font-size: prem(15);
+  }
+}
+
+.p-contact-form__required {
+  color: $color-red;
+}
+
+.p-contact-form__input {
+  width: 100%;
+  padding: prem(16) prem(20);
+  border: 1px solid #d9d9d9;
+  border-radius: prem(8);
+  font-family: $font-family-primary;
+  font-size: prem(16);
+  line-height: 1.5;
+  color: $color-black;
+  background-color: $color-white;
+  appearance: none;
+  outline: none;
+  transition: border-color 0.2s ease;
+
+  &:focus {
+    border-color: $primary-yellow;
+  }
+
+  @include mq("md") {
+    padding: prem(12) prem(16);
+  }
+}
+
+.p-contact-form__select-wrap {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: prem(20);
+    width: prem(10);
+    height: prem(6);
+    background-color: $color-black;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+}
+
+.p-contact-form__select {
+  width: 100%;
+  padding: prem(16) prem(48) prem(16) prem(20);
+  border: 1px solid #d9d9d9;
+  border-radius: prem(8);
+  font-family: $font-family-primary;
+  font-size: prem(16);
+  line-height: 1.5;
+  color: $color-black;
+  background-color: $color-white;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+
+  &:focus {
+    border-color: $primary-yellow;
+  }
+
+  @include mq("md") {
+    padding: prem(12) prem(40) prem(12) prem(16);
+  }
+}
+
+.p-contact-form__textarea {
+  width: 100%;
+  min-height: prem(140);
+  padding: prem(16) prem(20);
+  border: 1px solid #d9d9d9;
+  border-radius: prem(8);
+  font-family: $font-family-primary;
+  font-size: prem(16);
+  line-height: 1.7;
+  color: $color-black;
+  background-color: $color-white;
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.2s ease;
+
+  &::placeholder {
+    color: #aaa;
+  }
+
+  &:focus {
+    border-color: $primary-yellow;
+  }
+
+  @include mq("md") {
+    padding: prem(12) prem(16);
+  }
+}
+
+.p-contact-form__radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: prem(24);
+}
+
+.p-contact-form__radio-label {
+  display: flex;
+  align-items: center;
+  gap: prem(8);
+  font-family: $font-family-primary;
+  font-size: prem(16);
+  line-height: 1.5;
+  color: $color-black;
+  cursor: pointer;
+}
+
+.p-contact-form__radio {
+  width: prem(20);
+  height: prem(20);
+  accent-color: $primary-yellow;
+  cursor: pointer;
+}
+
+.p-contact-form__check-label {
+  display: flex;
+  align-items: center;
+  gap: prem(8);
+  font-family: $font-family-primary;
+  font-size: prem(16);
+  line-height: 1.5;
+  color: $color-black;
+  cursor: pointer;
+}
+
+.p-contact-form__checkbox {
+  width: prem(20);
+  height: prem(20);
+  accent-color: $primary-yellow;
+  cursor: pointer;
+}
+
+.p-contact-form__submit {
+  display: flex;
+  justify-content: center;
+  margin-top: prem(16);
+}
+
+.p-contact-form__btn {
+  display: inline-block;
+  padding: prem(20) prem(80);
+  border: none;
+  border-radius: prem(1000);
+  background-color: $primary-yellow;
+  font-family: $font-family-primary;
+  font-size: prem(20);
+  font-weight: $bold;
+  line-height: 1;
+  color: $color-black;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  @include mq("md") {
+    padding: prem(16) prem(48);
+    font-size: prem(16);
+  }
+}

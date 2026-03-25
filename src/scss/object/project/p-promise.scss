@@ -1,0 +1,77 @@
+@use "../../foundation/variables" as *;
+@use "../../foundation/functions" as *;
+@use "../../foundation/mixin" as *;
+
+// ========================================
+// 安心の約束（Figma node 2066:108）
+// ========================================
+.p-promise {
+  padding: prem(80) $padding-pc;
+  background-color: $primary-yellow;
+
+  @include mq("md") {
+    padding: prem(56) $padding-sp;
+  }
+}
+
+.p-promise__inner {
+  width: 100%;
+  max-width: prem(800);
+  margin: 0 auto;
+}
+
+.p-promise__title {
+  margin: 0 0 prem(40);
+  font-family: $font-family-primary;
+  font-size: prem(32);
+  font-weight: $bold;
+  line-height: 1.4;
+  text-align: center;
+  color: $color-black;
+
+  @include mq("md") {
+    margin-bottom: prem(28);
+    font-size: prem(24);
+  }
+}
+
+.p-promise__list {
+  display: flex;
+  flex-direction: column;
+  gap: prem(24);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.p-promise__item {
+  display: flex;
+  align-items: center;
+  gap: prem(24);
+}
+
+.p-promise__icon {
+  flex-shrink: 0;
+  width: prem(50);
+  height: prem(50);
+}
+
+.p-promise__icon-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.p-promise__text {
+  margin: 0;
+  font-family: $font-family-primary;
+  font-size: prem(24);
+  font-weight: $medium;
+  line-height: 1.5;
+  color: $color-black;
+
+  @include mq("md") {
+    font-size: prem(16);
+  }
+}

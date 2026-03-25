@@ -1,0 +1,110 @@
+@use "../../foundation/variables" as *;
+@use "../../foundation/functions" as *;
+@use "../../foundation/mixin" as *;
+
+// ========================================
+// かんたん料金シミュレーション（Figma node 2001:289）
+// ========================================
+.p-simulation {
+  padding: prem(80) $padding-pc;
+  background-color: $color-white;
+
+  @include mq("md") {
+    padding: prem(56) $padding-sp;
+  }
+}
+
+.p-simulation__inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: prem(1180);
+  margin: 0 auto;
+  padding: prem(48) prem(40);
+  border: prem(3) solid $primary-yellow;
+  border-radius: prem(8);
+
+  @include mq("md") {
+    padding: prem(32) prem(20);
+  }
+}
+
+// スラッシュ区切りのリードテキスト（Thin 64px）
+.p-simulation__lead {
+  display: flex;
+  align-items: center;
+  gap: prem(8);
+  margin: 0 0 prem(24);
+  font-family: $font-family-primary;
+  font-size: prem(64);
+  font-weight: 100;
+  line-height: normal;
+  text-align: center;
+  color: $color-black;
+
+  @include mq("md") {
+    margin-bottom: prem(16);
+    font-size: prem(36);
+  }
+}
+
+// スラッシュ
+.p-simulation__slash {
+  display: inline-block;
+  font-size: prem(64);
+  font-weight: 100;
+  line-height: 1;
+  color: $color-black;
+
+  @include mq("md") {
+    font-size: prem(36);
+  }
+}
+
+// グラデーションボタン（オレンジ→黄色）
+.p-simulation__btn {
+  display: inline-block;
+  padding: prem(24) prem(80);
+  border-radius: prem(1000);
+  font-family: $font-family-primary;
+  font-size: prem(24);
+  font-weight: $bold;
+  line-height: 1;
+  text-decoration: none;
+  color: $color-white;
+  background: linear-gradient(90deg, #f5a623 0%, $primary-yellow 100%);
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 0.85;
+  }
+
+  @include mq("md") {
+    padding: prem(18) prem(40);
+    font-size: prem(18);
+  }
+}
+
+// デバイスアイコン（右上配置）
+.p-simulation__icon {
+  position: absolute;
+  top: prem(16);
+  right: prem(40);
+
+  @include mq("md") {
+    position: static;
+    margin-top: prem(24);
+  }
+}
+
+.p-simulation__icon-img {
+  display: block;
+  width: prem(120);
+  height: auto;
+
+  @include mq("md") {
+    width: prem(100);
+  }
+}

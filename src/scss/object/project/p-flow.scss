@@ -1,111 +1,161 @@
-@use "../../foundation" as *;
+@use "../../foundation/variables" as *;
+@use "../../foundation/functions" as *;
+@use "../../foundation/mixin" as *;
 
+// ========================================
+// 完工までの安心の6ステップ（Figma node 2066:55）
+// ========================================
 .p-flow {
-  margin-top: prem(80);
+  padding: prem(80) $padding-pc;
+  background-color: $color-black;
 
   @include mq("md") {
-    margin-top: prem(64);
+    padding: prem(56) $padding-sp;
   }
 }
 
 .p-flow__inner {
-  position: relative;
+  width: 100%;
+  max-width: prem(1180);
+  margin: 0 auto;
 }
 
-.p-flow__container {
+.p-flow__header {
+  margin-bottom: prem(48);
+
+  @include mq("md") {
+    margin-bottom: prem(32);
+  }
+}
+
+.p-flow__title {
+  margin: 0 0 prem(16);
+  font-family: $font-family-primary;
+  font-size: prem(32);
+  font-weight: $bold;
+  line-height: 1.4;
+  text-align: center;
+  color: $color-white;
+
+  @include mq("md") {
+    margin-bottom: prem(12);
+    font-size: prem(24);
+  }
+}
+
+.p-flow__lead {
+  margin: 0;
+  font-family: $font-family-primary;
+  font-size: prem(18);
+  font-weight: $regular;
+  line-height: 1.7;
+  text-align: center;
+  color: $color-white;
+
+  @include mq("md") {
+    font-size: prem(14);
+    text-align: left;
+  }
+}
+
+.p-flow__list {
   display: flex;
-  gap: prem(30);
-  margin-top: prem(60);
+  flex-direction: column;
+  gap: 0;
+}
+
+.p-flow__item {
+  display: flex;
+  align-items: center;
+  gap: prem(48);
+  padding: prem(32) prem(40);
+  border-radius: prem(8);
+  background-color: $color-white;
 
   @include mq("md") {
     flex-direction: column;
-    gap: prem(24);
-    margin-top: prem(40);
+    gap: prem(16);
+    padding: prem(24) prem(20);
   }
 }
 
-.p-flow__card {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  border: 1px solid #000;
-  border-radius: prem(20);
-}
-
-.p-flow__card-top {
-  position: relative;
-  padding: prem(24) prem(20);
-  border-radius: prem(20) prem(20) 0 0;
-  background-color: #f5f5f5;
-}
-
-.p-flow__card-number {
-  position: absolute;
-  top: prem(20);
-  left: prem(20);
-  z-index: 2;
-  width: clamp(prem(50), 4.1vw, prem(60));
-  height: auto;
+.p-flow__item-img {
+  width: prem(200);
+  flex-shrink: 0;
 
   @include mq("md") {
-    width: prem(50);
-    height: prem(50);
-  }
-
-  img {
-    display: block;
     width: 100%;
-    height: auto;
+    max-width: prem(240);
   }
 }
 
-.p-flow__card-img {
-  overflow: hidden;
-
-  @include mq("md") {
-    margin-top: prem(15);
-  }
-
-  img {
-    width: auto;
-    height: prem(181);
-    margin: 0 auto;
-  }
+.p-flow__img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
-.p-flow__card-bottom {
-  padding: prem(20);
-
-  @include mq("md") {
-    padding: prem(16);
-  }
+.p-flow__item-body {
+  flex: 1;
 }
 
-.p-flow__card-title {
-  display: flex;
-  flex-direction: column;
-  font-size: prem(20);
+.p-flow__step-label {
+  display: inline-block;
+  margin-bottom: prem(8);
+  padding: prem(4) prem(12);
+  border-radius: prem(4);
+  background-color: $primary-yellow;
+  font-family: $font-family-primary;
+  font-size: prem(14);
   font-weight: $bold;
-  line-height: 1.6;
-  text-align: center;
-  color: #212529;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  color: $color-black;
+
+  @include mq("md") {
+    font-size: prem(12);
+  }
+}
+
+.p-flow__item-title {
+  margin: 0 0 prem(8);
+  font-family: $font-family-primary;
+  font-size: prem(22);
+  font-weight: $bold;
+  line-height: 1.4;
+  color: $color-black;
 
   @include mq("md") {
     font-size: prem(18);
   }
+}
 
-  span {
-    display: inline-block;
-    font-size: prem(15);
+.p-flow__item-text {
+  margin: 0;
+  font-family: $font-family-primary;
+  font-size: prem(16);
+  font-weight: $regular;
+  line-height: 1.7;
+  color: $text-black;
 
-    @include mq("md") {
-      font-size: prem(12);
-    }
+  @include mq("md") {
+    font-size: prem(14);
   }
 }
 
-.p-flow__button-wrap {
-  margin-top: prem(68);
-  text-align: center;
-}
+.p-flow__arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: prem(32);
 
+  &::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-width: prem(16) prem(20) 0;
+    border-style: solid;
+    border-color: $primary-yellow transparent transparent;
+  }
+}

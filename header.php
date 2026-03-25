@@ -119,7 +119,7 @@
           </div>
         </div>
         </div>
-        <button type="button" class="header__hamburger js-hamburger md-block" aria-label="メニューを開く" aria-expanded="false">
+        <button type="button" class="header__hamburger js-hamburger md-flex" aria-label="メニューを開く" aria-expanded="false">
           <span></span>
           <span></span>
           <span></span>

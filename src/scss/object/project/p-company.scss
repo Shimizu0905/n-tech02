@@ -1,0 +1,109 @@
+@use "../../foundation/variables" as *;
+@use "../../foundation/functions" as *;
+@use "../../foundation/mixin" as *;
+
+// ========================================
+// 会社概要（Figma node 2066:143）
+// ========================================
+.p-company {
+  padding: prem(80) $padding-pc;
+  background-color: $color-white;
+
+  @include mq("md") {
+    padding: prem(56) $padding-sp;
+  }
+}
+
+.p-company__inner {
+  width: 100%;
+  max-width: prem(1200);
+  margin: 0 auto;
+}
+
+.p-company__title {
+  margin: 0 0 prem(48);
+  font-family: $font-family-primary;
+  font-size: prem(32);
+  font-weight: $bold;
+  line-height: 1.4;
+  text-align: center;
+  color: $color-black;
+
+  @include mq("md") {
+    font-size: prem(24);
+    margin-bottom: prem(32);
+  }
+}
+
+.p-company__content {
+  display: flex;
+  flex-direction: column;
+  gap: prem(48);
+
+  @include mq("md") {
+    gap: prem(32);
+  }
+}
+
+.p-company__table {
+  margin: 0;
+}
+
+.p-company__row {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid #d9d9d9;
+
+  &:first-child {
+    border-top: 1px solid #d9d9d9;
+  }
+
+  @include mq("md") {
+    flex-direction: column;
+  }
+}
+
+.p-company__label {
+  flex-shrink: 0;
+  width: prem(200);
+  padding: prem(20) prem(24);
+  font-family: $font-family-primary;
+  font-size: prem(24);
+  font-weight: $medium;
+  line-height: 1.4;
+  color: $color-black;
+
+  @include mq("md") {
+    width: auto;
+    padding: prem(12) prem(16) 0;
+    font-size: prem(15);
+    font-weight: $bold;
+  }
+}
+
+.p-company__value {
+  flex: 1;
+  padding: prem(20) prem(24);
+  font-family: $font-family-primary;
+  font-size: prem(24);
+  font-weight: $regular;
+  line-height: 1.5;
+  color: $text-black;
+
+  @include mq("md") {
+    padding: prem(8) prem(16) prem(12);
+    font-size: prem(14);
+  }
+}
+
+.p-company__map {
+  width: 100%;
+  border-radius: prem(8);
+  overflow: hidden;
+}
+
+.p-company__map-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}

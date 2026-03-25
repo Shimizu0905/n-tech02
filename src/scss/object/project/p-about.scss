@@ -2,96 +2,84 @@
 @use "../../foundation/functions" as *;
 @use "../../foundation/mixin" as *;
 
+// ========================================
+// Aboutセクション（Figma node-id=2001-367）
+// ========================================
 .p-about {
-  padding: 90px 0 ;
-  background-color: #fff;
+  position: relative;
+  z-index: 1;
+  margin-top: prem(-5);
+  padding: prem(45) prem(96) prem(45) prem(131);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 
-  @media (width <= 375px) {
-    padding: prem(90) 0;
+  @include mq("md") {
+    padding: prem(54) 0;
   }
+}
+
+.p-about::before {
+  position: absolute;
+  inset: 0;
+  content: "";
 }
 
 .p-about__inner {
-  width: 100%;
-  max-width: 430px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
   margin: 0 auto;
-}
 
-.p-about__title {
-  text-align: center;
-}
-
-.p-about__title-img {
-  display: block;
-  width: 100%;
-  height: auto;
-  margin: 0 auto;
-  object-fit: contain;
+  @include mq("md") {
+    flex-direction: column-reverse;
+    align-items: center;
+    padding: 0 3.25vw;
+  }
 }
 
 .p-about__content {
-  margin-top: 40px;
-
-  @media (width <= 375px) {
-    margin-top: prem(40);
-  }
-}
-
-.p-about__subtitle {
-  margin: 0;
-  font-size: 20px;
-  font-weight: 700;
-  color: #008000;
-
-  @media (width <= 375px) {
-    font-size: prem(20);
-  }
-}
-
-.p-about__subtitle-large {
-  margin: 8px 0 0;
-  font-size: 28px;
-  font-weight: 700;
-  color: #008000;
-
-  @media (width <= 375px) {
-    margin: prem(8) 0 0;
-    font-size: prem(28);
-  }
+  max-width: prem(480);
 }
 
 .p-about__text {
-  margin-top: 10px;
-
-  @media (width <= 375px) {
-    margin-top: prem(10);
-  }
-}
-
-.p-about__text p {
   margin: 0;
-  font-size: 15px;
-  font-weight: 500;
-  line-height: 2;
-  color: #008000;
+  font-family: $font-family-primary;
+  font-size: clamp(prem(24), 2.1vw, prem(34));
+  font-weight: $medium;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: $color-black;
 
-  @media (width <= 375px) {
-    font-size: prem(15);
+  @include mq("md") {
+    margin-top: prem(40);
+    font-size: clamp(prem(18), 2.7vw, prem(24));
+    line-height: 1.8;
+    text-align: center;
   }
 }
 
-.p-about__img {
-  width: 100%;
-  margin-top: 32px;
-
-  @media (width <= 375px) {
-    margin-top: prem(32);
-  }
+// ======================
+// グラフ（画像）
+// ======================
+.p-about__graph {
+  flex-shrink: 0;
 }
 
-.p-about__img img {
-  width: 100%;
+.p-about__graph-img {
+  display: block;
+  width: auto;
+  max-width: clamp(627px, 48.7vw, 700px);
   height: auto;
-  aspect-ratio: 360/486;
-  object-fit: cover;
+  object-fit: contain;
+
+  @include mq("lg") {
+    max-width: clamp(480px, 48vw, 700px);
+  }
+
+  @include mq("md") {
+    max-width: 100%;
+  }
 }

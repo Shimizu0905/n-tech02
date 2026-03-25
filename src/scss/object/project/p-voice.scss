@@ -2,234 +2,164 @@
 @use "../../foundation/functions" as *;
 @use "../../foundation/mixin" as *;
 
-// お客様の声セクション
+// ========================================
+// お客様の声（Figma node 2066:93）
+// ========================================
 .p-voice {
-  padding: 75px 0 0;
-  background-color: #90ee90;
+  padding: prem(80) $padding-pc;
+  background-color: $primary-yellow;
+
+  @include mq("md") {
+    padding: prem(56) $padding-sp;
+  }
 }
 
 .p-voice__inner {
-  max-width: 430px;
+  width: 100%;
+  max-width: prem(1180);
   margin: 0 auto;
-  padding: 0 10px;
 }
 
 .p-voice__title {
-  max-width: 294px;
-  margin: 0 auto 40px;
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 1.6;
+  margin: 0 0 prem(48);
+  font-family: $font-family-primary;
+  font-size: prem(32);
+  font-weight: $bold;
+  line-height: 1.4;
   text-align: center;
-  color: #fff;
+  color: $color-black;
 
-  @media (width <= 375px) {
-    max-width: prem(294);
-    margin: 0 auto prem(40);
-    font-size: prem(20);
+  @include mq("md") {
+    margin-bottom: prem(32);
+    font-size: prem(24);
   }
 }
 
-// スライダー本体
-.p-voice__slider {
-  position: relative;
-  width: 100%;
-  margin-top: 36px;
-  overflow: hidden;
-
-  @media (width <= 375px) {
-    margin-top: prem(36);
-  }
-}
-
-// トラック（横並びコンテナ）
-.p-voice__track {
-  display: flex;
-  transition: transform 0.3s ease;
-  will-change: transform;
-}
-
-// スライド（各カードのラッパー）
-.p-voice__slide {
-  flex: 0 0 100%;
-  box-sizing: border-box;
-  padding: 0 26px;
-
-  @media (width <= 375px) {
-    padding: 0 prem(26);
-  }
-}
-
-// カード
 .p-voice__card {
-  min-height: 400px;
-  padding: 32px;
-  border-radius: 12px;
-  text-align: center;
-  background-color: #fff;
-
-  @media (width <= 375px) {
-    min-height: prem(400);
-    padding: prem(32);
-    border-radius: prem(12);
-  }
-}
-
-.p-voice__card-top {
   display: flex;
-  align-items: center;
-  gap: 40px;
-
-  @media (width <= 375px) {
-    gap: prem(40);
-  }
-}
-
-// アイコン
-.p-voice__icon {
-  width: 80px;
-  min-width: 80px;
-  height: 80px;
-  border-radius: 50%;
+  border-radius: prem(8);
+  background-color: $color-white;
   overflow: hidden;
 
-  @media (width <= 375px) {
-    width: prem(80);
-    height: prem(80);
-    margin-bottom: prem(20);
+  @include mq("md") {
+    flex-direction: column;
   }
 }
 
-.p-voice__icon-img {
+.p-voice__card-img {
+  width: prem(360);
+  flex-shrink: 0;
+
+  @include mq("md") {
+    width: 100%;
+  }
+}
+
+.p-voice__card-photo {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
 
-// カードタイトル
-.p-voice__card-title {
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 1.6;
-  text-align: left;
-  color: $text-black;
-
-  @media (width <= 375px) {
-    margin-bottom: prem(16);
-    font-size: prem(18);
+  @include mq("md") {
+    height: prem(220);
   }
 }
 
-// カード本文
-.p-voice__card-text-wrapper {
+.p-voice__card-body {
+  flex: 1;
+  padding: prem(40) prem(48);
+
+  @include mq("md") {
+    padding: prem(24) prem(20);
+  }
+}
+
+.p-voice__card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: prem(16);
+  margin-bottom: prem(24);
+
+  @include mq("md") {
+    flex-direction: column;
+    gap: prem(8);
+    margin-bottom: prem(16);
+  }
+}
+
+.p-voice__card-title {
+  flex: 1;
+  margin: 0;
+  font-family: $font-family-primary;
+  font-size: prem(20);
+  font-weight: $bold;
+  line-height: 1.5;
+  color: $color-black;
+
+  @include mq("md") {
+    font-size: prem(16);
+  }
+}
+
+.p-voice__tag {
+  display: inline-block;
+  padding: prem(4) prem(12);
+  border: 1px solid $color-black;
+  border-radius: prem(4);
+  font-family: $font-family-primary;
+  font-size: prem(13);
+  font-weight: $medium;
+  line-height: 1;
+  color: $color-black;
+  flex-shrink: 0;
+}
+
+.p-voice__detail {
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
+  gap: 0;
+  margin: 0;
+  border-top: 1px solid #d9d9d9;
 }
 
-.p-voice__card-text {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.8;
-  text-align: left;
-  color: #008000;
+.p-voice__detail-row {
+  display: flex;
+  gap: 0;
+  padding: prem(16) 0;
+  border-bottom: 1px solid #d9d9d9;
+
+  @include mq("md") {
+    flex-direction: column;
+    gap: prem(4);
+  }
 }
 
-.p-voice__card-text-large {
-  margin-top: 20px;
-  font-size: 16px;
-  font-weight: 700;
-  text-align: left;
+.p-voice__detail-label {
+  width: prem(140);
+  font-family: $font-family-primary;
+  font-size: prem(16);
+  font-weight: $bold;
+  line-height: 1.6;
+  color: $color-black;
+  flex-shrink: 0;
+
+  @include mq("md") {
+    width: auto;
+    font-size: prem(13);
+  }
+}
+
+.p-voice__detail-text {
+  flex: 1;
+  margin: 0;
+  font-family: $font-family-primary;
+  font-size: prem(16);
+  font-weight: $regular;
+  line-height: 1.6;
   color: $text-black;
-}
 
-// 前へ/次へボタン
-.p-voice__btn {
-  position: absolute;
-  top: 50%;
-  z-index: 10;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
-  border: none;
-  border-radius: 50%;
-  background-color: rgb(255 255 255 / 90%);
-  cursor: pointer;
-  transition: opacity 0.3s ease, background-color 0.3s ease;
-  transform: translateY(-50%);
-
-  &:hover {
-    background-color: #fff;
-    opacity: 0.8;
-  }
-
-  &:disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-  }
-}
-
-.p-voice__btn--prev {
-  left: 15px;
-
-  @media (width <= 375px) {
-    left: prem(15);
-  }
-
-  .p-voice__btn-icon {
-    transform: scaleX(-1);
-  }
-}
-
-.p-voice__btn--next {
-  right: 15px;
-
-  @media (width <= 375px) {
-    right: prem(15);
-  }
-}
-
-.p-voice__btn-icon {
-  width: 30px;
-  height: 30px;
-  object-fit: contain;
-
-  @media (width <= 375px) {
-    width: prem(30);
-    height: prem(30);
-  }
-}
-
-// ドットナビゲーション
-.p-voice__dots {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 36px;
-
-  @media (width <= 375px) {
-    gap: prem(12);
-    margin-top: prem(36);
-  }
-}
-
-.p-voice__dot {
-  display: inline-block;
-  width: 9px;
-  height: 9px;
-  border: 0.64px solid #fff;
-  border-radius: 50%;
-  background-color: rgb(255 255 255 / 50%);
-  transition: background-color 0.3s ease, transform 0.3s ease;
-
-  @media (width <= 375px) {
-    width: prem(10);
-    height: prem(10);
-  }
-
-  &.is-active {
-    background-color: #fff;
+  @include mq("md") {
+    font-size: prem(14);
   }
 }

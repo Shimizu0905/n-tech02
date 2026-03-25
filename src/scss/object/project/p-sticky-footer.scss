@@ -18,6 +18,11 @@
   @include mq("md") {
     display: flex;
   }
+
+  // ドロワー開時は非表示
+  body.no-scroll & {
+    display: none;
+  }
 }
 
 .p-sticky-footer__btn {

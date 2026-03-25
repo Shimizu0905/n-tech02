@@ -1,0 +1,145 @@
+@use "../../foundation/variables" as *;
+@use "../../foundation/functions" as *;
+@use "../../foundation/mixin" as *;
+
+// ========================================
+// よくある質問
+// ========================================
+.p-faq {
+  padding: prem(80) $padding-pc;
+  background-color: $color-black;
+
+  @include mq("md") {
+    padding: prem(56) $padding-sp;
+  }
+}
+
+.p-faq__inner {
+  width: 100%;
+  max-width: prem(1180);
+  margin: 0 auto;
+}
+
+.p-faq__title {
+  margin: 0 0 prem(48);
+  font-family: $font-family-primary;
+  font-size: prem(32);
+  font-weight: $bold;
+  line-height: 1.4;
+  text-align: center;
+  color: $color-white;
+
+  @include mq("md") {
+    margin-bottom: prem(32);
+    font-size: prem(24);
+  }
+}
+
+.p-faq__list {
+  display: flex;
+  flex-direction: column;
+  gap: prem(24);
+}
+
+.p-faq__item {
+  border-radius: prem(4);
+  background-color: $color-white;
+  overflow: hidden;
+}
+
+.p-faq__question {
+  display: flex;
+  align-items: center;
+  gap: prem(16);
+  padding: prem(20) prem(24);
+
+  @include mq("md") {
+    gap: prem(12);
+    padding: prem(16) prem(16);
+  }
+}
+
+.p-faq__q-mark {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: prem(40);
+  height: prem(40);
+  border-radius: 50%;
+  font-family: $font-family-primary;
+  font-size: prem(20);
+  font-weight: $bold;
+  line-height: 1;
+  color: $color-white;
+  background-color: $primary-yellow;
+  flex-shrink: 0;
+
+  @include mq("md") {
+    width: prem(32);
+    height: prem(32);
+    font-size: prem(16);
+  }
+}
+
+.p-faq__q-text {
+  flex: 1;
+  margin: 0;
+  font-family: $font-family-primary;
+  font-size: prem(18);
+  font-weight: $bold;
+  line-height: 1.6;
+  color: $color-black;
+
+  @include mq("md") {
+    font-size: prem(15);
+  }
+}
+
+.p-faq__answer {
+  display: flex;
+  align-items: flex-start;
+  gap: prem(16);
+  padding: prem(20) prem(24);
+  border-top: 1px solid #d9d9d9;
+
+  @include mq("md") {
+    gap: prem(12);
+    padding: prem(16) prem(16);
+  }
+}
+
+.p-faq__a-mark {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: prem(40);
+  height: prem(40);
+  border: prem(2) solid $color-black;
+  border-radius: 50%;
+  font-family: $font-family-primary;
+  font-size: prem(20);
+  font-weight: $bold;
+  line-height: 1;
+  color: $color-black;
+  flex-shrink: 0;
+
+  @include mq("md") {
+    width: prem(32);
+    height: prem(32);
+    font-size: prem(16);
+  }
+}
+
+.p-faq__a-text {
+  flex: 1;
+  margin: 0;
+  font-family: $font-family-primary;
+  font-size: prem(16);
+  font-weight: $regular;
+  line-height: 1.7;
+  color: $text-black;
+
+  @include mq("md") {
+    font-size: prem(14);
+  }
+}

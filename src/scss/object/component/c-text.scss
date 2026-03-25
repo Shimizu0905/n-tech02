@@ -1,0 +1,10 @@
+@use '../../foundation' as *;
+
+.c-text {
+  font-size: prem(17);
+  font-weight: $regular;
+
+  @include mq("md") {
+    font-size: prem(14);
+  }
+}

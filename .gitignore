@@ -16,3 +16,9 @@ Thumbs.db
 ehthumbs.db
 Desktop.ini
 $RECYCLE.BIN/
+
+# 依存・ローカル専用（リポジトリに含めない）
+node_modules/
+.mcp.json
+xd-file/
+claude set/

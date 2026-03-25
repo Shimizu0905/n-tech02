@@ -1,0 +1,91 @@
+@use "../../foundation/variables" as *;
+@use "../../foundation/functions" as *;
+@use "../../foundation/mixin" as *;
+
+// ========================================
+// 問合せ先CTA（Figma node 2066:164）
+// ========================================
+.p-contact-cta {
+  padding: prem(80) $padding-pc;
+  background-color: $color-white;
+
+  @include mq("md") {
+    padding: prem(48) $padding-sp;
+  }
+}
+
+.p-contact-cta__inner {
+  width: 100%;
+  max-width: prem(800);
+  margin: 0 auto;
+}
+
+.p-contact-cta__card {
+  overflow: hidden;
+  border-radius: prem(15);
+  border: 1px solid #d9d9d9;
+}
+
+.p-contact-cta__header {
+  padding: prem(24) prem(40);
+  background-color: $primary-yellow;
+  border-radius: prem(15) prem(15) 0 0;
+
+  @include mq("md") {
+    padding: prem(16) prem(20);
+  }
+}
+
+.p-contact-cta__catch {
+  margin: 0;
+  font-family: $font-family-primary;
+  font-size: prem(20);
+  font-weight: $medium;
+  line-height: 1.5;
+  text-align: center;
+  color: $color-black;
+
+  @include mq("md") {
+    font-size: prem(15);
+  }
+}
+
+.p-contact-cta__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: prem(8);
+  padding: prem(32) prem(40) prem(40);
+  background-color: $color-white;
+
+  @include mq("md") {
+    padding: prem(24) prem(20) prem(28);
+  }
+}
+
+.p-contact-cta__tel {
+  font-family: $font-family-primary;
+  font-size: prem(56);
+  font-weight: $bold;
+  line-height: 1;
+  text-decoration: none;
+  color: $color-black;
+  letter-spacing: 0.02em;
+
+  @include mq("md") {
+    font-size: prem(36);
+  }
+}
+
+.p-contact-cta__hours {
+  margin: 0;
+  font-family: $font-family-primary;
+  font-size: prem(18);
+  font-weight: $regular;
+  line-height: 1.4;
+  color: $text-black;
+
+  @include mq("md") {
+    font-size: prem(14);
+  }
+}

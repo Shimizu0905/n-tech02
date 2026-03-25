@@ -1,0 +1,100 @@
+@use "../../foundation/variables" as *;
+@use "../../foundation/functions" as *;
+@use "../../foundation/mixin" as *;
+
+// ========================================
+// 透明性のある価格案内（Figma node 2066:122）
+// ========================================
+.p-price {
+  padding: prem(80) $padding-pc;
+  background-color: $primary-yellow;
+
+  @include mq("md") {
+    padding: prem(56) $padding-sp;
+  }
+}
+
+.p-price__inner {
+  width: 100%;
+  max-width: prem(1200);
+  margin: 0 auto;
+}
+
+.p-price__card {
+  padding: prem(54) prem(20) prem(91);
+  border-radius: prem(15);
+  background-color: $color-white;
+
+  @include mq("md") {
+    padding: prem(40) prem(24);
+  }
+}
+
+.p-price__title {
+  margin: 0 0 prem(40);
+  font-family: $font-family-primary;
+  font-size: prem(32);
+  font-weight: $bold;
+  line-height: 1.4;
+  text-align: center;
+  color: $color-black;
+
+  @include mq("md") {
+    margin-bottom: prem(24);
+    font-size: prem(22);
+  }
+}
+
+.p-price__table {
+  width: clamp(600px, 58vw, 832px);
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+.p-price__th {
+  padding: prem(20) prem(60);
+  border: 1px solid #d9d9d9;
+  font-family: $font-family-primary;
+  font-size: prem(24);
+  font-weight: $medium;
+  line-height: 1.4;
+  text-align: center;
+  color: $color-black;
+  background-color: $primary-yellow;
+
+  @include mq("md") {
+    padding: prem(12) prem(16);
+    font-size: prem(16);
+  }
+}
+
+.p-price__td {
+  padding: prem(20) prem(60);
+  border: 1px solid #d9d9d9;
+  font-family: $font-family-primary;
+  font-size: prem(24);
+  line-height: 1.4;
+  text-align: center;
+  color: $color-black;
+
+  @include mq("md") {
+    padding: prem(12) prem(16);
+    font-size: prem(15);
+  }
+}
+
+.p-price__td--type {
+  font-weight: $medium;
+  background-color: #fffee2;
+}
+
+.p-price__td--cost {
+  font-family: Roboto, sans-serif;
+  font-size: prem(32);
+  font-weight: $semi-bold;
+  background-color: $color-white;
+
+  @include mq("md") {
+    font-size: prem(20);
+  }
+}
