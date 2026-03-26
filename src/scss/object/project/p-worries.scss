@@ -121,7 +121,7 @@
   position: absolute;
   z-index: 0;
   background-color: $color-white;
-  inset: prem(-2) 0 prem(64);
+  inset: prem(-2) prem(-2) prem(64);
   clip-path: polygon(0 0, 100% 0, 100% prem(4), 50% prem(183), 0 prem(4));
   content: "";
 

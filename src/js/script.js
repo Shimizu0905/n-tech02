@@ -74,6 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
   initWorkHistoryFields();
   initQualificationFields();
   initAttachmentFields();
+  initTrustModal();
 });
 
 // FAQアコーディオン
@@ -96,4 +97,29 @@ function initFAQ() {
       toggleFAQ();
     });
   });
+}
+
+// 信頼の証モーダル（SP拡大表示）
+function initTrustModal() {
+  var certImg = document.getElementById('js-trust-cert');
+  var modal = document.getElementById('js-trust-modal');
+  if (!certImg || !modal) return;
+
+  var overlay = modal.querySelector('.p-trust__modal-overlay');
+  var closeBtn = modal.querySelector('.p-trust__modal-close');
+
+  certImg.addEventListener('click', function () {
+    if (window.innerWidth < 768) {
+      modal.classList.add('is-open');
+      document.body.classList.add('no-scroll');
+    }
+  });
+
+  function closeModal() {
+    modal.classList.remove('is-open');
+    document.body.classList.remove('no-scroll');
+  }
+
+  if (overlay) overlay.addEventListener('click', closeModal);
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
 }

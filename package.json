@@ -7,6 +7,7 @@
     "dev": "node node_modules/vite/bin/vite.js --config .config/vite.config.js",
     "copy-images": "rm -rf assets/images && mkdir -p assets/images && cp -r src/images/* assets/images/",
     "build": "npm run lint:css:fix && npm run optimize-images && node node_modules/vite/bin/vite.js build --config .config/vite.config.js && npm run minify:js && npm run minify:css",
+    "build:quick": "node node_modules/vite/bin/vite.js build --config .config/vite.config.js && npm run minify:js && npm run minify:css",
     "minify:js": "node scripts/minify-js.js",
     "minify:css": "node scripts/minify-css.js",
     "preview": "node node_modules/vite/bin/vite.js preview --config .config/vite.config.js",

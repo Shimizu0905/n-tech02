@@ -63,7 +63,7 @@ body {
 
   // 追従フッターの高さ分のpadding-bottom（765px以下）
   @include mq("md") {
-    padding-bottom: prem(58);
+    padding-bottom: prem(52);
   }
 }
 

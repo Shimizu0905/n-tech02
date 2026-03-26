@@ -70,9 +70,9 @@
   flex-shrink: 0;
 
   @include mq("md") {
-    width: prem(36);
-    height: prem(36);
-    font-size: prem(20);
+    width: prem(31);
+    height: prem(31);
+    font-size: prem(16);
   }
 }
 
@@ -86,7 +86,7 @@
   color: $color-black;
 
   @include mq("md") {
-    font-size: prem(18);
+    font-size: clamp(prem(14), 3.8vw, prem(16));
   }
 }
 
@@ -120,9 +120,9 @@
   flex-shrink: 0;
 
   @include mq("md") {
-    width: prem(36);
-    height: prem(36);
-    font-size: prem(20);
+    width: prem(31);
+    height: prem(31);
+    font-size: prem(16);
   }
 }
 
@@ -138,6 +138,6 @@
 
   @include mq("md") {
     padding-top: prem(4);
-    font-size: prem(15);
+    font-size: clamp(prem(12), 3.8vw, prem(15));
   }
 }

@@ -41,12 +41,16 @@
   display: flex;
   align-items: center;
   gap: prem(24);
+
+  @include mq("md") {
+    gap: clamp(prem(16), 4vw, prem(24));
+  }
 }
 
 .p-promise__icon {
-  flex-shrink: 0;
   width: prem(50);
   height: prem(50);
+  flex-shrink: 0;
 }
 
 .p-promise__icon-img {
@@ -65,6 +69,6 @@
   color: $color-black;
 
   @include mq("md") {
-    font-size: prem(16);
+    font-size: clamp(prem(15.5), 3.8vw, prem(18));
   }
 }

@@ -8,6 +8,7 @@
 .p-simulation {
   padding: prem(80) $padding-pc;
   background-color: $color-white;
+  overflow: hidden;
 
   @include mq("md") {
     padding: prem(56) $padding-sp;
@@ -22,10 +23,6 @@
   width: 100%;
   max-width: prem(1180);
   margin: 0 auto;
-
-  @include mq("md") {
-    padding: prem(32) prem(20);
-  }
 }
 
 // スラッシュ区切りのリードテキスト（Thin 64px）
@@ -45,6 +42,11 @@
     margin-bottom: prem(16);
     font-size: prem(36);
   }
+
+  @include mq("sm") {
+    width: clamp(prem(220), 60.3vw, prem(350));
+    margin-bottom: prem(24);
+  }
 }
 
 // スラッシュ
@@ -62,6 +64,7 @@
 
 // グラデーションボタン（オレンジ→黄色）
 .p-simulation__btn {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -70,7 +73,7 @@
   height: prem(131);
   border-radius: prem(8);
   font-family: $font-family-primary;
-  font-size: prem(24);
+  font-size: prem(32);
   font-weight: $bold;
   line-height: 1;
   text-decoration: none;
@@ -84,31 +87,43 @@
   }
 
   @include mq("md") {
-    width: 100%;
+    width: 76.3vw; // 350px時 → 約267px
     height: auto;
-    padding: prem(24) prem(20);
-    font-size: prem(18);
+    font-size: clamp(prem(14), 3.8vw, prem(32));
+    line-height: 1.5;
+    text-align: center;
+    aspect-ratio: 267 / 54;
+  }
+
+  @include mq("sm") {
+    width: 100%;
+    font-size: clamp(prem(14), 4.5vw, prem(32));
   }
 }
 
-// デバイスアイコン（右上配置）
+// デバイスアイコン（ボタン右上に配置）
 .p-simulation__icon {
   position: absolute;
-  top: prem(16);
-  right: prem(40);
+  top: prem(-60);
+  right: prem(-80);
+  pointer-events: none;
 
   @include mq("md") {
-    position: static;
-    margin-top: prem(24);
+    top: prem(-40);
+    right: prem(16);
   }
 }
 
 .p-simulation__icon-img {
   display: block;
-  width: prem(120);
+  width: clamp(prem(120), 14vw, prem(179));
   height: auto;
 
   @include mq("md") {
-    width: prem(100);
+    width: clamp(prem(78), 10vw, prem(100));
+  }
+
+  @include mq("sm") {
+    width: clamp(prem(50), 8vw, prem(100));
   }
 }

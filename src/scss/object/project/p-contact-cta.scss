@@ -29,7 +29,6 @@
 .p-contact-cta__header {
   padding: prem(24) prem(40);
   background-color: $primary-yellow;
-  border-radius: prem(15) prem(15) 0 0;
 
   @include mq("md") {
     padding: prem(16) prem(20);
@@ -69,8 +68,8 @@
   font-weight: $bold;
   line-height: 1;
   text-decoration: none;
-  color: $color-black;
   letter-spacing: 0.02em;
+  color: $color-black;
 
   @include mq("md") {
     font-size: prem(36);
@@ -80,12 +79,12 @@
 .p-contact-cta__hours {
   margin: 0;
   font-family: $font-family-primary;
-  font-size: prem(18);
-  font-weight: $regular;
+  font-size: prem(36);
+  font-weight: $semi-bold;
   line-height: 1.4;
   color: $text-black;
 
   @include mq("md") {
-    font-size: prem(14);
+    font-size: clamp(prem(20), 3.8vw, prem(24));
   }
 }

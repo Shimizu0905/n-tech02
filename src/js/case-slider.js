@@ -33,4 +33,27 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     });
   }
+
+  // 信頼の証モーダル（SP拡大表示）
+  var certImg = document.getElementById('js-trust-cert');
+  var modal = document.getElementById('js-trust-modal');
+  if (certImg && modal) {
+    var overlay = modal.querySelector('.p-trust__modal-overlay');
+    var closeBtn = modal.querySelector('.p-trust__modal-close');
+
+    certImg.addEventListener('click', function () {
+      if (window.innerWidth < 768) {
+        modal.classList.add('is-open');
+        document.body.classList.add('no-scroll');
+      }
+    });
+
+    function closeTrustModal() {
+      modal.classList.remove('is-open');
+      document.body.classList.remove('no-scroll');
+    }
+
+    if (overlay) overlay.addEventListener('click', closeTrustModal);
+    if (closeBtn) closeBtn.addEventListener('click', closeTrustModal);
+  }
 });

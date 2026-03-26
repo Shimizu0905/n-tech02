@@ -41,8 +41,19 @@
 // フィールド行（PC: 横並び、SP: 縦並び）
 .p-contact-form__field {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: prem(7);
+
+  // CF7ラッパー span の幅を統一
+  > .wpcf7-form-control-wrap {
+    flex: 1;
+    width: 100%;
+    max-width: prem(706);
+
+    @include mq("md") {
+      max-width: 100%;
+    }
+  }
 
   @include mq("md") {
     flex-direction: column;
@@ -53,6 +64,7 @@
 
 .p-contact-form__label {
   width: prem(430);
+  margin-top: prem(10);
   font-family: $font-family-primary;
   font-size: prem(24);
   font-weight: $regular;
@@ -67,7 +79,16 @@
 }
 
 .p-contact-form__required {
+  font-family: $font-family-primary;
+  font-size: prem(24);
+  font-weight: $regular;
+  font-style: normal;
+  line-height: normal;
   color: $color-red;
+
+  @include mq("md") {
+    font-size: prem(15);
+  }
 }
 
 // テキスト入力
@@ -99,7 +120,7 @@
   }
 
   @include mq("sm") {
-    min-height: 29px;
+    min-height: prem(29);
   }
 }
 
@@ -117,27 +138,35 @@
     right: 1px;
     z-index: 1;
     width: prem(55);
-    height: calc(100% - 2px);
+    height: prem(52);
     border-radius: 0 prem(8) prem(8) 0;
     background-color: #d9d9d9;
     pointer-events: none;
     content: "";
+
+    @include mq("md") {
+      height: prem(42);
+    }
   }
 
-  // 下向き矢印
+  // 下向き矢印（SVG）
   &::after {
     position: absolute;
-    top: 50%;
+    top: prem(27);
     right: prem(14);
     z-index: 2;
-    width: 0;
-    height: 0;
-    border-width: prem(10) prem(8) 0;
-    border-style: solid;
-    border-color: $color-black transparent transparent;
+    width: prem(30);
+    height: prem(20);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='33' height='19' viewBox='0 0 33 19' fill='none'%3E%3Cpath d='M16.2094 15.5023L30.2977 1.41399L31.0048 2.12109L16.2094 16.9165L1.41406 2.12109L2.12117 1.41399L16.2094 15.5023Z' fill='%23000'/%3E%3Cpath d='M16.2094 15.5023L15.5023 16.2094L16.2094 16.9165L16.9165 16.2094L16.2094 15.5023ZM30.2977 1.41399L31.0048 0.70688L30.2977 -0.000226557L29.5906 0.70688L30.2977 1.41399ZM31.0048 2.12109L31.7119 2.8282L32.419 2.12109L31.7119 1.41399L31.0048 2.12109ZM16.2094 16.9165L15.5023 17.6236L16.2094 18.3307L16.9165 17.6236L16.2094 16.9165ZM1.41406 2.12109L0.706956 1.41399L-0.000151038 2.12109L0.706956 2.8282L1.41406 2.12109ZM2.12117 1.41399L2.82828 0.70688L2.12117 -0.000226557L1.41406 0.70688L2.12117 1.41399ZM16.9165 16.2094L31.0048 2.12109L29.5906 0.70688L15.5023 14.7952L16.9165 16.2094ZM29.5906 2.12109L30.2977 2.8282L31.7119 1.41399L31.0048 0.70688L29.5906 2.12109ZM30.2977 1.41399L15.5023 16.2094L16.9165 17.6236L31.7119 2.8282L30.2977 1.41399ZM16.9165 16.2094L2.12117 1.41399L0.706956 2.8282L15.5023 17.6236L16.9165 16.2094ZM2.12117 2.8282L2.82828 2.12109L1.41406 0.70688L0.706956 1.41399L2.12117 2.8282ZM1.41406 2.12109L15.5023 16.2094L16.9165 14.7952L2.82828 0.70688L1.41406 2.12109Z' fill='%23AEABAB'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
     transform: translateY(-50%);
     pointer-events: none;
     content: "";
+
+    @include mq("md") {
+      top: prem(22);
+    }
   }
 
   @include mq("md") {
@@ -165,10 +194,13 @@
     border-color: $primary-yellow;
   }
 
-  // placeholder色
-  &:invalid,
-  & option[value=""] {
+  // placeholder色（CF7 first_as_label 対応）
+  &:has(option:first-child:checked) {
     color: #aeabab;
+  }
+
+  option {
+    color: $color-black;
   }
 
   @include mq("md") {
@@ -237,15 +269,25 @@
   }
 }
 
-.p-contact-form__radio {
-  width: prem(24);
-  height: prem(24);
+// CF7ラジオ: classはspan.wpcf7-radio に付くため input を直接指定
+.p-contact-form__radio-group input[type="radio"] {
+  width: prem(18);
+  height: prem(18);
+  border: 1px solid #888686;
+  border-radius: 50%;
+  background-color: #d9d9d9;
   cursor: pointer;
-  accent-color: $primary-yellow;
+  appearance: none;
+  flex-shrink: 0;
+
+  &:checked {
+    border-color: #888686;
+    background-color: $color-black;
+  }
 
   @include mq("md") {
-    width: prem(20);
-    height: prem(20);
+    width: prem(16);
+    height: prem(16);
   }
 }
 
@@ -265,7 +307,8 @@
 
   @include mq("md") {
     max-width: 100%;
-    height: prem(180);
+    height: prem(200);
+    max-height: prem(200);
   }
 }
 
@@ -285,32 +328,53 @@
 .p-contact-form__agree {
   display: flex;
   justify-content: center;
-}
-
-.p-contact-form__check-label {
-  display: flex;
   align-items: center;
   gap: prem(12);
+  margin-top: prem(8);
   font-family: $font-family-primary;
-  font-size: prem(24);
-  line-height: 1.36;
+  font-size: clamp(prem(16), 2.5vw, prem(24));
+  font-weight: $regular;
+  font-style: normal;
+  line-height: normal;
   color: $color-black;
   cursor: pointer;
 
+  // CF7 acceptance ラッパー
+  .wpcf7-form-control-wrap {
+    display: flex;
+    align-items: center;
+    gap: prem(12);
+  }
+
+  .wpcf7-acceptance .wpcf7-list-item {
+    margin: 0;
+
+    label {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .wpcf7-list-item-label {
+    margin-left: 1rem;
+    line-height: 1;
+  }
+
+  input[type="checkbox"] {
+    width: prem(24);
+    height: prem(24);
+    cursor: pointer;
+    accent-color: $primary-yellow;
+    flex-shrink: 0;
+
+    @include mq("md") {
+      width: prem(20);
+      height: prem(20);
+    }
+  }
+
   @include mq("md") {
     font-size: prem(16);
-  }
-}
-
-.p-contact-form__checkbox {
-  width: prem(24);
-  height: prem(24);
-  cursor: pointer;
-  accent-color: $primary-yellow;
-
-  @include mq("md") {
-    width: prem(20);
-    height: prem(20);
   }
 }
 
@@ -326,9 +390,9 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  gap: prem(16);
   width: prem(476);
   height: prem(60);
-  padding: 0 prem(60) 0 0;
   border: none;
   border-radius: prem(1000);
   font-family: $font-family-primary;
@@ -340,6 +404,17 @@
   cursor: pointer;
   transition: opacity 0.3s ease;
 
+  &::after {
+    display: block;
+    width: prem(16);
+    height: prem(27);
+    background-image: url("data:image/svg+xml,%3Csvg width='16' height='27' viewBox='0 0 16 27' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.3092 13.0168L1.41399 2.12154L2.12109 1.41444L13.7234 13.0168L2.12109 24.6191L1.41399 23.912L12.3092 13.0168Z' fill='black'/%3E%3Cpath d='M12.3092 13.0168L13.0163 13.7239L13.7234 13.0168L13.0163 12.3097L12.3092 13.0168ZM1.41399 2.12154L0.70688 1.41444L-0.000226557 2.12154L0.70688 2.82865L1.41399 2.12154ZM2.12109 1.41444L2.8282 0.707331L2.12109 0.00022409L1.41399 0.707331L2.12109 1.41444ZM13.7234 13.0168L14.4306 13.7239L15.1377 13.0168L14.4306 12.3097L13.7234 13.0168ZM2.12109 24.6191L1.41399 25.3262L2.12109 26.0334L2.8282 25.3262L2.12109 24.6191ZM1.41399 23.912L0.70688 23.2049L-0.000226557 23.912L0.70688 24.6191L1.41399 23.912ZM13.0163 12.3097L2.12109 1.41444L0.70688 2.82865L11.6021 13.7239L13.0163 12.3097ZM2.12109 2.82865L2.8282 2.12154L1.41399 0.707331L0.70688 1.41444L2.12109 2.82865ZM1.41399 2.12154L13.0163 13.7239L14.4306 12.3097L2.8282 0.707331L1.41399 2.12154ZM13.0163 12.3097L1.41399 23.912L2.8282 25.3262L14.4306 13.7239L13.0163 12.3097ZM2.12109 23.2049L1.41399 23.912L2.8282 25.3262L2.12109 24.6191L2.12109 23.2049ZM2.12109 24.6191L13.0163 13.7239L11.6021 12.3097L0.70688 23.2049L2.12109 24.6191Z' fill='black'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    flex-shrink: 0;
+    content: "";
+  }
+
   &:hover {
     opacity: 0.8;
   }
@@ -349,23 +424,15 @@
     max-width: prem(320);
     height: prem(50);
     font-size: prem(18);
+
+    &::after {
+      width: prem(12);
+      height: prem(20);
+    }
   }
 }
 
-// ボタン内の矢印（>）
-.p-contact-form__btn-arrow {
-  position: absolute;
-  top: 50%;
-  right: prem(40);
-  width: prem(12);
-  height: prem(12);
-  border-top: 2px solid $color-black;
-  border-right: 2px solid $color-black;
-  transform: translateY(-50%) rotate(45deg);
-
-  @include mq("md") {
-    right: prem(24);
-    width: prem(10);
-    height: prem(10);
-  }
+// CF7スピナー非表示
+.wpcf7-spinner {
+  display: none;
 }

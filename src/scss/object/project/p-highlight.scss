@@ -36,6 +36,9 @@
 
 .p-highlight__title {
   margin: 0;
+  line-height: 1.36;
+  text-align: center;
+  color: $color-white;
 }
 
 .p-highlight__text {
@@ -58,8 +61,8 @@
   text-align: center;
   color: $primary-yellow;
 
-  @include mq("md") {
-    margin-top: prem(16);
+  @include mq("lg") {
+    margin-top: 0;
   }
 }
 

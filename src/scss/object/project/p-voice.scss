@@ -6,7 +6,7 @@
 // お客様の声（Figma node 2005:99）
 // ========================================
 .p-voice {
-  padding: prem(80) $padding-pc;
+  padding: prem(80) $padding-pc prem(110);
   background-color: $primary-yellow;
 
   @include mq("md") {
@@ -38,7 +38,7 @@
   padding: 0 prem(60);
 
   @include mq("md") {
-    padding: 0 prem(40);
+    padding: 0;
   }
 }
 
@@ -66,17 +66,25 @@
   }
 
   @include mq("md") {
-    width: prem(32);
-    height: prem(32);
+    width: prem(24);
+    height: prem(24);
   }
 
   &--prev {
     left: 0;
     transform: translateY(-50%) rotate(180deg);
+
+    @include mq("md") {
+      left: prem(-15);
+    }
   }
 
   &--next {
     right: 0;
+
+    @include mq("md") {
+      right: prem(-15);
+    }
   }
 }
 
@@ -87,20 +95,27 @@
   pointer-events: none;
 }
 
-// ページネーション
+// ページネーション（p-works__pagination と同デザイン）
 .p-voice__pagination {
+  position: relative;
+  bottom: auto;
   display: flex;
   justify-content: center;
   gap: prem(12);
   margin-top: prem(24);
 
   .swiper-pagination-bullet {
-    width: prem(12);
-    height: prem(12);
+    width: prem(19);
+    height: prem(19);
     border-radius: 50%;
     background-color: #bbb;
     opacity: 1;
     transition: background-color 0.3s;
+
+    @include mq("md") {
+      width: prem(10);
+      height: prem(10);
+    }
   }
 
   .swiper-pagination-bullet-active {
@@ -114,9 +129,12 @@
 .p-voice__card {
   display: flex;
   flex-direction: column;
-  border-radius: prem(8);
-  background-color: $color-white;
+  min-height: prem(900);
   overflow: hidden;
+
+  @include mq("md") {
+    min-height: prem(580);
+  }
 }
 
 .p-voice__card-img {
@@ -138,6 +156,7 @@
 
 .p-voice__card-body {
   padding: prem(31) prem(54);
+  background-color: $color-white;
 
   @include mq("md") {
     padding: prem(24) prem(20);
@@ -196,15 +215,11 @@
   display: flex;
   gap: prem(13);
   padding: prem(16) 0;
-  border-bottom: 1px solid #d9d9d9;
-
-  &:first-child {
-    border-top: 1px solid #d9d9d9;
-  }
 
   @include mq("md") {
     flex-direction: column;
     gap: prem(4);
+    padding: prem(6) 0;
   }
 }
 

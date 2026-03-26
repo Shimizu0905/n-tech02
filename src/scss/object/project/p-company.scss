@@ -54,6 +54,7 @@
 
   @include mq("md") {
     flex-direction: column;
+    padding: 0;
   }
 }
 
@@ -97,8 +98,13 @@
   overflow: hidden;
 }
 
-.p-company__map-img {
+.p-company__map-iframe {
   display: block;
   width: 100%;
-  height: auto;
+  height: prem(450);
+  border: 0;
+
+  @include mq("md") {
+    height: prem(300);
+  }
 }

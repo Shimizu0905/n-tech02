@@ -7,8 +7,8 @@
 // ========================================
 .p-trust {
   position: relative;
-  overflow: hidden;
   min-height: prem(846);
+  overflow: hidden;
 
   @include mq("md") {
     min-height: auto;
@@ -17,8 +17,8 @@
 
 .p-trust__bg {
   position: absolute;
-  inset: 0;
   z-index: 0;
+  inset: 0;
 }
 
 .p-trust__bg-img {
@@ -43,6 +43,7 @@
 
 .p-trust__title {
   margin: 0 0 prem(40);
+  color: $color-white;
 
   @include mq("md") {
     margin-bottom: prem(24);
@@ -61,20 +62,77 @@
   height: auto;
   max-height: prem(450);
   object-fit: cover;
+
+  @include mq("md") {
+    width: clamp(prem(300), 30vw, prem(450));
+    height: auto;
+    margin: 0 auto;
+    cursor: zoom-in;
+  }
+
+  @include mq("sm") {
+    width: clamp(210px, 20vw, prem(300));
+  }
+}
+
+// モーダル（SP用拡大表示）
+.p-trust__modal {
+  position: fixed;
+  z-index: 9999;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  inset: 0;
+
+  &.is-open {
+    display: flex;
+  }
+}
+
+.p-trust__modal-overlay {
+  position: absolute;
+  background-color: rgb(0 0 0 / 80%);
+  inset: 0;
+}
+
+.p-trust__modal-content {
+  position: relative;
+  z-index: 1;
+  width: 90vw;
+  max-width: prem(700);
+}
+
+.p-trust__modal-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.p-trust__modal-close {
+  position: absolute;
+  top: prem(-40);
+  right: 0;
+  padding: 0;
+  border: none;
+  font-size: prem(32);
+  line-height: 1;
+  color: $color-white;
+  background: none;
+  cursor: pointer;
 }
 
 .p-trust__cert-text {
   margin: 0;
   padding: prem(16) prem(24);
-  background-color: $color-black;
   font-family: $font-family-primary;
   font-size: prem(20);
   font-weight: $medium;
   line-height: 1.6;
   color: $color-white;
+  background-color: $color-black;
 
   @include mq("md") {
-    font-size: prem(14);
     padding: prem(12) prem(16);
+    font-size: prem(14);
   }
 }

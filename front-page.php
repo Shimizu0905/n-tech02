@@ -161,10 +161,15 @@ $page_id = get_the_ID();
         <p class="p-simulation__lead">
           <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/simulation/simulation-lead.svg')); ?>" alt="まずはお気軽に1分でわかる" class="p-simulation__lead-img" loading="lazy" decoding="async">
         </p>
-        <a href="#contact" class="p-simulation__btn">かんたん料金シミュレーション</a>
-        <div class="p-simulation__icon">
-          <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/company/simulation.png')); ?>" alt="" class="p-simulation__icon-img" loading="lazy" decoding="async">
-        </div>
+        <a href="#contact" class="p-simulation__btn">
+          かんたん料金<br class="md-show">シミュレーション
+          <div class="p-simulation__icon">
+            <picture>
+              <source srcset="<?php echo esc_url(get_theme_file_uri('./assets/images/simulation/simulation-sp.png')); ?>" media="(max-width: 768px)">
+              <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/simulation/simulation.png')); ?>" alt="" class="p-simulation__icon-img" loading="lazy" decoding="async">
+            </picture>
+          </div>
+        </a>
       </div>
     </section>
 
@@ -205,7 +210,14 @@ $page_id = get_the_ID();
     <div class="p-trust__inner">
       <h2 class="p-trust__title c-section-title">信頼の証</h2>
       <div class="p-trust__cert">
-        <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/trust/trust-cert.png')); ?>" alt="保有資格・損害賠償保険加入済み証明" class="p-trust__cert-img" loading="lazy" decoding="async">
+        <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/trust/trust-cert.png')); ?>" alt="保有資格・損害賠償保険加入済み証明" class="p-trust__cert-img" loading="lazy" decoding="async" id="js-trust-cert">
+        <div class="p-trust__modal" id="js-trust-modal">
+          <div class="p-trust__modal-overlay"></div>
+          <div class="p-trust__modal-content">
+            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/trust/trust-cert.png')); ?>" alt="保有資格・損害賠償保険加入済み証明" class="p-trust__modal-img">
+            <button type="button" class="p-trust__modal-close" aria-label="閉じる">&times;</button>
+          </div>
+        </div>
         <p class="p-trust__cert-text">保有資格：解体施工技士、石綿作業主任者、アスベスト調査士 等<br>損害賠償保険加入済み</p>
       </div>
     </div>
@@ -297,8 +309,8 @@ $page_id = get_the_ID();
                 </div>
               <?php endwhile; ?>
             </div>
-            <div class="swiper-pagination p-works__pagination"></div>
           </div>
+          <div class="swiper-pagination p-works__pagination"></div>
           <button type="button" class="p-works__arrow p-works__arrow--prev" aria-label="前へ">
             <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/common/arrow-black.svg')); ?>" alt="" class="p-works__arrow-img" width="43" height="43" decoding="async">
           </button>
@@ -370,11 +382,7 @@ $page_id = get_the_ID();
             <dt class="p-company__label">ア ク セ ス</dt>
             <dd class="p-company__value"><?php echo esc_html($company_access ?: '小岩駅北口より徒歩9分'); ?>
               <div class="p-company__map">
-                <?php if ($company_map) : ?>
-                  <?php echo wp_get_attachment_image($company_map, 'large', false, ['class' => 'p-company__map-img', 'alt' => 'アクセスマップ', 'loading' => 'lazy', 'decoding' => 'async']); ?>
-                <?php else : ?>
-                  <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/company/map.png')); ?>" alt="アクセスマップ" class="p-company__map-img" loading="lazy" decoding="async">
-                <?php endif; ?>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3238.486986482408!2d139.87623857608264!3d35.73883342680722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601885dcec725577%3A0x952c3b53534067d5!2z44CSMTMzLTAwNTcg5p2x5Lqs6YO95rGf5oi45bed5Yy66KW_5bCP5bKp77yU5LiB55uu77yV4oiS77yRIOajrueUsOeojueQhuWjq-S6i-WLmeaJgA!5e0!3m2!1sja!2sjp!4v1774499697726!5m2!1sja!2sjp" class="p-company__map-iframe" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
               </div>
             </dd>
           </div>
@@ -469,8 +477,8 @@ $page_id = get_the_ID();
               </div>
             <?php endwhile; ?>
           </div>
-          <div class="swiper-pagination p-voice__pagination"></div>
         </div>
+        <div class="swiper-pagination p-voice__pagination"></div>
         <button type="button" class="p-voice__arrow p-voice__arrow--prev" aria-label="前へ">
           <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/common/arrow-black.svg')); ?>" alt="" class="p-voice__arrow-img" width="43" height="43" decoding="async">
         </button>
@@ -523,13 +531,13 @@ $page_id = get_the_ID();
   <section class="p-flow">
     <div class="p-flow__inner">
       <div class="p-flow__header">
-        <h2 class="p-flow__title c-section-title"><span>完工までの</span><br><span>安心の6ステップ</span></h2>
+        <h2 class="p-flow__title c-section-title"><span>完工までの安心の</span><span>6ステップ</span></h2>
         <p class="p-flow__lead">お客様に動いていただく時間は最小限に留めます。<br>手続きのストレスなく、更地までスムーズに進めるための流れです。</p>
       </div>
       <div class="p-flow__list">
         <div class="p-flow__item">
           <div class="p-flow__item-img">
-            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/flow/step-01.png')); ?>" alt="" class="p-flow__img" loading="lazy" decoding="async">
+            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/step/step-01.png')); ?>" alt="" class="p-flow__img" loading="lazy" decoding="async">
           </div>
           <div class="p-flow__item-body">
             <span class="p-flow__step-label">STEP 01</span>
@@ -540,7 +548,7 @@ $page_id = get_the_ID();
         <div class="p-flow__arrow" aria-hidden="true"></div>
         <div class="p-flow__item">
           <div class="p-flow__item-img">
-            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/flow/step-02.png')); ?>" alt="" class="p-flow__img" loading="lazy" decoding="async">
+            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/step/step-02.png')); ?>" alt="" class="p-flow__img" loading="lazy" decoding="async">
           </div>
           <div class="p-flow__item-body">
             <span class="p-flow__step-label">STEP 02</span>
@@ -551,7 +559,7 @@ $page_id = get_the_ID();
         <div class="p-flow__arrow" aria-hidden="true"></div>
         <div class="p-flow__item">
           <div class="p-flow__item-img">
-            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/flow/step-03.png')); ?>" alt="" class="p-flow__img" loading="lazy" decoding="async">
+            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/step/step-03.png')); ?>" alt="" class="p-flow__img" loading="lazy" decoding="async">
           </div>
           <div class="p-flow__item-body">
             <span class="p-flow__step-label">STEP 03</span>
@@ -562,7 +570,7 @@ $page_id = get_the_ID();
         <div class="p-flow__arrow" aria-hidden="true"></div>
         <div class="p-flow__item">
           <div class="p-flow__item-img">
-            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/flow/step-04.png')); ?>" alt="" class="p-flow__img" loading="lazy" decoding="async">
+            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/step/step-04.png')); ?>" alt="" class="p-flow__img" loading="lazy" decoding="async">
           </div>
           <div class="p-flow__item-body">
             <span class="p-flow__step-label">STEP 04</span>
@@ -573,7 +581,7 @@ $page_id = get_the_ID();
         <div class="p-flow__arrow" aria-hidden="true"></div>
         <div class="p-flow__item">
           <div class="p-flow__item-img">
-            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/flow/step-05.png')); ?>" alt="" class="p-flow__img" loading="lazy" decoding="async">
+            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/step/step-05.png')); ?>" alt="" class="p-flow__img" loading="lazy" decoding="async">
           </div>
           <div class="p-flow__item-body">
             <span class="p-flow__step-label">STEP 05</span>
@@ -584,7 +592,7 @@ $page_id = get_the_ID();
         <div class="p-flow__arrow" aria-hidden="true"></div>
         <div class="p-flow__item">
           <div class="p-flow__item-img">
-            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/flow/step-06.png')); ?>" alt="" class="p-flow__img" loading="lazy" decoding="async">
+            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/step/step-06.png')); ?>" alt="" class="p-flow__img" loading="lazy" decoding="async">
           </div>
           <div class="p-flow__item-body">
             <span class="p-flow__step-label">STEP 06</span>
@@ -600,126 +608,7 @@ $page_id = get_the_ID();
   <section class="p-contact-form" id="contact">
     <div class="p-contact-form__inner">
       <h2 class="p-contact-form__title c-section-title">お問い合わせフォーム</h2>
-      <form class="p-contact-form__form" method="post" action="">
-        <div class="p-contact-form__field">
-          <label class="p-contact-form__label">ご相談内容をお選びください <span class="p-contact-form__required">*</span></label>
-          <div class="p-contact-form__select-wrap">
-            <select name="inquiry_type" class="p-contact-form__select" required>
-              <option value="">ご相談内容を選択</option>
-              <option value="subsidy">補助金について</option>
-              <option value="asbestos">アスベスト調査</option>
-              <option value="demolition">解体工事</option>
-              <option value="other">その他</option>
-            </select>
-          </div>
-        </div>
-        <div class="p-contact-form__field">
-          <label class="p-contact-form__label">貴社名（法人の場合のみ必須）</label>
-          <input type="text" name="company" class="p-contact-form__input">
-        </div>
-        <div class="p-contact-form__field">
-          <label class="p-contact-form__label">お名前 <span class="p-contact-form__required">*</span></label>
-          <input type="text" name="name" class="p-contact-form__input" required>
-        </div>
-        <div class="p-contact-form__field">
-          <label class="p-contact-form__label">メールアドレス <span class="p-contact-form__required">*</span></label>
-          <input type="email" name="email" class="p-contact-form__input" required>
-        </div>
-        <div class="p-contact-form__field">
-          <label class="p-contact-form__label">お電話番号 <span class="p-contact-form__required">*</span></label>
-          <input type="tel" name="tel" class="p-contact-form__input" required>
-        </div>
-        <div class="p-contact-form__field">
-          <label class="p-contact-form__label">物件の所在地（市区町村までで可）<span class="p-contact-form__required">*</span></label>
-          <input type="text" name="location" class="p-contact-form__input" required>
-        </div>
-        <div class="p-contact-form__field">
-          <label class="p-contact-form__label">物件の構造 <span class="p-contact-form__required">*</span></label>
-          <div class="p-contact-form__select-wrap">
-            <select name="structure" class="p-contact-form__select" required>
-              <option value="">物件の構造を選択</option>
-              <option value="wood">木造</option>
-              <option value="steel">鉄骨造</option>
-              <option value="rc">ＲＣ造</option>
-            </select>
-          </div>
-        </div>
-        <div class="p-contact-form__field">
-          <label class="p-contact-form__label">解体予定時期 <span class="p-contact-form__required">*</span></label>
-          <div class="p-contact-form__select-wrap">
-            <select name="schedule" class="p-contact-form__select" required>
-              <option value="">解体予定時期を選択</option>
-              <option value="asap">できるだけ早く</option>
-              <option value="3months">3ヶ月以内</option>
-              <option value="6months">6ヶ月以内</option>
-              <option value="1year">1年以内</option>
-              <option value="undecided">未定</option>
-            </select>
-          </div>
-        </div>
-        <div class="p-contact-form__field">
-          <label class="p-contact-form__label">他社見積もりの有無 <span class="p-contact-form__required">*</span></label>
-          <div class="p-contact-form__radio-group">
-            <label class="p-contact-form__radio-label">
-              <input type="radio" name="other_estimate" value="yes" class="p-contact-form__radio">あり
-            </label>
-            <label class="p-contact-form__radio-label">
-              <input type="radio" name="other_estimate" value="no" class="p-contact-form__radio">なし
-            </label>
-          </div>
-        </div>
-        <div class="p-contact-form__field">
-          <label class="p-contact-form__label">※上記で「あり」を選択した場合<br>実行予算の範囲内で施工可能か<br>確認を希望しますか？</label>
-          <div class="p-contact-form__radio-group">
-            <label class="p-contact-form__radio-label">
-              <input type="radio" name="budget_check" value="yes" class="p-contact-form__radio">はい
-            </label>
-            <label class="p-contact-form__radio-label">
-              <input type="radio" name="budget_check" value="no" class="p-contact-form__radio">いいえ
-            </label>
-          </div>
-        </div>
-        <div class="p-contact-form__field">
-          <label class="p-contact-form__label">ご相談内容 <span class="p-contact-form__required">*</span></label>
-          <textarea name="inquiry" class="p-contact-form__textarea" placeholder="「補助金診断を希望」「アスベスト調査の相談」「狭小地のため現地を見てほしい」など。" required></textarea>
-        </div>
-        <div class="p-contact-form__field">
-          <label class="p-contact-form__label">ご希望の連絡方法</label>
-          <div class="p-contact-form__radio-group">
-            <label class="p-contact-form__radio-label">
-              <input type="radio" name="contact_method" value="tel" class="p-contact-form__radio">電話
-            </label>
-            <label class="p-contact-form__radio-label">
-              <input type="radio" name="contact_method" value="email" class="p-contact-form__radio">メール
-            </label>
-            <label class="p-contact-form__radio-label">
-              <input type="radio" name="contact_method" value="online" class="p-contact-form__radio">オンライン面談
-            </label>
-          </div>
-        </div>
-        <div class="p-contact-form__field">
-          <label class="p-contact-form__label">事前のご要望</label>
-          <textarea name="request" class="p-contact-form__textarea" placeholder="ご希望の時間帯や、オンライン面談ツール等ございましたらご自由にご記入ください。"></textarea>
-        </div>
-        <div class="p-contact-form__field p-contact-form__field--privacy">
-          <label class="p-contact-form__label">プライバシーポリシーへの同意 <span class="p-contact-form__required">*</span></label>
-          <div class="p-contact-form__privacy-box">
-            <p class="p-contact-form__privacy-text">株式会社N-tech（以下，「当社」といいます。）は，本ウェブサイト上で提供するサービス（以下,「本サービス」といいます。）における，ユーザーの個人情報の取扱いについて，以下のとおりプライバシーポリシー（以下，「本ポリシー」といいます。）を定めます。</p>
-          </div>
-        </div>
-        <div class="p-contact-form__agree">
-          <label class="p-contact-form__check-label">
-            <input type="checkbox" name="privacy" class="p-contact-form__checkbox" required>
-            プライバシーポリシーに同意します。
-          </label>
-        </div>
-        <div class="p-contact-form__submit">
-          <button type="submit" class="p-contact-form__btn">
-            送信する
-            <span class="p-contact-form__btn-arrow" aria-hidden="true"></span>
-          </button>
-        </div>
-      </form>
+      <?php echo do_shortcode('[contact-form-7 id="99d556f" title="お問い合わせ"]'); ?>
     </div>
   </section>
 </main>

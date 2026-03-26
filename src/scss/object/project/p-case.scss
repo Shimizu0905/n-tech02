@@ -38,7 +38,7 @@
   padding: 0 prem(60);
 
   @include mq("md") {
-    padding: 0 prem(40);
+    padding: 0;
   }
 }
 
@@ -66,17 +66,25 @@
   }
 
   @include mq("md") {
-    width: prem(36);
-    height: prem(36);
+    width: prem(24);
+    height: prem(24);
   }
 
   &--prev {
     left: 0;
     transform: translateY(-50%) rotate(180deg);
+
+    @include mq("md") {
+      left: prem(-15);
+    }
   }
 
   &--next {
     right: 0;
+
+    @include mq("md") {
+      right: prem(-15);
+    }
   }
 }
 
@@ -103,6 +111,11 @@
     background-color: #bbb;
     opacity: 1;
     transition: background-color 0.3s;
+
+    @include mq("md") {
+      width: prem(10);
+      height: prem(10);
+    }
   }
 
   .swiper-pagination-bullet-active {
@@ -114,10 +127,17 @@
 // カード（1スライド = 1 article）
 // ----------------------------------------
 .p-works__item {
+  display: flex;
+  flex-direction: column;
   width: 100%;
+  min-height: prem(620);
   border-radius: prem(8);
   background-color: $color-white;
   overflow: hidden;
+
+  @include mq("md") {
+    min-height: prem(350);
+  }
 }
 
 // 着工前・完工 画像
@@ -162,11 +182,12 @@
 
 // 情報テーブル
 .p-works__info {
-  margin: 0;
+  width: fit-content;
+  margin: 0 auto;
   padding: prem(32) prem(40);
 
   @include mq("md") {
-    padding: prem(24) prem(20);
+    padding: prem(11);
   }
 }
 
@@ -174,10 +195,9 @@
   display: flex;
   gap: prem(16);
   padding: prem(12) 0;
-  border-bottom: 1px solid #d9d9d9;
 
-  &:first-child {
-    border-top: 1px solid #d9d9d9;
+  @include mq("md") {
+    padding: 0;
   }
 }
 
