@@ -3,7 +3,7 @@
 @use "../../foundation/mixin" as *;
 
 // ========================================
-// お問い合わせフォーム（Figma node 2066:200）
+// お問い合わせフォーム（Figma node 2083:145）
 // ========================================
 .p-contact-form {
   padding: prem(80) $padding-pc prem(100);
@@ -16,21 +16,14 @@
 
 .p-contact-form__inner {
   width: 100%;
-  max-width: prem(900);
+  max-width: prem(1143);
   margin: 0 auto;
 }
 
 .p-contact-form__title {
   margin: 0 0 prem(48);
-  font-family: $font-family-primary;
-  font-size: prem(32);
-  font-weight: $bold;
-  line-height: 1.4;
-  text-align: left;
-  color: $color-black;
 
   @include mq("md") {
-    font-size: prem(22);
     margin-bottom: prem(32);
   }
 }
@@ -38,23 +31,37 @@
 .p-contact-form__form {
   display: flex;
   flex-direction: column;
-  gap: prem(24);
+  gap: prem(39);
+
+  @include mq("md") {
+    gap: prem(24);
+  }
 }
 
+// フィールド行（PC: 横並び、SP: 縦並び）
 .p-contact-form__field {
   display: flex;
-  flex-direction: column;
-  gap: prem(8);
+  align-items: center;
+  gap: prem(7);
+
+  @include mq("md") {
+    flex-direction: column;
+    align-items: stretch;
+    gap: prem(8);
+  }
 }
 
 .p-contact-form__label {
+  width: prem(430);
   font-family: $font-family-primary;
-  font-size: prem(18);
-  font-weight: $medium;
-  line-height: 1.5;
+  font-size: prem(24);
+  font-weight: $regular;
+  line-height: 1.36;
   color: $color-black;
+  flex-shrink: 0;
 
   @include mq("md") {
+    width: auto;
     font-size: prem(15);
   }
 }
@@ -63,87 +70,133 @@
   color: $color-red;
 }
 
+// テキスト入力
 .p-contact-form__input {
+  flex: 1;
   width: 100%;
-  padding: prem(16) prem(20);
-  border: 1px solid #d9d9d9;
+  max-width: prem(706);
+  height: prem(54);
+  padding: 0 prem(20);
+  border: 1px solid #aeabab;
   border-radius: prem(8);
   font-family: $font-family-primary;
-  font-size: prem(16);
-  line-height: 1.5;
+  font-size: prem(24);
+  line-height: 1.36;
   color: $color-black;
   background-color: $color-white;
-  appearance: none;
-  outline: none;
   transition: border-color 0.2s ease;
+  outline: none;
 
   &:focus {
     border-color: $primary-yellow;
   }
 
   @include mq("md") {
-    padding: prem(12) prem(16);
+    max-width: 100%;
+    height: prem(44);
+    min-height: 39px;
+    font-size: prem(16);
+  }
+
+  @include mq("sm") {
+    min-height: 29px;
   }
 }
 
+// セレクト
 .p-contact-form__select-wrap {
   position: relative;
+  flex: 1;
+  width: 100%;
+  max-width: prem(706);
 
+  // グレー背景の矢印エリア
+  &::before {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    z-index: 1;
+    width: prem(55);
+    height: calc(100% - 2px);
+    border-radius: 0 prem(8) prem(8) 0;
+    background-color: #d9d9d9;
+    pointer-events: none;
+    content: "";
+  }
+
+  // 下向き矢印
   &::after {
-    content: '';
     position: absolute;
     top: 50%;
-    right: prem(20);
-    width: prem(10);
-    height: prem(6);
-    background-color: $color-black;
-    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    right: prem(14);
+    z-index: 2;
+    width: 0;
+    height: 0;
+    border-width: prem(10) prem(8) 0;
+    border-style: solid;
+    border-color: $color-black transparent transparent;
     transform: translateY(-50%);
     pointer-events: none;
+    content: "";
+  }
+
+  @include mq("md") {
+    max-width: 100%;
   }
 }
 
 .p-contact-form__select {
   width: 100%;
-  padding: prem(16) prem(48) prem(16) prem(20);
-  border: 1px solid #d9d9d9;
+  height: prem(54);
+  padding: 0 prem(65) 0 prem(20);
+  border: 1px solid #aeabab;
   border-radius: prem(8);
   font-family: $font-family-primary;
-  font-size: prem(16);
-  line-height: 1.5;
+  font-size: prem(24);
+  line-height: 1.36;
   color: $color-black;
   background-color: $color-white;
-  appearance: none;
-  outline: none;
   cursor: pointer;
   transition: border-color 0.2s ease;
+  outline: none;
+  appearance: none;
 
   &:focus {
     border-color: $primary-yellow;
   }
 
+  // placeholder色
+  &:invalid,
+  & option[value=""] {
+    color: #aeabab;
+  }
+
   @include mq("md") {
-    padding: prem(12) prem(40) prem(12) prem(16);
+    height: prem(44);
+    font-size: prem(16);
   }
 }
 
+// テキストエリア
 .p-contact-form__textarea {
+  flex: 1;
   width: 100%;
-  min-height: prem(140);
-  padding: prem(16) prem(20);
-  border: 1px solid #d9d9d9;
+  max-width: prem(706);
+  min-height: prem(300);
+  padding: prem(15) prem(23);
+  border: 1px solid #aeabab;
   border-radius: prem(8);
   font-family: $font-family-primary;
-  font-size: prem(16);
-  line-height: 1.7;
+  font-size: prem(24);
+  line-height: 1.36;
   color: $color-black;
   background-color: $color-white;
-  resize: vertical;
-  outline: none;
   transition: border-color 0.2s ease;
+  outline: none;
+  resize: vertical;
 
   &::placeholder {
-    color: #aaa;
+    color: #5e5e5e;
   }
 
   &:focus {
@@ -151,52 +204,117 @@
   }
 
   @include mq("md") {
-    padding: prem(12) prem(16);
+    max-width: 100%;
+    min-height: prem(160);
+    font-size: prem(16);
   }
 }
 
+// ラジオボタン
 .p-contact-form__radio-group {
   display: flex;
-  flex-wrap: wrap;
-  gap: prem(24);
+  align-items: center;
+  gap: prem(43);
+
+  @include mq("md") {
+    gap: prem(24);
+  }
 }
 
 .p-contact-form__radio-label {
   display: flex;
   align-items: center;
-  gap: prem(8);
+  gap: prem(25);
   font-family: $font-family-primary;
-  font-size: prem(16);
-  line-height: 1.5;
+  font-size: prem(24);
+  line-height: 1.36;
   color: $color-black;
   cursor: pointer;
+
+  @include mq("md") {
+    gap: prem(8);
+    font-size: prem(16);
+  }
 }
 
 .p-contact-form__radio {
-  width: prem(20);
-  height: prem(20);
-  accent-color: $primary-yellow;
+  width: prem(24);
+  height: prem(24);
   cursor: pointer;
+  accent-color: $primary-yellow;
+
+  @include mq("md") {
+    width: prem(20);
+    height: prem(20);
+  }
+}
+
+// プライバシーポリシー
+.p-contact-form__field--privacy {
+  align-items: flex-start;
+}
+
+.p-contact-form__privacy-box {
+  flex: 1;
+  max-width: prem(706);
+  height: prem(257);
+  padding: prem(15) prem(23);
+  border: 1px solid #aeabab;
+  border-radius: prem(8);
+  overflow-y: auto;
+
+  @include mq("md") {
+    max-width: 100%;
+    height: prem(180);
+  }
+}
+
+.p-contact-form__privacy-text {
+  margin: 0;
+  font-family: $font-family-primary;
+  font-size: prem(24);
+  line-height: 1.36;
+  color: #5e5e5e;
+
+  @include mq("md") {
+    font-size: prem(14);
+  }
+}
+
+// 同意チェック
+.p-contact-form__agree {
+  display: flex;
+  justify-content: center;
 }
 
 .p-contact-form__check-label {
   display: flex;
   align-items: center;
-  gap: prem(8);
+  gap: prem(12);
   font-family: $font-family-primary;
-  font-size: prem(16);
-  line-height: 1.5;
+  font-size: prem(24);
+  line-height: 1.36;
   color: $color-black;
   cursor: pointer;
+
+  @include mq("md") {
+    font-size: prem(16);
+  }
 }
 
 .p-contact-form__checkbox {
-  width: prem(20);
-  height: prem(20);
-  accent-color: $primary-yellow;
+  width: prem(24);
+  height: prem(24);
   cursor: pointer;
+  accent-color: $primary-yellow;
+
+  @include mq("md") {
+    width: prem(20);
+    height: prem(20);
+  }
 }
 
+// 送信ボタン
 .p-contact-form__submit {
   display: flex;
   justify-content: center;
@@ -204,16 +322,21 @@
 }
 
 .p-contact-form__btn {
-  display: inline-block;
-  padding: prem(20) prem(80);
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: prem(476);
+  height: prem(60);
+  padding: 0 prem(60) 0 0;
   border: none;
   border-radius: prem(1000);
-  background-color: $primary-yellow;
   font-family: $font-family-primary;
-  font-size: prem(20);
-  font-weight: $bold;
+  font-size: prem(24);
+  font-weight: $medium;
   line-height: 1;
   color: $color-black;
+  background-color: $primary-yellow;
   cursor: pointer;
   transition: opacity 0.3s ease;
 
@@ -222,7 +345,27 @@
   }
 
   @include mq("md") {
-    padding: prem(16) prem(48);
-    font-size: prem(16);
+    width: 100%;
+    max-width: prem(320);
+    height: prem(50);
+    font-size: prem(18);
+  }
+}
+
+// ボタン内の矢印（>）
+.p-contact-form__btn-arrow {
+  position: absolute;
+  top: 50%;
+  right: prem(40);
+  width: prem(12);
+  height: prem(12);
+  border-top: 2px solid $color-black;
+  border-right: 2px solid $color-black;
+  transform: translateY(-50%) rotate(45deg);
+
+  @include mq("md") {
+    right: prem(24);
+    width: prem(10);
+    height: prem(10);
   }
 }

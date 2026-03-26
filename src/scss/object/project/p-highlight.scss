@@ -36,15 +36,6 @@
 
 .p-highlight__title {
   margin: 0;
-  font-family: $font-family-primary;
-  font-size: clamp(prem(28), 2.5vw, prem(32));
-  font-weight: $bold;
-  line-height: 1.4;
-  text-align: center;
-
-  @include mq("md") {
-    font-size: prem(24);
-  }
 }
 
 .p-highlight__text {

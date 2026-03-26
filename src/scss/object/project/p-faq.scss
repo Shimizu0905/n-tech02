@@ -22,16 +22,9 @@
 
 .p-faq__title {
   margin: 0 0 prem(48);
-  font-family: $font-family-primary;
-  font-size: prem(32);
-  font-weight: $bold;
-  line-height: 1.36;
-  text-align: center;
-  color: $color-white;
 
   @include mq("md") {
     margin-bottom: prem(32);
-    font-size: prem(24);
   }
 }
 
@@ -57,7 +50,7 @@
 
   @include mq("md") {
     gap: prem(12);
-    padding: prem(16) prem(16);
+    padding: prem(16);
   }
 }
 
@@ -87,7 +80,7 @@
   flex: 1;
   margin: 0;
   font-family: $font-family-primary;
-  font-size: prem(32);
+  font-size: clamp(prem(24), 2.5vw, prem(32));
   font-weight: $medium;
   line-height: 1.36;
   color: $color-black;
@@ -107,7 +100,7 @@
 
   @include mq("md") {
     gap: prem(12);
-    padding: prem(16) prem(16);
+    padding: prem(16);
   }
 }
 
@@ -138,7 +131,7 @@
   margin: 0;
   padding-top: prem(8);
   font-family: $font-family-primary;
-  font-size: prem(24);
+  font-size: clamp(prem(16), 2.5vw, prem(24));
   font-weight: $regular;
   line-height: 1.36;
   color: $color-black;

@@ -43,15 +43,8 @@
 
 .p-trust__title {
   margin: 0 0 prem(40);
-  font-family: $font-family-primary;
-  font-size: prem(32);
-  font-weight: $bold;
-  line-height: 1.4;
-  text-align: center;
-  color: $color-white;
 
   @include mq("md") {
-    font-size: prem(24);
     margin-bottom: prem(24);
   }
 }

@@ -22,16 +22,9 @@
 
 .p-promise__title {
   margin: 0 0 prem(40);
-  font-family: $font-family-primary;
-  font-size: prem(32);
-  font-weight: $bold;
-  line-height: 1.4;
-  text-align: center;
-  color: $color-black;
 
   @include mq("md") {
     margin-bottom: prem(28);
-    font-size: prem(24);
   }
 }
 

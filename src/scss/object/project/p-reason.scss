@@ -26,16 +26,9 @@
 
 .p-reason__title {
   margin: 0 0 prem(48);
-  font-family: $font-family-primary;
-  font-size: prem(32);
-  font-weight: $bold;
-  line-height: 1;
-  text-align: center;
-  color: $color-white;
 
   @include mq("md") {
     margin-bottom: prem(32);
-    font-size: prem(24);
   }
 }
 

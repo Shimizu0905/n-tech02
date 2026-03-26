@@ -3,11 +3,11 @@
 @use "../../foundation/mixin" as *;
 
 // ========================================
-// 完工までの安心の6ステップ（Figma node 2066:55）
+// 完工までの安心の6ステップ（Figma node 2006:123）
 // ========================================
 .p-flow {
   padding: prem(80) $padding-pc;
-  background-color: $color-black;
+  background-color: $primary-yellow;
 
   @include mq("md") {
     padding: prem(56) $padding-sp;
@@ -16,41 +16,132 @@
 
 .p-flow__inner {
   width: 100%;
-  max-width: prem(1180);
+  max-width: prem(1216);
   margin: 0 auto;
 }
 
 .p-flow__header {
-  margin-bottom: prem(48);
+  display: flex;
+  flex-direction: column;
+  gap: prem(64);
+  max-width: prem(740);
+  margin: 0 auto prem(71);
 
   @include mq("md") {
-    margin-bottom: prem(32);
+    gap: prem(24);
+    margin-bottom: prem(40);
   }
 }
 
 .p-flow__title {
-  margin: 0 0 prem(16);
-  font-family: $font-family-primary;
-  font-size: prem(32);
-  font-weight: $bold;
-  line-height: 1.4;
-  text-align: center;
-  color: $color-white;
+  margin: 0;
 
-  @include mq("md") {
-    margin-bottom: prem(12);
-    font-size: prem(24);
+  > br {
+    display: none;
+
+    @include mq("md") {
+      display: block;
+    }
   }
 }
 
 .p-flow__lead {
   margin: 0;
   font-family: $font-family-primary;
-  font-size: prem(18);
+  font-size: prem(24);
   font-weight: $regular;
-  line-height: 1.7;
+  line-height: 1.58;
   text-align: center;
-  color: $color-white;
+  color: $color-black;
+
+  @include mq("md") {
+    font-size: prem(15);
+  }
+}
+
+// ステップ一覧
+.p-flow__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: prem(9);
+}
+
+// 各ステップカード
+.p-flow__item {
+  display: flex;
+  align-items: center;
+  gap: prem(90);
+  width: 100%;
+  max-width: prem(1180);
+  padding: prem(28) prem(44);
+  background-color: $color-white;
+
+  @include mq("md") {
+    flex-direction: column;
+    gap: prem(16);
+    padding: prem(24) prem(20);
+    text-align: center;
+  }
+}
+
+.p-flow__item-img {
+  width: prem(100);
+  height: prem(100);
+  flex-shrink: 0;
+
+  @include mq("md") {
+    display: none;
+  }
+}
+
+.p-flow__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.p-flow__item-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: prem(9);
+}
+
+.p-flow__step-label {
+  margin: 0;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: prem(32);
+  font-weight: $bold;
+  line-height: 1.17;
+  color: $primary-yellow;
+
+  @include mq("md") {
+    font-size: prem(20);
+  }
+}
+
+.p-flow__item-title {
+  margin: 0;
+  font-family: $font-family-primary;
+  font-size: prem(32);
+  font-weight: $medium;
+  line-height: 1.36;
+  color: $color-black;
+
+  @include mq("md") {
+    font-size: prem(20);
+  }
+}
+
+.p-flow__item-text {
+  margin: 0;
+  font-family: $font-family-primary;
+  font-size: prem(20);
+  font-weight: $regular;
+  line-height: 1.6;
+  color: $color-black;
 
   @include mq("md") {
     font-size: prem(14);
@@ -58,104 +149,21 @@
   }
 }
 
-.p-flow__list {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-.p-flow__item {
-  display: flex;
-  align-items: center;
-  gap: prem(48);
-  padding: prem(32) prem(40);
-  border-radius: prem(8);
-  background-color: $color-white;
-
-  @include mq("md") {
-    flex-direction: column;
-    gap: prem(16);
-    padding: prem(24) prem(20);
-  }
-}
-
-.p-flow__item-img {
-  width: prem(200);
-  flex-shrink: 0;
-
-  @include mq("md") {
-    width: 100%;
-    max-width: prem(240);
-  }
-}
-
-.p-flow__img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.p-flow__item-body {
-  flex: 1;
-}
-
-.p-flow__step-label {
-  display: inline-block;
-  margin-bottom: prem(8);
-  padding: prem(4) prem(12);
-  border-radius: prem(4);
-  background-color: $primary-yellow;
-  font-family: $font-family-primary;
-  font-size: prem(14);
-  font-weight: $bold;
-  line-height: 1;
-  letter-spacing: 0.08em;
-  color: $color-black;
-
-  @include mq("md") {
-    font-size: prem(12);
-  }
-}
-
-.p-flow__item-title {
-  margin: 0 0 prem(8);
-  font-family: $font-family-primary;
-  font-size: prem(22);
-  font-weight: $bold;
-  line-height: 1.4;
-  color: $color-black;
-
-  @include mq("md") {
-    font-size: prem(18);
-  }
-}
-
-.p-flow__item-text {
-  margin: 0;
-  font-family: $font-family-primary;
-  font-size: prem(16);
-  font-weight: $regular;
-  line-height: 1.7;
-  color: $text-black;
-
-  @include mq("md") {
-    font-size: prem(14);
-  }
-}
-
+// 矢印（黒三角）
 .p-flow__arrow {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: prem(32);
+  width: prem(40);
+  height: prem(40);
 
   &::after {
-    content: '';
     display: block;
-    width: 0;
-    height: 0;
-    border-width: prem(16) prem(20) 0;
-    border-style: solid;
-    border-color: $primary-yellow transparent transparent;
+    width: prem(35);
+    height: prem(30);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='35' height='30' viewBox='0 0 35 30' fill='none'%3E%3Cpath d='M17.3203 30L-0.000195742 -3.26266e-06L34.6408 -2.34249e-07L17.3203 30Z' fill='black'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    content: "";
   }
 }

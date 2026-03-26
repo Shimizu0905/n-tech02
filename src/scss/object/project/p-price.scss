@@ -32,16 +32,9 @@
 
 .p-price__title {
   margin: 0 0 prem(40);
-  font-family: $font-family-primary;
-  font-size: prem(32);
-  font-weight: $bold;
-  line-height: 1.4;
-  text-align: center;
-  color: $color-black;
 
   @include mq("md") {
     margin-bottom: prem(24);
-    font-size: prem(22);
   }
 }
 
@@ -49,6 +42,10 @@
   width: clamp(600px, 58vw, 832px);
   margin: 0 auto;
   border-collapse: collapse;
+
+  @include mq("md") {
+    width: 100%;
+  }
 }
 
 .p-price__th {

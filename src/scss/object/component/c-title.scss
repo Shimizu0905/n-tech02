@@ -1,15 +1,25 @@
-@use '../../foundation' as *;
+@use "../../foundation/variables" as *;
+@use "../../foundation/functions" as *;
+@use "../../foundation/mixin" as *;
 
+// ========================================
+// 共通セクションタイトル
+// ========================================
 .c-section-title {
+  margin: 0;
+  font-family: $font-family-primary;
   font-size: prem(32);
-  font-weight: $medium;
-  line-height: 1.6;
+  font-weight: $bold;
+  line-height: 1.36;
+  text-align: center;
+  color: $color-black;
 
   @include mq("md") {
-    font-size: 5vw;
+    font-size: prem(24);
   }
 
-  @include mq("sm") {
-    font-size: 6.4vw;
+  // 白文字（黒背景セクション用）
+  &--white {
+    color: $color-white;
   }
-} 
+}

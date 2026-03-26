@@ -22,16 +22,9 @@
 
 .p-company__title {
   margin: 0 0 prem(48);
-  font-family: $font-family-primary;
-  font-size: prem(32);
-  font-weight: $bold;
-  line-height: 1.4;
-  text-align: center;
-  color: $color-black;
 
   @include mq("md") {
     margin-bottom: prem(32);
-    font-size: prem(24);
   }
 }
 
@@ -86,7 +79,7 @@
   flex: 1;
   padding: prem(20) prem(24);
   font-family: $font-family-primary;
-  font-size: prem(24);
+  font-size: clamp(prem(16), 1.5vw, prem(24));
   font-weight: $regular;
   line-height: 1.5;
   color: $text-black;
@@ -99,6 +92,7 @@
 
 .p-company__map {
   width: 100%;
+  margin-top: prem(16);
   border-radius: prem(8);
   overflow: hidden;
 }

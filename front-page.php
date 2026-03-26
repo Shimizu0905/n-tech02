@@ -29,7 +29,7 @@ $page_id = get_the_ID();
   </section>
   <section class="p-highlight">
     <div class="p-highlight__inner">
-      <h2 class="p-highlight__title">補助金申請フルサポート</h2>
+      <h2 class="p-highlight__title c-section-title">補助金申請フルサポート</h2>
       <p class="p-highlight__text">自己負担を最小限に留めるご提案</p>
       <p class="p-highlight__highlight">
         <span class="p-highlight__highlight-large">450万円→実質300万円</span><span class="p-highlight__highlight-small">の</span><br class="sm-show"><span class="p-highlight__highlight-large">削減実績</span><span class="p-highlight__highlight-small">あり</span>
@@ -92,7 +92,7 @@ $page_id = get_the_ID();
   </section>
   <section class="p-reason">
     <div class="p-reason__inner">
-      <h2 class="p-reason__title">N-techが選ばれる3つの理由</h2>
+      <h2 class="p-reason__title c-section-title">N-techが選ばれる3つの理由</h2>
       <div class="p-reason__list">
         <div class="p-reason__item">
           <div class="p-reason__img-wrap">
@@ -128,7 +128,7 @@ $page_id = get_the_ID();
     <section class="p-price">
     <div class="p-price__inner">
       <div class="p-price__card">
-        <h2 class="p-price__title">透明性のある価格案内</h2>
+        <h2 class="p-price__title c-section-title">透明性のある価格案内</h2>
         <table class="p-price__table">
           <thead>
             <tr>
@@ -171,7 +171,7 @@ $page_id = get_the_ID();
   <!-- 安心の約束 -->
   <section class="p-promise">
     <div class="p-promise__inner">
-      <h2 class="p-promise__title">安心の約束</h2>
+      <h2 class="p-promise__title c-section-title">安心の約束</h2>
       <ul class="p-promise__list">
         <li class="p-promise__item">
           <span class="p-promise__icon">
@@ -203,7 +203,7 @@ $page_id = get_the_ID();
       <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/trust/trust-vector.svg')); ?>" alt="" class="p-trust__bg-img" aria-hidden="true">
     </div>
     <div class="p-trust__inner">
-      <h2 class="p-trust__title">信頼の証</h2>
+      <h2 class="p-trust__title c-section-title">信頼の証</h2>
       <div class="p-trust__cert">
         <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/trust/trust-cert.png')); ?>" alt="保有資格・損害賠償保険加入済み証明" class="p-trust__cert-img" loading="lazy" decoding="async">
         <p class="p-trust__cert-text">保有資格：解体施工技士、石綿作業主任者、アスベスト調査士 等<br>損害賠償保険加入済み</p>
@@ -223,7 +223,7 @@ $page_id = get_the_ID();
     <?php if ($works_query->have_posts()) : ?>
     <section class="p-works" id="works">
       <div class="p-works__inner">
-        <h2 class="p-works__title">事例紹介</h2>
+        <h2 class="p-works__title c-section-title">事例紹介</h2>
         <div class="p-works__slider-wrap">
           <div class="swiper p-works__swiper">
             <div class="swiper-wrapper">
@@ -327,7 +327,7 @@ $page_id = get_the_ID();
   ?>
   <section class="p-company" id="company">
     <div class="p-company__inner">
-      <h2 class="p-company__title">会社概要</h2>
+      <h2 class="p-company__title c-section-title">会社概要</h2>
       <div class="p-company__content">
         <dl class="p-company__table">
           <div class="p-company__row">
@@ -366,18 +366,19 @@ $page_id = get_the_ID();
             <dt class="p-company__label">許　認　可</dt>
             <dd class="p-company__value"><?php echo nl2br(esc_html($company_permit ?: '一般建設業許可 東京都知事許可（般-7）第161249号' . "\n" . '解体工事業、建築工事業、大工工事業、左官工事業、とび・土木工事業、石工事業、屋根工事業、タイル・れんが・ブロック工事業、鋼構造物工事業、鉄筋工事業、板金工事業、ガラス工事業、塗装工事業、防水工事業、内装仕上工事業、熱絶縁工事業、建具工事業、全17種')); ?></dd>
           </div>
-          <div class="p-company__row">
+          <div class="p-company__row p-company__row--access">
             <dt class="p-company__label">ア ク セ ス</dt>
-            <dd class="p-company__value"><?php echo esc_html($company_access ?: '小岩駅北口より徒歩9分'); ?></dd>
+            <dd class="p-company__value"><?php echo esc_html($company_access ?: '小岩駅北口より徒歩9分'); ?>
+              <div class="p-company__map">
+                <?php if ($company_map) : ?>
+                  <?php echo wp_get_attachment_image($company_map, 'large', false, ['class' => 'p-company__map-img', 'alt' => 'アクセスマップ', 'loading' => 'lazy', 'decoding' => 'async']); ?>
+                <?php else : ?>
+                  <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/company/map.png')); ?>" alt="アクセスマップ" class="p-company__map-img" loading="lazy" decoding="async">
+                <?php endif; ?>
+              </div>
+            </dd>
           </div>
         </dl>
-        <div class="p-company__map">
-          <?php if ($company_map) : ?>
-            <?php echo wp_get_attachment_image($company_map, 'large', false, ['class' => 'p-company__map-img', 'alt' => 'アクセスマップ', 'loading' => 'lazy', 'decoding' => 'async']); ?>
-          <?php else : ?>
-            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/company/map.png')); ?>" alt="アクセスマップ" class="p-company__map-img" loading="lazy" decoding="async">
-          <?php endif; ?>
-        </div>
       </div>
     </div>
   </section>
@@ -410,7 +411,7 @@ $page_id = get_the_ID();
   <?php if ($voice_query->have_posts()) : ?>
   <section class="p-voice" id="voice">
     <div class="p-voice__inner">
-      <h2 class="p-voice__title">お客様の声</h2>
+      <h2 class="p-voice__title c-section-title">お客様の声</h2>
       <div class="p-voice__slider-wrap">
         <div class="swiper p-voice__swiper">
           <div class="swiper-wrapper">
@@ -495,7 +496,7 @@ $page_id = get_the_ID();
   <?php if ($faq_query->have_posts()) : ?>
   <section class="p-faq" id="faq">
     <div class="p-faq__inner">
-      <h2 class="p-faq__title">よくある質問</h2>
+      <h2 class="p-faq__title c-section-title c-section-title--white">よくある質問</h2>
       <div class="p-faq__list">
         <?php while ($faq_query->have_posts()) : $faq_query->the_post(); ?>
           <?php $faq_answer = SCF::get('faq_answer', get_the_ID()); ?>
@@ -522,7 +523,7 @@ $page_id = get_the_ID();
   <section class="p-flow">
     <div class="p-flow__inner">
       <div class="p-flow__header">
-        <h2 class="p-flow__title">完工までの安心の6ステップ</h2>
+        <h2 class="p-flow__title c-section-title"><span>完工までの</span><br><span>安心の6ステップ</span></h2>
         <p class="p-flow__lead">お客様に動いていただく時間は最小限に留めます。<br>手続きのストレスなく、更地までスムーズに進めるための流れです。</p>
       </div>
       <div class="p-flow__list">
@@ -598,16 +599,8 @@ $page_id = get_the_ID();
   <!-- お問い合わせフォーム -->
   <section class="p-contact-form" id="contact">
     <div class="p-contact-form__inner">
-      <h2 class="p-contact-form__title">お問い合わせフォーム</h2>
+      <h2 class="p-contact-form__title c-section-title">お問い合わせフォーム</h2>
       <form class="p-contact-form__form" method="post" action="">
-        <div class="p-contact-form__field">
-          <label class="p-contact-form__label">お名前 <span class="p-contact-form__required">*</span></label>
-          <input type="text" name="name" class="p-contact-form__input" required>
-        </div>
-        <div class="p-contact-form__field">
-          <label class="p-contact-form__label">貴社名（法人の場合のみ必須）</label>
-          <input type="text" name="company" class="p-contact-form__input">
-        </div>
         <div class="p-contact-form__field">
           <label class="p-contact-form__label">ご相談内容をお選びください <span class="p-contact-form__required">*</span></label>
           <div class="p-contact-form__select-wrap">
@@ -619,6 +612,26 @@ $page_id = get_the_ID();
               <option value="other">その他</option>
             </select>
           </div>
+        </div>
+        <div class="p-contact-form__field">
+          <label class="p-contact-form__label">貴社名（法人の場合のみ必須）</label>
+          <input type="text" name="company" class="p-contact-form__input">
+        </div>
+        <div class="p-contact-form__field">
+          <label class="p-contact-form__label">お名前 <span class="p-contact-form__required">*</span></label>
+          <input type="text" name="name" class="p-contact-form__input" required>
+        </div>
+        <div class="p-contact-form__field">
+          <label class="p-contact-form__label">メールアドレス <span class="p-contact-form__required">*</span></label>
+          <input type="email" name="email" class="p-contact-form__input" required>
+        </div>
+        <div class="p-contact-form__field">
+          <label class="p-contact-form__label">お電話番号 <span class="p-contact-form__required">*</span></label>
+          <input type="tel" name="tel" class="p-contact-form__input" required>
+        </div>
+        <div class="p-contact-form__field">
+          <label class="p-contact-form__label">物件の所在地（市区町村までで可）<span class="p-contact-form__required">*</span></label>
+          <input type="text" name="location" class="p-contact-form__input" required>
         </div>
         <div class="p-contact-form__field">
           <label class="p-contact-form__label">物件の構造 <span class="p-contact-form__required">*</span></label>
@@ -656,7 +669,7 @@ $page_id = get_the_ID();
           </div>
         </div>
         <div class="p-contact-form__field">
-          <label class="p-contact-form__label">※「あり」の場合、実行予算の範囲内で施工可能か確認を希望しますか？</label>
+          <label class="p-contact-form__label">※上記で「あり」を選択した場合<br>実行予算の範囲内で施工可能か<br>確認を希望しますか？</label>
           <div class="p-contact-form__radio-group">
             <label class="p-contact-form__radio-label">
               <input type="radio" name="budget_check" value="yes" class="p-contact-form__radio">はい
@@ -667,16 +680,8 @@ $page_id = get_the_ID();
           </div>
         </div>
         <div class="p-contact-form__field">
-          <label class="p-contact-form__label">物件の所在地（市区町村までで可） <span class="p-contact-form__required">*</span></label>
-          <input type="text" name="location" class="p-contact-form__input" required>
-        </div>
-        <div class="p-contact-form__field">
           <label class="p-contact-form__label">ご相談内容 <span class="p-contact-form__required">*</span></label>
           <textarea name="inquiry" class="p-contact-form__textarea" placeholder="「補助金診断を希望」「アスベスト調査の相談」「狭小地のため現地を見てほしい」など。" required></textarea>
-        </div>
-        <div class="p-contact-form__field">
-          <label class="p-contact-form__label">事前のご要望</label>
-          <textarea name="request" class="p-contact-form__textarea" placeholder="ご希望の時間帯や、オンライン面談ツール等ございましたらご自由にご記入ください。"></textarea>
         </div>
         <div class="p-contact-form__field">
           <label class="p-contact-form__label">ご希望の連絡方法</label>
@@ -693,22 +698,26 @@ $page_id = get_the_ID();
           </div>
         </div>
         <div class="p-contact-form__field">
-          <label class="p-contact-form__label">お電話番号 <span class="p-contact-form__required">*</span></label>
-          <input type="tel" name="tel" class="p-contact-form__input" required>
+          <label class="p-contact-form__label">事前のご要望</label>
+          <textarea name="request" class="p-contact-form__textarea" placeholder="ご希望の時間帯や、オンライン面談ツール等ございましたらご自由にご記入ください。"></textarea>
         </div>
-        <div class="p-contact-form__field">
-          <label class="p-contact-form__label">メールアドレス <span class="p-contact-form__required">*</span></label>
-          <input type="email" name="email" class="p-contact-form__input" required>
-        </div>
-        <div class="p-contact-form__field">
+        <div class="p-contact-form__field p-contact-form__field--privacy">
           <label class="p-contact-form__label">プライバシーポリシーへの同意 <span class="p-contact-form__required">*</span></label>
+          <div class="p-contact-form__privacy-box">
+            <p class="p-contact-form__privacy-text">株式会社N-tech（以下，「当社」といいます。）は，本ウェブサイト上で提供するサービス（以下,「本サービス」といいます。）における，ユーザーの個人情報の取扱いについて，以下のとおりプライバシーポリシー（以下，「本ポリシー」といいます。）を定めます。</p>
+          </div>
+        </div>
+        <div class="p-contact-form__agree">
           <label class="p-contact-form__check-label">
             <input type="checkbox" name="privacy" class="p-contact-form__checkbox" required>
             プライバシーポリシーに同意します。
           </label>
         </div>
         <div class="p-contact-form__submit">
-          <button type="submit" class="p-contact-form__btn">送信する</button>
+          <button type="submit" class="p-contact-form__btn">
+            送信する
+            <span class="p-contact-form__btn-arrow" aria-hidden="true"></span>
+          </button>
         </div>
       </form>
     </div>
