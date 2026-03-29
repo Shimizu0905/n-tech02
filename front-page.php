@@ -10,7 +10,7 @@ $page_id = get_the_ID();
     <div class="p-fv__bg">
       <picture>
         <source srcset="<?php echo esc_url(get_theme_file_uri('./assets/images/fv/fv-sp.png')); ?>" media="(max-width: 425px)">
-        <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/fv/fv.png')); ?>" alt="解体現場での作業風景。補助金活用で解体費用の負担を軽減するN-techのサービス" class="p-fv__img">
+        <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/fv/fv.png')); ?>" alt="東京・江戸川区の解体工事専門N-tech（エヌテック）｜補助金活用で解体費用を大幅削減" class="p-fv__img">
       </picture>
     </div>
     <div class="p-fv__inner">
@@ -47,11 +47,11 @@ $page_id = get_the_ID();
         </p>
       </div>
       <div class="p-about__graph">
-        <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/about/about.png')); ?>" alt="自己負担金約33%削減の比較グラフ" class="p-about__graph-img" width="240" height="300" loading="lazy" decoding="async">
+        <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/about/about.png')); ?>" alt="東京・江戸川区の解体費用｜補助金活用で自己負担金約33%削減の比較グラフ" class="p-about__graph-img" width="240" height="300" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
-  <section class="p-worries">
+  <section class="p-worries" id="worries">
     <div class="p-worries__inner">
       <div class="p-worries__content">
         <h2 class="p-worries__title">
@@ -60,15 +60,15 @@ $page_id = get_the_ID();
         </h2>
         <div class="p-worries__list">
           <div class="p-worries__item">
-            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/worries/worries-01.png')); ?>" alt="見積もりや営業への不安" class="p-worries__img">
+            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/worries/worries-01.png')); ?>" alt="解体工事の見積りや営業への不安" class="p-worries__img">
             <p class="p-worries__text">見積もりを頼んだら、<br>しつこく営業されそうで不安。</p>
           </div>
           <div class="p-worries__item">
-            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/worries/worries-02.png')); ?>" alt="補助金手続きの難しさ" class="p-worries__img" width="320" height="320" loading="lazy" decoding="async">
+            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/worries/worries-02.png')); ?>" alt="解体工事の補助金申請手続きの難しさ" class="p-worries__img" width="320" height="320" loading="lazy" decoding="async">
             <p class="p-worries__text">補助金があるのは知っているが、<br>手続きが難しくて諦めている。</p>
           </div>
           <div class="p-worries__item">
-            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/worries/worries-03.png')); ?>" alt="解体トラブルへの不安" class="p-worries__img" width="320" height="320" loading="lazy" decoding="async">
+            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/worries/worries-03.png')); ?>" alt="東京での解体工事トラブル・近隣問題への不安" class="p-worries__img" width="320" height="320" loading="lazy" decoding="async">
             <p class="p-worries__text">アスベストや近隣クレーム、<br>追加費用のトラブルが怖い。</p>
           </div>
         </div>
@@ -96,7 +96,7 @@ $page_id = get_the_ID();
       <div class="p-reason__list">
         <div class="p-reason__item">
           <div class="p-reason__img-wrap">
-            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/reason/Rectangle 68.png')); ?>" alt="補助金申請のサポート" class="p-reason__img">
+            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/reason/Rectangle 68.png')); ?>" alt="N-techの補助金申請フルサポート｜解体費用の負担を軽減" class="p-reason__img">
           </div>
           <div class="p-reason__body">
             <h3 class="p-reason__heading">補助金申請を「完全無料」で<br>フルサポート</h3>
@@ -105,7 +105,7 @@ $page_id = get_the_ID();
         </div>
         <div class="p-reason__item">
           <div class="p-reason__img-wrap">
-            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/reason/28668760_m 1.png')); ?>" alt="日本人による現場管理" class="p-reason__img">
+            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/reason/28668760_m 1.png')); ?>" alt="東京・江戸川区の解体工事｜日本人スタッフによる現場管理" class="p-reason__img">
           </div>
           <div class="p-reason__body">
             <h3 class="p-reason__heading">日本人による徹底した現場管理<br>と「手離れの良さ」</h3>
@@ -114,7 +114,7 @@ $page_id = get_the_ID();
         </div>
         <div class="p-reason__item">
           <div class="p-reason__img-wrap">
-            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/reason/1768 3.png')); ?>" alt="アスベスト・特殊解体" class="p-reason__img">
+            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/reason/1768 3.png')); ?>" alt="アスベスト調査・特殊解体もN-tech（エヌテック）にお任せ" class="p-reason__img">
           </div>
           <div class="p-reason__body">
             <h3 class="p-reason__heading">アスベスト・特殊解体の<br>プロ集団</h3>
@@ -125,7 +125,7 @@ $page_id = get_the_ID();
     </div>
   </section>
     <!-- 透明性のある価格案内 -->
-    <section class="p-price">
+    <section class="p-price" id="price">
     <div class="p-price__inner">
       <div class="p-price__card">
         <h2 class="p-price__title c-section-title">透明性のある価格案内</h2>
@@ -159,9 +159,9 @@ $page_id = get_the_ID();
     <section class="p-simulation" id="simulation">
       <div class="p-simulation__inner">
         <p class="p-simulation__lead">
-          <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/simulation/simulation-lead.svg')); ?>" alt="まずはお気軽に1分でわかる" class="p-simulation__lead-img" loading="lazy" decoding="async">
+          <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/simulation/simulation-lead.svg')); ?>" alt="解体費用の見積りシミュレーション｜まずはお気軽に1分でわかる" class="p-simulation__lead-img" loading="lazy" decoding="async">
         </p>
-        <a href="#contact" class="p-simulation__btn">
+        <a href="https://n-techgroup.com/simulator/" class="p-simulation__btn">
           かんたん料金<br class="md-show">シミュレーション
           <div class="p-simulation__icon">
             <picture>
@@ -210,14 +210,7 @@ $page_id = get_the_ID();
     <div class="p-trust__inner">
       <h2 class="p-trust__title c-section-title">信頼の証</h2>
       <div class="p-trust__cert">
-        <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/trust/trust-cert.png')); ?>" alt="保有資格・損害賠償保険加入済み証明" class="p-trust__cert-img" loading="lazy" decoding="async" id="js-trust-cert">
-        <div class="p-trust__modal" id="js-trust-modal">
-          <div class="p-trust__modal-overlay"></div>
-          <div class="p-trust__modal-content">
-            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/trust/trust-cert.png')); ?>" alt="保有資格・損害賠償保険加入済み証明" class="p-trust__modal-img">
-            <button type="button" class="p-trust__modal-close" aria-label="閉じる">&times;</button>
-          </div>
-        </div>
+        <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/trust/trust-cert.png')); ?>" alt="N-tech（エヌテック）の保有資格・損害賠償保険加入済み証明｜解体工事の信頼の証" class="p-trust__cert-img" loading="lazy" decoding="async" id="js-trust-cert">
         <p class="p-trust__cert-text">保有資格：解体施工技士、石綿作業主任者、アスベスト調査士 等<br>損害賠償保険加入済み</p>
       </div>
     </div>
@@ -376,13 +369,13 @@ $page_id = get_the_ID();
           </div>
           <div class="p-company__row">
             <dt class="p-company__label">許　認　可</dt>
-            <dd class="p-company__value"><?php echo nl2br(esc_html($company_permit ?: '一般建設業許可 東京都知事許可（般-7）第161249号' . "\n" . '解体工事業、建築工事業、大工工事業、左官工事業、とび・土木工事業、石工事業、屋根工事業、タイル・れんが・ブロック工事業、鋼構造物工事業、鉄筋工事業、板金工事業、ガラス工事業、塗装工事業、防水工事業、内装仕上工事業、熱絶縁工事業、建具工事業、全17種')); ?></dd>
+            <dd class="p-company__value"><?php if ($company_permit) { echo nl2br(esc_html($company_permit)); } else { ?>一般建設業許可　<br class="md-show">東京都知事許可（般-7）第161249号<br>解体工事業、建築工事業、大工工事業、左官工事業、とび・土木工事業、<br class="md-none">石工事業、屋根工事業、タイル・れんが・ブロック工事業、<br class="md-none">鋼構造物工事業、鉄筋工事業、板金工事業、ガラス工事業、塗装工事業、<br class="md-none">防水工事業、内装仕上工事業、熱絶縁工事業、建具工事業、全17種<?php } ?></dd>
           </div>
           <div class="p-company__row p-company__row--access">
             <dt class="p-company__label">ア ク セ ス</dt>
             <dd class="p-company__value"><?php echo esc_html($company_access ?: '小岩駅北口より徒歩9分'); ?>
               <div class="p-company__map">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3238.486986482408!2d139.87623857608264!3d35.73883342680722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601885dcec725577%3A0x952c3b53534067d5!2z44CSMTMzLTAwNTcg5p2x5Lqs6YO95rGf5oi45bed5Yy66KW_5bCP5bKp77yU5LiB55uu77yV4oiS77yRIOajrueUsOeojueQhuWjq-S6i-WLmeaJgA!5e0!3m2!1sja!2sjp!4v1774499697726!5m2!1sja!2sjp" class="p-company__map-iframe" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3238.486773119005!2d139.87625277579036!3d35.7388386725687!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018857883496fef%3A0x49d4cc9a4798dea1!2z5qCq5byP5Lya56S-Ti10ZWNoKOOCqOODjOODhuODg-OCryl85rGf5oi45bed5Yy644Gu6Kej5L2T5qWt6ICF!5e0!3m2!1sja!2sjp!4v1774557836945!5m2!1sja!2sjp" class="p-company__map-iframe" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
               </div>
             </dd>
           </div>
@@ -399,7 +392,7 @@ $page_id = get_the_ID();
           <p class="p-contact-cta__catch">些細なお困りごともお気軽にご相談ください。</p>
         </div>
         <div class="p-contact-cta__body">
-          <p class="p-contact-cta__hours">営業時間　8:00-17:00</p>
+          <p class="p-contact-cta__hours">営業時間　10:00~17:00</p>
           <a href="tel:03-6679-4489" class="p-contact-cta__tel">03-6679-4489</a>
         </div>
       </div>
@@ -537,7 +530,7 @@ $page_id = get_the_ID();
       <div class="p-flow__list">
         <div class="p-flow__item">
           <div class="p-flow__item-img">
-            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/step/step-01.png')); ?>" alt="" class="p-flow__img" loading="lazy" decoding="async">
+            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/step/step-01.png')); ?>" alt="解体工事のご予約・無料相談" class="p-flow__img" loading="lazy" decoding="async">
           </div>
           <div class="p-flow__item-body">
             <span class="p-flow__step-label">STEP 01</span>
@@ -548,7 +541,7 @@ $page_id = get_the_ID();
         <div class="p-flow__arrow" aria-hidden="true"></div>
         <div class="p-flow__item">
           <div class="p-flow__item-img">
-            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/step/step-02.png')); ?>" alt="" class="p-flow__img" loading="lazy" decoding="async">
+            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/step/step-02.png')); ?>" alt="現地調査・補助金診断" class="p-flow__img" loading="lazy" decoding="async">
           </div>
           <div class="p-flow__item-body">
             <span class="p-flow__step-label">STEP 02</span>
@@ -559,7 +552,7 @@ $page_id = get_the_ID();
         <div class="p-flow__arrow" aria-hidden="true"></div>
         <div class="p-flow__item">
           <div class="p-flow__item-img">
-            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/step/step-03.png')); ?>" alt="" class="p-flow__img" loading="lazy" decoding="async">
+            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/step/step-03.png')); ?>" alt="解体費用の見積り提出" class="p-flow__img" loading="lazy" decoding="async">
           </div>
           <div class="p-flow__item-body">
             <span class="p-flow__step-label">STEP 03</span>
@@ -570,7 +563,7 @@ $page_id = get_the_ID();
         <div class="p-flow__arrow" aria-hidden="true"></div>
         <div class="p-flow__item">
           <div class="p-flow__item-img">
-            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/step/step-04.png')); ?>" alt="" class="p-flow__img" loading="lazy" decoding="async">
+            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/step/step-04.png')); ?>" alt="解体工事のご契約" class="p-flow__img" loading="lazy" decoding="async">
           </div>
           <div class="p-flow__item-body">
             <span class="p-flow__step-label">STEP 04</span>
@@ -581,7 +574,7 @@ $page_id = get_the_ID();
         <div class="p-flow__arrow" aria-hidden="true"></div>
         <div class="p-flow__item">
           <div class="p-flow__item-img">
-            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/step/step-05.png')); ?>" alt="" class="p-flow__img" loading="lazy" decoding="async">
+            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/step/step-05.png')); ?>" alt="補助金申請・行政手続きサポート" class="p-flow__img" loading="lazy" decoding="async">
           </div>
           <div class="p-flow__item-body">
             <span class="p-flow__step-label">STEP 05</span>
@@ -592,7 +585,7 @@ $page_id = get_the_ID();
         <div class="p-flow__arrow" aria-hidden="true"></div>
         <div class="p-flow__item">
           <div class="p-flow__item-img">
-            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/step/step-06.png')); ?>" alt="" class="p-flow__img" loading="lazy" decoding="async">
+            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/step/step-06.png')); ?>" alt="近隣対策・解体工事着工" class="p-flow__img" loading="lazy" decoding="async">
           </div>
           <div class="p-flow__item-body">
             <span class="p-flow__step-label">STEP 06</span>
@@ -613,5 +606,14 @@ $page_id = get_the_ID();
   </section>
 </main>
 
-<script src="<?php echo esc_url(get_theme_file_uri('/src/js/case-slider.js')); ?>" defer></script>
+<!-- 信頼の証モーダル（z-index問題回避のためbody直下に配置） -->
+<div class="p-trust__modal" id="js-trust-modal">
+  <div class="p-trust__modal-overlay"></div>
+  <div class="p-trust__modal-content">
+    <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/trust/trust-cert.png')); ?>" alt="N-tech（エヌテック）の保有資格・損害賠償保険加入済み証明｜解体工事の信頼の証" class="p-trust__modal-img">
+    <button type="button" class="p-trust__modal-close" aria-label="閉じる">&times;</button>
+  </div>
+</div>
+
+<script src="<?php echo esc_url(get_theme_file_uri('/assets/js/case-slider.js')); ?>?ver=<?php echo filemtime(get_theme_file_path('/assets/js/case-slider.js')); ?>" defer></script>
 <?php get_footer(); ?>

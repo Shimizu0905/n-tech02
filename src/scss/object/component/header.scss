@@ -11,12 +11,25 @@
   height: prem(150);
   background-color: #fff;
 
+  &.is-scrolled {
+    height: prem(80);
+    transition: height 0.3s ease;
+  }
+
   @include mq("md") {
     height: 72px;
+
+    &.is-scrolled {
+      height: 72px;
+    }
   }
 
   @include mq("sm") {
     height: 52px;
+
+    &.is-scrolled {
+      height: 52px;
+    }
   }
 }
 
@@ -42,12 +55,22 @@
   background-color: #000;
   flex-shrink: 0;
 
+  .header.is-scrolled & {
+    width: prem(160);
+    height: prem(80);
+  }
+
   @include mq("md") {
     justify-content: flex-start;
-    width: prem(164);
+    width: fit-content;
     height: 100%;
     background-color: $color-black;
     padding-inline: prem(18);
+
+    .header.is-scrolled & {
+      width: fit-content;
+      height: 100%;
+    }
   }
 
   @include mq("sm") {
@@ -83,14 +106,14 @@
   object-fit: contain;
 
   @include mq("md") {
-    width: prem(120);
-    max-width: none;
+    width: auto;
+    max-width: 100%;
+    height: prem(40);
     max-height: none;
   }
 
   @include mq("sm") {
-    width: auto;
-    height: prem(32);
+    height: prem(28);
   }
 }
 
@@ -138,6 +161,7 @@
 .header__contact {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: flex-end;
   gap: prem(8);
   height: 100%;
@@ -152,6 +176,11 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  transition: opacity 0.3s ease;
+
+  .header.is-scrolled & {
+    display: none;
+  }
 }
 
 .header__tel-row {
@@ -253,7 +282,7 @@
     width: 46px;
     height: 2px;
     background-color: #fff;
-    transition: all 0.3s ease;
+    transition: top 0.3s ease, bottom 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
     transform: translateX(-50%);
 
     @include mq("md") {
@@ -264,11 +293,7 @@
     }
 
     &:nth-child(1) {
-      top: prem(14);
-
-      @include mq("md") {
-        top: prem(14);
-      }
+      top: prem(16);
     }
 
     &:nth-child(2) {
@@ -277,11 +302,7 @@
     }
 
     &:nth-child(3) {
-      bottom: prem(14);
-
-      @include mq("md") {
-        bottom: 14px;
-      }
+      bottom: prem(16);
     }
   }
 

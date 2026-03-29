@@ -27,19 +27,20 @@
   <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> » フィード" href="<?php bloginfo('rss2_url'); ?>">
   <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> » コメントフィード" href="<?php bloginfo('comments_rss2_url'); ?>">
 
-  <!-- SEO SIMPLE PACK -->
-  <meta name="description" content="<?php bloginfo('description'); ?>">
-  <meta name="keywords" content="WordPress, ポートフォリオ, Web制作">
+  <!-- SEO -->
+  <meta name="description" content="東京・江戸川区の解体工事なら株式会社N-tech。補助金申請サポート・アスベスト調査・近隣対策まで一括対応。自己負担を最大限抑え、透明性のある見積りで安心の解体工事を提供します。">
+  <meta name="keywords" content="解体工事,東京,江戸川区,補助金,アスベスト調査,解体費用,見積り,N-tech,エヌテック">
   <link rel="canonical" href="<?php echo home_url(); ?>">
   <meta property="og:locale" content="ja_JP">
   <meta property="og:type" content="website">
   <meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/assets/images/og-image.jpg">
-  <meta property="og:title" content="<?php wp_title('|', true, 'right');
-                                      bloginfo('name'); ?>">
-  <meta property="og:description" content="<?php bloginfo('description'); ?>">
+  <meta property="og:title" content="解体工事なら株式会社N-tech｜補助金活用で費用を大幅削減">
+  <meta property="og:description" content="東京・江戸川区の解体工事専門。補助金申請フルサポート・アスベスト調査・近隣対策まで一括対応。透明性のある見積りで安心の解体を。">
   <meta property="og:url" content="<?php echo home_url(); ?>">
-  <meta property="og:site_name" content="<?php bloginfo('name'); ?>">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:site_name" content="株式会社N-tech（エヌテック）">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="解体工事なら株式会社N-tech｜補助金活用で費用を大幅削減">
+  <meta name="twitter:description" content="東京・江戸川区の解体工事専門。補助金申請フルサポート・アスベスト調査・近隣対策まで一括対応。">
 
   <!-- Google Analytics (gtag.js) — TODO: G-XXXXXXXXXX を実際のIDに差し替え -->
   <!--
@@ -86,7 +87,7 @@
       <div class="header__inner">
         <div class="header__logo">
           <a href="<?php echo esc_url(home_url('/')); ?>" class="header__logo-link">
-            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/common/logo.png')); ?>" class="header__logo-img" alt="株式会社N-tech">
+            <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/common/logo.png')); ?>" class="header__logo-img" alt="株式会社N-tech（エヌテック）｜東京・江戸川区の解体工事">
           </a>
         </div>
         <div class="header__body">
@@ -109,10 +110,10 @@
               <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/common/header-icon-tel.png')); ?>" class="header__tel-icon" alt="">
               <a href="tel:03-6679-4489" class="header__tel-number">03-6679-4489</a>
             </div>
-            <span class="header__tel-hours">［営業時間］10:00-17:00</span>
+            <span class="header__tel-hours">［営業時間］10:00~17:00</span>
           </div>
           <div class="header__cta-block">
-            <a href="#simulation" class="header__btn header__btn--simulation">
+            <a href="https://n-techgroup.com/simulator/" class="header__btn header__btn--simulation">
               <span class="header__btn-text">料金シミュレーション</span>
               <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/common/header-icon-simulation.png')); ?>" class="header__btn-icon" alt="外部リンク">
             </a>
@@ -146,9 +147,18 @@
             <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/common/header-icon-tel.png')); ?>" alt="">
             03-6679-4489
           </a>
-          <a href="#simulation" class="drawer-menu__btn drawer-menu__btn--simulation">料金シミュレーション</a>
+          <a href="https://n-techgroup.com/simulator/" class="drawer-menu__btn drawer-menu__btn--simulation">料金シミュレーション</a>
           <a href="#contact" class="drawer-menu__btn drawer-menu__btn--contact">お問い合わせ</a>
         </div>
       </nav>
       <div class="overlay js-overlay" id="js-overlay"></div>
     </header>
+
+    <!-- 電話フローティングボタン -->
+    <a href="tel:03-6679-4489" class="p-side-tab" id="js-side-tab">
+      <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/common/header-icon-tel.png')); ?>" class="p-side-tab__icon" alt="">
+      <div class="p-side-tab__body">
+        <span class="p-side-tab__number">03-6679-4489</span>
+        <span class="p-side-tab__hours">営業時間 10:00~17:00</span>
+      </div>
+    </a>

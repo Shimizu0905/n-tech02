@@ -30,7 +30,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
+  width: 100%;
+  max-width: prem(1250);
   margin: 0 auto;
 
   @include mq("md") {
@@ -41,13 +42,17 @@
 }
 
 .p-about__content {
-  max-width: prem(480);
+  width: 50%;
+
+  @include mq("md") {
+    width: 100%;
+  }
 }
 
 .p-about__text {
   margin: 0;
   font-family: $font-family-primary;
-  font-size: clamp(prem(24), 2.1vw, prem(34));
+  font-size: clamp(prem(20), 2.1vw, prem(34));
   font-weight: $medium;
   line-height: 1.5;
   letter-spacing: 0.04em;
@@ -71,12 +76,12 @@
 .p-about__graph-img {
   display: block;
   width: auto;
-  max-width: clamp(627px, 48.7vw, 700px);
+  max-width: clamp(470px, 47vw, 700px);
   height: auto;
   object-fit: contain;
 
   @include mq("lg") {
-    max-width: clamp(480px, 48vw, 700px);
+    max-width: clamp(360px, 44vw, 700px);
   }
 
   @include mq("md") {

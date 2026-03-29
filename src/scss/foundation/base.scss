@@ -59,7 +59,7 @@ body {
   font-family: $font-family-primary;
   font-weight: $regular;
   color: $text-black;
-  background-color: $primary-yellow;
+  background-color: $color-white;
 
   // 追従フッターの高さ分のpadding-bottom（765px以下）
   @include mq("md") {

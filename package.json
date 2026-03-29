@@ -1,5 +1,5 @@
 {
-  "name": "wordpress-flocss-theme",
+  "name": "n-tech",
   "version": "1.0.0",
   "description": "WordPress theme with FLOCSS and Vite",
   "type": "module",
@@ -14,6 +14,7 @@
     "optimize-images": "node scripts/optimize-images.js",
     "lint:css": "stylelint \"src/**/*.{css,scss}\" --config .config/.stylelintrc.json",
     "lint:css:fix": "stylelint \"src/**/*.{css,scss}\" --fix --config .config/.stylelintrc.json",
+    "zip": "bash scripts/create-zip.sh",
     "postinstall": "chmod +x node_modules/mozjpeg/vendor/cjpeg node_modules/pngquant-bin/vendor/pngquant 2>/dev/null || true"
   },
   "devDependencies": {

@@ -1,0 +1,95 @@
+@use "../../foundation/variables" as *;
+@use "../../foundation/functions" as *;
+@use "../../foundation/mixin" as *;
+
+// ========================================
+// 404ページ
+// ========================================
+.p-404 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  padding: prem(120) $padding-pc;
+
+  @include mq("md") {
+    padding: prem(80) $padding-sp;
+  }
+}
+
+.p-404__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: prem(24);
+  max-width: prem(600);
+  text-align: center;
+}
+
+.p-404__code {
+  margin: 0;
+  font-family: $font-family-base;
+  font-size: prem(120);
+  font-weight: $bold;
+  line-height: 1;
+  color: $primary-yellow;
+
+  @include mq("md") {
+    font-size: prem(80);
+  }
+}
+
+.p-404__title {
+  margin: 0;
+  font-family: $font-family-primary;
+  font-size: prem(24);
+  font-weight: $bold;
+  line-height: 1.5;
+  color: $color-black;
+
+  @include mq("md") {
+    font-size: prem(18);
+  }
+}
+
+.p-404__text {
+  margin: 0;
+  font-family: $font-family-primary;
+  font-size: prem(16);
+  font-weight: $regular;
+  line-height: 1.8;
+  color: $text-black;
+
+  @include mq("md") {
+    font-size: prem(14);
+  }
+}
+
+.p-404__btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: prem(300);
+  height: prem(56);
+  margin-top: prem(16);
+  border-radius: prem(1000);
+  font-family: $font-family-primary;
+  font-size: prem(16);
+  font-weight: $medium;
+  line-height: 1;
+  text-decoration: none;
+  color: $color-black;
+  background-color: $primary-yellow;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  @include mq("md") {
+    width: 100%;
+    max-width: prem(280);
+    height: prem(48);
+    font-size: prem(14);
+  }
+}

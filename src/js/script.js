@@ -42,24 +42,30 @@ jQuery(function ($) {
     }
   });
 
-  // スクロールアニメーション
+  // スクロールアニメーション（RAF でスロットリング）
+  var scrollTicking = false;
   $(window).on('scroll', function () {
-    var scroll = $(window).scrollTop();
-    var windowHeight = $(window).height();
+    if (!scrollTicking) {
+      requestAnimationFrame(function () {
+        var scroll = $(window).scrollTop();
+        var windowHeight = $(window).height();
 
-    // fadeUP
-    $('.js-fadeUP').each(function () {
-      if (scroll > $(this).offset().top - windowHeight + 100) {
-        $(this).addClass('is-show');
-      }
-    });
+        $('.js-fadeUP:not(.is-show)').each(function () {
+          if (scroll > $(this).offset().top - windowHeight + 100) {
+            $(this).addClass('is-show');
+          }
+        });
 
-    // underline-expand
-    $(".underline-expand").each(function () {
-      if (scroll > $(this).offset().top - windowHeight) {
-        $(this).addClass('is-active');
-      }
-    });
+        $(".underline-expand:not(.is-active)").each(function () {
+          if (scroll > $(this).offset().top - windowHeight) {
+            $(this).addClass('is-active');
+          }
+        });
+
+        scrollTicking = false;
+      });
+      scrollTicking = true;
+    }
   });
 });
 

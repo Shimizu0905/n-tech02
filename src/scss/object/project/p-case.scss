@@ -98,11 +98,12 @@
 // ページネーション
 .p-works__pagination {
   position: relative;
+  top: auto;
   bottom: auto;
   display: flex;
   justify-content: center;
   gap: prem(12);
-  margin-top: prem(24);
+  margin-top: prem(30);
 
   .swiper-pagination-bullet {
     width: prem(19);

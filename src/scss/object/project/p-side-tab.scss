@@ -1,0 +1,82 @@
+@use "../../foundation/variables" as *;
+@use "../../foundation/functions" as *;
+@use "../../foundation/mixin" as *;
+
+// ========================================
+// 電話フローティングボタン（右端スライド展開）
+// 通常: アイコンだけ右端から少し覗いている
+// ホバー: 左にスライドして全体が見える
+// ========================================
+.p-side-tab {
+  position: fixed;
+  right: 0;
+  bottom: prem(120);
+  z-index: 4000;
+  display: flex;
+  align-items: center;
+  gap: prem(24);
+  height: prem(72);
+  padding: 0 prem(32) 0 prem(20);
+  border-radius: prem(8) 0 0 prem(8);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 30%);
+  text-decoration: none;
+  background: linear-gradient(90deg, #ff7a06 60%, $primary-yellow 100%);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.4s ease;
+  transform: translateX(calc(100% - #{prem(64)}));
+
+  &.is-visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &:hover {
+    transform: translateX(0);
+  }
+
+  @include mq("md") {
+    display: none;
+  }
+}
+
+.p-side-tab__icon {
+  width: prem(30);
+  height: prem(30);
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  flex-shrink: 0;
+}
+
+.p-side-tab__body {
+  display: flex;
+  flex-direction: column;
+  gap: prem(2);
+}
+
+.p-side-tab__label {
+  font-family: $font-family-primary;
+  font-size: prem(16);
+  font-weight: $regular;
+  line-height: 1.4;
+  color: $color-white;
+  white-space: nowrap;
+}
+
+.p-side-tab__number {
+  font-family: $font-family-base;
+  font-size: prem(24);
+  font-weight: $bold;
+  line-height: 1;
+  color: $color-white;
+  white-space: nowrap;
+}
+
+.p-side-tab__hours {
+  font-family: $font-family-primary;
+  font-size: prem(16);
+  font-weight: $medium;
+  line-height: 1.4;
+  color: $color-white;
+  white-space: nowrap;
+}

@@ -6,14 +6,14 @@
 
 <!-- 追従フッター（スマホ用） -->
 <div class="p-sticky-footer">
-  <a href="#simulation" class="p-sticky-footer__btn p-sticky-footer__btn--simulation">
+  <a href="https://n-techgroup.com/simulator/" class="p-sticky-footer__btn p-sticky-footer__btn--simulation">
     <span class="p-sticky-footer__label">かんたん料金<br>シミュレーション</span>
   </a>
   <a href="tel:03-6679-4489" class="p-sticky-footer__btn p-sticky-footer__btn--tel">
     <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/common/sp-tel-icon.png')); ?>" alt="" class="p-sticky-footer__icon">
     <div class="p-sticky-footer__text">
       <span class="p-sticky-footer__label">お問い合わせ</span>
-      <span class="p-sticky-footer__sub">営業時間 8:00-17:00</span>
+      <span class="p-sticky-footer__sub">営業時間 10:00~17:00</span>
     </div>
   </a>
   <a href="#contact" class="p-sticky-footer__btn p-sticky-footer__btn--form">

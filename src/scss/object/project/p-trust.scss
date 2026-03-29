@@ -7,25 +7,29 @@
 // ========================================
 .p-trust {
   position: relative;
-  min-height: prem(846);
-  overflow: hidden;
+  min-height: clamp(prem(700), 60vw, prem(1100));
+  background-color: $primary-yellow;
 
   @include mq("md") {
-    min-height: auto;
+    min-height: 0;
+    background: linear-gradient(to bottom, $primary-yellow 50%, $color-black 50%);
   }
 }
 
 .p-trust__bg {
   position: absolute;
+  top: 0;
+  right: 0;
+  left: -15px;
   z-index: 0;
-  inset: 0;
+  max-height: 100%;
+  overflow: hidden;
 }
 
 .p-trust__bg-img {
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
 }
 
 .p-trust__inner {
@@ -61,13 +65,13 @@
   width: 100%;
   height: auto;
   max-height: prem(450);
+  cursor: zoom-in;
   object-fit: cover;
 
   @include mq("md") {
     width: clamp(prem(300), 30vw, prem(450));
     height: auto;
     margin: 0 auto;
-    cursor: zoom-in;
   }
 
   @include mq("sm") {
