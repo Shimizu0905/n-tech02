@@ -85,11 +85,11 @@
   line-height: 1.5;
   color: $text-black;
   overflow-wrap: break-word;
+}
 
-  @include mq("md") {
-    padding: prem(8) prem(16) prem(12);
-    font-size: prem(14);
-  }
+.p-company__nowrap {
+  display: inline-block;
+  white-space: nowrap;
 }
 
 .p-company__map {

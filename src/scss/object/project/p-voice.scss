@@ -44,6 +44,14 @@
 
 .p-voice__swiper {
   overflow: hidden;
+
+  .swiper-wrapper {
+    align-items: stretch;
+  }
+
+  .swiper-slide {
+    height: auto;
+  }
 }
 
 // 矢印ボタン
@@ -96,13 +104,14 @@
 }
 
 // ページネーション（p-works__pagination と同デザイン）
-.p-voice__pagination {
+.p-voice__pagination.swiper-pagination {
   position: relative;
-  bottom: auto;
+  top: auto !important;
+  bottom: auto !important;
   display: flex;
   justify-content: center;
   gap: prem(12);
-  margin-top: prem(24);
+  margin-top: prem(40);
 
   .swiper-pagination-bullet {
     width: prem(19);
@@ -129,12 +138,10 @@
 .p-voice__card {
   display: flex;
   flex-direction: column;
-  min-height: prem(900);
+  height: 100%;
+  border-radius: prem(8);
+  background-color: $color-white;
   overflow: hidden;
-
-  @include mq("md") {
-    min-height: prem(580);
-  }
 }
 
 .p-voice__card-img {

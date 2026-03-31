@@ -369,7 +369,7 @@ $page_id = get_the_ID();
           </div>
           <div class="p-company__row">
             <dt class="p-company__label">許　認　可</dt>
-            <dd class="p-company__value"><?php if ($company_permit) { echo nl2br(esc_html($company_permit)); } else { ?>一般建設業許可　<br class="md-show">東京都知事許可（般-7）第161249号<br>解体工事業、建築工事業、大工工事業、左官工事業、とび・土木工事業、<br class="md-none">石工事業、屋根工事業、タイル・れんが・ブロック工事業、<br class="md-none">鋼構造物工事業、鉄筋工事業、板金工事業、ガラス工事業、塗装工事業、<br class="md-none">防水工事業、内装仕上工事業、熱絶縁工事業、建具工事業、全17種<?php } ?></dd>
+            <dd class="p-company__value"><?php if ($company_permit) { echo nl2br(esc_html($company_permit)); } else { ?><span class="p-company__nowrap">一般建設業許可</span> <span class="p-company__nowrap">東京都知事許可（般-7）</span> <span class="p-company__nowrap">第161249号</span><br>解体工事業、建築工事業、大工工事業、左官工事業、とび・土木工事業、<br class="md-none">石工事業、屋根工事業、タイル・れんが・ブロック工事業、<br class="md-none">鋼構造物工事業、鉄筋工事業、板金工事業、ガラス工事業、塗装工事業、<br class="md-none">防水工事業、内装仕上工事業、熱絶縁工事業、建具工事業、全17種<?php } ?></dd>
           </div>
           <div class="p-company__row p-company__row--access">
             <dt class="p-company__label">ア ク セ ス</dt>
